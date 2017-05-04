@@ -1,4 +1,4 @@
-package com.lesunb.xmiimport;
+package br.unb.xmiimport;
 
 public class XMIDiagram {
 	

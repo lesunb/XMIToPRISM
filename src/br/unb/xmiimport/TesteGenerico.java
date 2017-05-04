@@ -1,7 +1,5 @@
-package com.lesunb.xmiimport;
+package br.unb.xmiimport;
 
-
-import java.util.Iterator;
 
 import br.unb.dali.models.agg.markovchains.DTMC;
 import br.unb.dali.models.agg.uml.ActivityDiagram;
