@@ -1,5 +1,6 @@
 package br.unb.xmiimport;
 
+// how to parse an XMI file and access the model elements
 
 // step 1: Required imports
 import java.util.Collection;
@@ -21,8 +22,8 @@ public class TestClass {
 	public static void main(String[] args) {
 		
 			// step 2: Have your metamodel, XMI transformation, and XMI input files ready:
-			String metaModelURL = "test/MetamodelDefinitionFileFormat_astah.xml";	// metamodel definition to use
-			String xmiTransURL = "test/XMITransformationFileFormat_astah.xml";	// XMI tranformations to use
+			String metaModelURL = "test/default-metamodel2.xml";	// metamodel definition to use
+			String xmiTransURL = "test/default-xmiTrans2_0.xml";	// XMI tranformations to use
 			String xmiFile = "test/AD_1diag-1action.xml";	 // XMI file with the UML model
 			
 			// step 3: Read the metamodel

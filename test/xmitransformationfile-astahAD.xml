@@ -1,0 +1,7 @@
+<xmitransformations version="2.0">
+
+	<xmitransformation modelelement="activityDiagram" xmipattern="UML:Pseudostate">
+		<trigger name="id" type="attrval" attr="xmi.id"/>
+	</xmitransformation>
+
+</xmitransformations>

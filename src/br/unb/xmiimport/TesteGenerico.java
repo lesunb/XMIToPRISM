@@ -24,8 +24,8 @@ public class TesteGenerico {
 			ADXMI adxmi = new ADXMI("getID", "getName", "getType");
 			ActivityDiagram ad = new ActivityDiagram(IOHelper.getRandomString(), adxmi.getName());
 			
-			// iterate of nodes of diagram and instantiate objects
-			// nodeIDs receives from XMI
+			// iterate over the nodes of the diagram and instantiate objects
+			// nodeIDs receives the ids from XMI
 			for (String id : nodeIDs) {
 				switch(nodeType) {
 					case "UML:Pseudostate":	ad.addInitialNode(new InitialNode(id, ad));

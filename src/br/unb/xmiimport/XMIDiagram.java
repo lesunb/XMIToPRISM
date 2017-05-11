@@ -6,7 +6,7 @@ public class XMIDiagram {
 	String name;
 	String type;
 	
-	public XMIDiagram(String id,String name, String type) {
+	public XMIDiagram(String id, String name, String type) {
 		this.id = id;
 		this.name = name;
 		this.type = type;
