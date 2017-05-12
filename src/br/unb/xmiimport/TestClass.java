@@ -5,6 +5,7 @@ package br.unb.xmiimport;
 // step 1: Required imports
 import java.util.Collection;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -22,9 +23,16 @@ public class TestClass {
 	public static void main(String[] args) {
 		
 			// step 2: Have your metamodel, XMI transformation, and XMI input files ready:
-			String metaModelURL = "test/default-metamodel2.xml";	// metamodel definition to use
-			String xmiTransURL = "test/default-xmiTrans2_0.xml";	// XMI tranformations to use
-			String xmiFile = "test/AD_1diag-1action.xml";	 // XMI file with the UML model
+			String metaModelURL = "sdmetrics-metamodel-and-transformationfile/unb-dali-metamodel-elements.xml";	// metamodel definition to use
+			String xmiTransURL = "sdmetrics-metamodel-and-transformationfile/unb-dali-astah-transformation-file.xml";	// XMI tranformations to use
+//			String xmiFile = "tests/SD_1diag-2lifelines.xml";	// XMI file with the UML model
+			
+			String file = new String();
+			Scanner input = new Scanner(System.in);
+			System.out.println("Enter the name of the file inside the \"tests\" folder: ");
+			file = input.nextLine().concat(".xml");
+			input.close();
+			String xmiFile = "tests/".concat(file);	// XMI file with the UML model
 			
 			// step 3: Read the metamodel
 			// You do not have to use the SAX parser provided by class XMLParser, you may just as well use a org.xml.sax.XMLReader that you created yourself.
@@ -63,8 +71,8 @@ public class TestClass {
 			
 			// step 6: Optionally, specify element filters to get rid of standard libraries or 3rd party APIs
 			// At this point, you can already start calculating metrics for the elements in the model. The tutorial for package com.sdmetrics.metrics describes how. The remainder of this tutorial shows how to access the elements in the model.
-			String[] filters = { "#.java", "#.javax", "#.org.xml" };
-			model.setFilter(filters, false, true);
+			// String[] filters = { "#.java", "#.javax", "#.org.xml" };
+			// model.setFilter(filters, false, true);
 			
 			// step 7: Access the UML model
 			// The following example writes all model elements accepted by the element filter to the console, along with the values of their attributes.
