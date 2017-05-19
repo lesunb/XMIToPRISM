@@ -48,29 +48,24 @@ other part of SDMetrics.
 		</xmitransformation>
 	
 		<!-- Nodes -->
-			<!-- ExecutableNode -->
+			<!-- Executable Node -->
 			<xmitransformation modelelement="action" xmipattern="UML:ActionState" recurse="true">
-				<trigger name="kind" type="constant" attr="opaque"/>
+				<trigger name="kind" type="constant" attr="executable"/>
+				<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
+				<trigger name="outgoing" type="gcattrval" src="UML:StateVertex.outgoing" attr="xmi.idref" />
 			</xmitransformation>
 		
-			<!-- Initial state -->
+			<!-- Initial Node, Decision Node and Merge Node -->
 			<xmitransformation modelelement="controlnode" xmipattern="UML:Pseudostate" recurse="true">
-				<trigger name="kind" type="constant" attr="initial" />
+				<trigger name="kind" type="attrval" attr="kind" />
+				<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
+				<trigger name="outgoing" type="gcattrval" src="UML:StateVertex.outgoing" attr="xmi.idref" />
 			</xmitransformation>
 		
-			<!-- FinalNode -->
+			<!-- Final Node -->
 			<xmitransformation modelelement="controlnode" xmipattern="UML:FinalState" recurse="true">
 				<trigger name="kind" type="constant" attr="activityfinal" />
-			</xmitransformation>
-		
-			<!-- DecisionNode -->
-			<xmitransformation modelelement="controlnode" xmipattern="uml:DecisionNode" recurse="true">
-				<trigger name="kind" type="constant" attr="decision" />
-			</xmitransformation>
-		
-			<!-- MergeNode -->
-			<xmitransformation modelelement="controlnode" xmipattern="uml:MergeNode" recurse="true">
-				<trigger name="kind" type="constant" attr="merge" />
+				<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
 			</xmitransformation>
 	
 		<!-- Edges -->

@@ -49,11 +49,15 @@ other part of SDMetrics.
 	
 		<!-- Nodes: executable, initial, final, decision and merge -->
 			<modelelement name="action">
-				<attribute name="kind" type="data" multiplicity="one">The default kind is opaque (a default ExecutableNode).</attribute>
+				<attribute name="kind" type="data" multiplicity="one">The default kind is executable.</attribute>
+				<attribute name="incoming" type="data" multiplicity="many">The incoming edges of an action.</attribute>
+				<attribute name="outgoing" type="data" multiplicity="many">The outgoing edges of an action.</attribute>
 			</modelelement>
 			
 			<modelelement name="controlnode">
-				<attribute name="kind" type="data" multiplicity="one">The kind of control node: initial, activityfinal, flowfinal, fork, join, merge, or decision.</attribute>
+				<attribute name="kind" type="data" multiplicity="one">The kind of control node: executable, initial, activityfinal, merge or decision.</attribute>
+				<attribute name="incoming" type="data" multiplicity="many">The incoming edges of a control node.</attribute>
+				<attribute name="outgoing" type="data" multiplicity="many">The outgoing edges of a control node.</attribute>
 			</modelelement>
 	
 		<!-- Edges -->
