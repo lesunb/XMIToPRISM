@@ -1,6 +1,11 @@
 package br.unb.xmiimport;
 
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
@@ -33,12 +38,12 @@ public class MainClass {
 		// metamodel, XMI transformation, and XMI input files
 		String metaModelURL = "sdmetrics-metamodel-and-transformation-files/unb-dali-metamodel-elements.xml";
 		String xmiTransURL = "sdmetrics-metamodel-and-transformation-files/modeling-tools/astah/transformation-file.xml";
-		String file = new String();
+		String xmiFile = new String();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter the name of the file inside the \"xmi-files\" folder (without the extension): ");
-		file = input.nextLine().concat(".xml");
+		xmiFile = input.nextLine();
 		input.close();
-		String xmiFile = "tests/".concat(file);
+		String xmiFilePath = "xmi-files/".concat(xmiFile + ".xml");
 
 		// read the metamodel
 		XMLParser parser = null;
@@ -69,7 +74,7 @@ public class MainClass {
 		Model model = new Model(metaModel);
 		XMIReader xmiReader = new XMIReader(transformation, model);
 		try {
-			parser.parse(xmiFile, xmiReader);
+			parser.parse(xmiFilePath, xmiReader);
 		} catch (Exception e) {
 			// e.printStackTrace();
 			if (e instanceof FileNotFoundException) {
@@ -82,6 +87,7 @@ public class MainClass {
 		String[] filters = { "#.java", "#.javax", "#.org.xml" };
 		model.setFilter(filters, false, true);
 
+		// TODO create multiple diagrams or expect just one?
 		ActivityDiagram ad = null;
 		SequenceDiagram sd = null;
 		// iterate over each type and in each type iterate over each model element of that type
@@ -101,7 +107,7 @@ public class MainClass {
 			case "action":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					// TODO achar o AD ao qual o elemento se refere
+					// TODO reference the element to the diagram that it belongs to (multiple diagrams case)
 					ad.addExecutableNode(new ExecutableNode(me.getXMIID(), ad));
 					System.out.println("\tAction id [" + me.getXMIID() + "]\tname [" + me.getName() + "]");
 				}
@@ -123,7 +129,6 @@ public class MainClass {
 							ad.addMergeNode(new MergeNode(me.getXMIID(), ad));
 						} else {
 							ad.addDecisionNode(new DecisionNode(me.getXMIID(), ad));
-
 						}
 						break;
 					default:
@@ -138,7 +143,7 @@ public class MainClass {
 			case "controlflow":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					// TODO achar o AD ao qual se refere
+					// TODO refered AD (multiple)
 					ad.addControlFlow(new ControlFlow(me.getXMIID(), me.getPlainAttribute("source"), me.getPlainAttribute("target"), ad)
 							.setPTS(Double.parseDouble(me.getPlainAttribute("probability"))));
 					System.out.println("\tEdge source [" + me.getPlainAttribute("source") + "] target [" + me.getPlainAttribute("target") + "]");
@@ -149,7 +154,7 @@ public class MainClass {
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
 					sd = new SequenceDiagram(me.getXMIID(), me.getName());
-					// TODO método de acesso ao nome do sequence diagram
+					// TODO access the name method on SD
 					System.out.println("\tSD id [" + sd.getId() + "]\tname []");
 				}
 				break;
@@ -165,7 +170,7 @@ public class MainClass {
 			case "asynchronousmessage":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					// TODO signal da async message
+					// TODO signal of async message
 					sd.addAsyncMessage(me.getXMIID(), me.getPlainAttribute("source"), me.getPlainAttribute("target"), "DefaultSignal");
 					System.out.println(
 							"\tAsyncMessage source [" + me.getPlainAttribute("source") + "] target [" + me.getPlainAttribute("target") + "]");
@@ -177,10 +182,23 @@ public class MainClass {
 			}
 		}
 
+		// output file and path
+		String outputFile = xmiFile.concat(".pm");
+		String outputFilePath = "output/".concat(outputFile);
+		Path path = Paths.get(outputFilePath);
+
 		// transform ADs and/or SD to DTMC in PRISM language
 		if (ad != null) {
 			try {
-				ad.toDTMC().toPRISM();
+				// write result on console
+				System.out.println(ad.toDTMC().toPRISM());
+
+				// write result to a new file
+				try (BufferedWriter bw = Files.newBufferedWriter(path)) {
+					bw.write(ad.toDTMC().toPRISM().toString());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -188,7 +206,15 @@ public class MainClass {
 
 		if (sd != null) {
 			try {
-				sd.toDTMC().toPRISM();
+				// write result on console
+				System.out.println(sd.toDTMC().toPRISM());
+
+				// write result to a new file
+				try (BufferedWriter bw = Files.newBufferedWriter(path)) {
+					bw.write(sd.toDTMC().toPRISM().toString());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
