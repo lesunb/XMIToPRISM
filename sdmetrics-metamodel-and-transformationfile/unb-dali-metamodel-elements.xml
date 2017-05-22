@@ -83,14 +83,14 @@ other part of SDMetrics.
 			<attribute name="target" type="data" multiplicity="one">The receiver of the asynchronous message.</attribute>
 		</modelelement>
 		
-		<!-- UML Diagram Information -->
+		<!-- UML Diagram Information 
 			<modelelement name="diagram">
 				<attribute name="type" type="data" multiplicity="one">The type of diagram (class diagram, sequence diagram, etc).</attribute>
 			</modelelement>
 			
 			<modelelement name="diagramelement">
 				<attribute name="element" type="ref">The element that is shown on the diagram.</attribute>
-			</modelelement>
+			</modelelement> -->
 
 </sdmetricsmetamodel>
 
