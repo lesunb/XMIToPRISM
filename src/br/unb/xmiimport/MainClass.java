@@ -31,11 +31,11 @@ public class MainClass {
 	public static void main(String[] args) {
 
 		// metamodel, XMI transformation, and XMI input files
-		String metaModelURL = "sdmetrics-metamodel-and-transformationfile/unb-dali-metamodel-elements.xml";
-		String xmiTransURL = "sdmetrics-metamodel-and-transformationfile/unb-dali-astah-transformation-file.xml";
+		String metaModelURL = "sdmetrics-metamodel-and-transformation-files/unb-dali-metamodel-elements.xml";
+		String xmiTransURL = "sdmetrics-metamodel-and-transformation-files/modeling-tools/astah/transformation-file.xml";
 		String file = new String();
 		Scanner input = new Scanner(System.in);
-		System.out.println("Enter the name of the file inside the \"tests\" folder (without the extension): ");
+		System.out.println("Enter the name of the file inside the \"xmi-files\" folder (without the extension): ");
 		file = input.nextLine().concat(".xml");
 		input.close();
 		String xmiFile = "tests/".concat(file);
