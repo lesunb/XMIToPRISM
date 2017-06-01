@@ -76,7 +76,7 @@ public class MainClass {
 		try {
 			parser.parse(xmiFilePath, xmiReader);
 		} catch (Exception e) {
-			// e.printStackTrace();
+			e.printStackTrace();
 			if (e instanceof FileNotFoundException) {
 				System.out.println("File was not found. Program terminated.");
 				System.exit(0);
@@ -87,7 +87,7 @@ public class MainClass {
 		String[] filters = { "#.java", "#.javax", "#.org.xml" };
 		model.setFilter(filters, false, true);
 
-		// TODO create multiple diagrams or expect just one?
+		// TODO create multiple diagrams or expect just one? list/vector
 		ActivityDiagram ad = null;
 		SequenceDiagram sd = null;
 		// iterate over each type and in each type iterate over each model element of that type
@@ -144,8 +144,17 @@ public class MainClass {
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
 					// TODO refered AD (multiple)
-					ad.addControlFlow(new ControlFlow(me.getXMIID(), me.getPlainAttribute("source"), me.getPlainAttribute("target"), ad)
-							.setPTS(Double.parseDouble(me.getPlainAttribute("probability"))));
+					ControlFlow cf = new ControlFlow(me.getXMIID(), me.getPlainAttribute("source"), me.getPlainAttribute("target"), ad);
+					Double prob = null;
+					try {
+						prob = Double.parseDouble(me.getPlainAttribute("probability"));
+					} catch (Exception e) {
+						// e.printStackTrace();
+						System.out.println("Found edge without associated probability or wrong number format. Fix the UML/XMI model.");
+						System.exit(0);
+					}
+					cf.setPTS(prob);
+					ad.addControlFlow(cf);
 					System.out.println("\tEdge source [" + me.getPlainAttribute("source") + "] target [" + me.getPlainAttribute("target") + "]");
 				}
 				break;
@@ -162,7 +171,18 @@ public class MainClass {
 			case "lifeline":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					sd.addLifeline(new Lifeline(me.getXMIID(), me.getName(), sd).setBCompRel(Double.parseDouble(me.getPlainAttribute("BCompRel"))));
+					Lifeline ll = new Lifeline(me.getXMIID(), me.getName(), sd);
+					Double prob = null;
+					try {
+						prob = Double.parseDouble(me.getPlainAttribute("BCompRel"));
+					} catch (Exception e) {
+						// e.printStackTrace();
+						System.out.println("Found Lifeline without associated probability or wrong number format. Fix the UML/XMI model.");
+						System.exit(0);
+					}
+					ll.setBCompRel(prob);
+					sd.addLifeline(ll);
+
 					System.out.println("\tLifeline id [" + me.getXMIID() + "]\tname [" + me.getName() + "]");
 				}
 				break;
@@ -186,6 +206,9 @@ public class MainClass {
 		String outputFile = xmiFile.concat(".pm");
 		String outputFilePath = "output/".concat(outputFile);
 		Path path = Paths.get(outputFilePath);
+
+		// measure time start
+		long startTime = System.nanoTime();
 
 		// transform ADs and/or SD to DTMC in PRISM language
 		if (ad != null) {
@@ -219,5 +242,9 @@ public class MainClass {
 				e.printStackTrace();
 			}
 		}
+
+		// measure time finish
+		long endTime = System.nanoTime();
+		System.out.println("Elapsed time (ms): " + (endTime - startTime) / 1000000);
 	}
 }
