@@ -216,7 +216,7 @@ public class MainClass {
 				// write result on console
 				System.out.println(ad.toDTMC().toPRISM());
 
-				// write result to a new file
+				// write result to a new file in the output folder
 				try (BufferedWriter bw = Files.newBufferedWriter(path)) {
 					bw.write(ad.toDTMC().toPRISM().toString());
 				} catch (IOException e) {
@@ -232,7 +232,7 @@ public class MainClass {
 				// write result on console
 				System.out.println(sd.toDTMC().toPRISM());
 
-				// write result to a new file
+				// write result to a new file in the output folder
 				try (BufferedWriter bw = Files.newBufferedWriter(path)) {
 					bw.write(sd.toDTMC().toPRISM().toString());
 				} catch (IOException e) {
