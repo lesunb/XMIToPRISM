@@ -199,7 +199,7 @@
       <UML:Namespace.collaboration>
         <UML:Collaboration xmi.id="10fv-916004bb57bcd776175a55e88162e1f3" name="" version="0" unSolvedFlag="false" isRoot="false" isLeaf="false" isAbstract="false">
           <UML:Namespace.ownedElement>
-            <UML:ClassifierRole xmi.id="10kg-916004bb57bcd776175a55e88162e1f3" name="Lifeline0" version="0" unSolvedFlag="false" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+            <UML:ClassifierRole xmi.id="10kg-916004bb57bcd776175a55e88162e1f3" name="A" version="0" unSolvedFlag="false" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
               <UML:ModelElement.namespace>
                 <UML:Namespace xmi.idref="10fv-916004bb57bcd776175a55e88162e1f3"/>
               </UML:ModelElement.namespace>
@@ -212,7 +212,7 @@
                 </UML:TaggedValue>
               </UML:ModelElement.taggedValue>
             </UML:ClassifierRole>
-            <UML:ClassifierRole xmi.id="10u9-916004bb57bcd776175a55e88162e1f3" name="Lifeline1" version="0" unSolvedFlag="false" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+            <UML:ClassifierRole xmi.id="10u9-916004bb57bcd776175a55e88162e1f3" name="B" version="0" unSolvedFlag="false" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
               <UML:ModelElement.namespace>
                 <UML:Namespace xmi.idref="10fv-916004bb57bcd776175a55e88162e1f3"/>
               </UML:ModelElement.namespace>
@@ -232,7 +232,7 @@
                 <UML:Collaboration xmi.idref="10fv-916004bb57bcd776175a55e88162e1f3"/>
               </UML:Interaction.context>
               <UML:Interaction.message>
-                <UML:Message xmi.id="14f4-916004bb57bcd776175a55e88162e1f3" name="Message0" version="0" unSolvedFlag="false">
+                <UML:Message xmi.id="14f4-916004bb57bcd776175a55e88162e1f3" name="M1" version="0" unSolvedFlag="false">
                   <UML:Message.sender>
                     <UML:ClassifierRole xmi.idref="10kg-916004bb57bcd776175a55e88162e1f3"/>
                   </UML:Message.sender>
@@ -240,7 +240,7 @@
                     <UML:ClassifierRole xmi.idref="10u9-916004bb57bcd776175a55e88162e1f3"/>
                   </UML:Message.receiver>
                   <UML:Message.action>
-                    <UML:Action xmi.id="14f3-916004bb57bcd776175a55e88162e1f3" name="Message0" version="0" unSolvedFlag="false" isAsynchronous="true" actionType="1"></UML:Action>
+                    <UML:Action xmi.id="14f3-916004bb57bcd776175a55e88162e1f3" name="M1" version="0" unSolvedFlag="false" isAsynchronous="true" actionType="1"></UML:Action>
                   </UML:Message.action>
                   <UML:Message.interaction>
                     <UML:Interaction xmi.idref="10fw-916004bb57bcd776175a55e88162e1f3"/>
@@ -262,7 +262,7 @@
           <UML:Namespace xmi.idref="1063-916004bb57bcd776175a55e88162e1f3"/>
         </UML:ModelElement.namespace>
         <JUDE:Diagram.presentations>
-          <JUDE:ClassifierRolePresentation xmi.id="10kf-916004bb57bcd776175a55e88162e1f3" version="0" depth="1" stereotypeVisibility="true" constraintVisibility="true" notationType="0" width="110.0" height="30.0" doAutoResize="true" visibility="true" label="Lifeline0" baseVisibility="true" nameVisibility="true" isActive="false" iconNotation="false" lifelineLength="300.0">
+          <JUDE:ClassifierRolePresentation xmi.id="10kf-916004bb57bcd776175a55e88162e1f3" version="0" depth="1" stereotypeVisibility="true" constraintVisibility="true" notationType="0" width="110.0" height="30.0" doAutoResize="true" visibility="true" label="A" baseVisibility="true" nameVisibility="true" isActive="false" iconNotation="false" lifelineLength="300.0">
             <JUDE:UPresentation.semanticModel>
               <UML:ClassifierRole xmi.idref="10kg-916004bb57bcd776175a55e88162e1f3"/>
             </JUDE:UPresentation.semanticModel>
@@ -280,7 +280,7 @@
               <XMI.field>30.0</XMI.field>
             </JUDE:JomtPresentation.location>
           </JUDE:ClassifierRolePresentation>
-          <JUDE:ClassifierRolePresentation xmi.id="10u8-916004bb57bcd776175a55e88162e1f3" version="0" depth="1" stereotypeVisibility="true" constraintVisibility="true" notationType="0" width="110.0" height="30.0" doAutoResize="true" visibility="true" label="Lifeline1" baseVisibility="true" nameVisibility="true" isActive="false" iconNotation="false" lifelineLength="300.0">
+          <JUDE:ClassifierRolePresentation xmi.id="10u8-916004bb57bcd776175a55e88162e1f3" version="0" depth="1" stereotypeVisibility="true" constraintVisibility="true" notationType="0" width="110.0" height="30.0" doAutoResize="true" visibility="true" label="B" baseVisibility="true" nameVisibility="true" isActive="false" iconNotation="false" lifelineLength="300.0">
             <JUDE:UPresentation.semanticModel>
               <UML:ClassifierRole xmi.idref="10u9-916004bb57bcd776175a55e88162e1f3"/>
             </JUDE:UPresentation.semanticModel>
@@ -362,9 +362,9 @@
               <XMI.field>0.0</XMI.field>
             </JUDE:JomtPresentation.location>
             <JUDE:PathPresentation.namePresentation>
-              <JUDE:LabelPresentation xmi.id="14f7-916004bb57bcd776175a55e88162e1f3" version="0" depth="0" stereotypeVisibility="true" constraintVisibility="true" notationType="0" width="79.0" height="15.09375" doAutoResize="true" visibility="true" label="1%3A+Message0%28%29">
+              <JUDE:LabelPresentation xmi.id="14f7-916004bb57bcd776175a55e88162e1f3" version="0" depth="0" stereotypeVisibility="true" constraintVisibility="true" notationType="0" width="37.0" height="15.09375" doAutoResize="true" visibility="true" label="1%3A+M1%28%29">
                 <JUDE:JomtPresentation.location>
-                  <XMI.field>270.5</XMI.field>
+                  <XMI.field>291.5</XMI.field>
                   <XMI.field>152.453125</XMI.field>
                 </JUDE:JomtPresentation.location>
                 <JUDE:JomtPresentation.compositeParent>

@@ -243,7 +243,7 @@
                     <UML:Transition xmi.idref="ccs-1f5868428667f45e52d202ca2a4ce5c4"/>
                   </UML:StateVertex.incoming>
                 </UML:Pseudostate>
-                <UML:ActionState xmi.id="9th-1f5868428667f45e52d202ca2a4ce5c4" name="Action0" version="0" unSolvedFlag="false" isDynamic="false">
+                <UML:ActionState xmi.id="9th-1f5868428667f45e52d202ca2a4ce5c4" name="A1" version="0" unSolvedFlag="false" isDynamic="false">
                   <UML:StateVertex.container>
                     <UML:CompositeState xmi.idref="84n-1f5868428667f45e52d202ca2a4ce5c4"/>
                   </UML:StateVertex.container>
@@ -254,10 +254,10 @@
                     <UML:Transition xmi.idref="ad3-1f5868428667f45e52d202ca2a4ce5c4"/>
                   </UML:StateVertex.incoming>
                   <UML:State.entry>
-                    <UML:Action xmi.id="9ti-1f5868428667f45e52d202ca2a4ce5c4" name="Action0" version="0" unSolvedFlag="false" isAsynchronous="false" actionType="5"></UML:Action>
+                    <UML:Action xmi.id="a7sk-c621ba649130b303f6390e86de4d7e32" name="A1" version="0" unSolvedFlag="false" isAsynchronous="false" actionType="5"></UML:Action>
                   </UML:State.entry>
                 </UML:ActionState>
-                <UML:ActionState xmi.id="a03-1f5868428667f45e52d202ca2a4ce5c4" name="Action1" version="0" unSolvedFlag="false" isDynamic="false">
+                <UML:ActionState xmi.id="a03-1f5868428667f45e52d202ca2a4ce5c4" name="A2" version="0" unSolvedFlag="false" isDynamic="false">
                   <UML:StateVertex.container>
                     <UML:CompositeState xmi.idref="84n-1f5868428667f45e52d202ca2a4ce5c4"/>
                   </UML:StateVertex.container>
@@ -268,7 +268,7 @@
                     <UML:Transition xmi.idref="azz-1f5868428667f45e52d202ca2a4ce5c4"/>
                   </UML:StateVertex.incoming>
                   <UML:State.entry>
-                    <UML:Action xmi.id="a04-1f5868428667f45e52d202ca2a4ce5c4" name="Action1" version="0" unSolvedFlag="false" isAsynchronous="false" actionType="5"></UML:Action>
+                    <UML:Action xmi.id="a83i-c621ba649130b303f6390e86de4d7e32" name="A2" version="0" unSolvedFlag="false" isAsynchronous="false" actionType="5"></UML:Action>
                   </UML:State.entry>
                 </UML:ActionState>
               </UML:CompositeState.subvertex>
@@ -476,7 +476,7 @@
               <XMI.field>299.0</XMI.field>
             </JUDE:JomtPresentation.location>
           </JUDE:MergePresentation>
-          <JUDE:ActionStatePresentation xmi.id="9tg-1f5868428667f45e52d202ca2a4ce5c4" version="0" depth="2147483631" stereotypeVisibility="true" constraintVisibility="true" notationType="0" width="80.0" height="24.0" doAutoResize="false" visibility="true" label="Action0" allActionVisibility="true" signalReverse="false">
+          <JUDE:ActionStatePresentation xmi.id="9tg-1f5868428667f45e52d202ca2a4ce5c4" version="0" depth="2147483631" stereotypeVisibility="true" constraintVisibility="true" notationType="0" width="80.0" height="24.0" doAutoResize="false" visibility="true" label="A1" allActionVisibility="true" signalReverse="false">
             <JUDE:UPresentation.semanticModel>
               <UML:ActionState xmi.idref="9th-1f5868428667f45e52d202ca2a4ce5c4"/>
             </JUDE:UPresentation.semanticModel>
@@ -496,7 +496,7 @@
               <XMI.field>231.0</XMI.field>
             </JUDE:JomtPresentation.location>
           </JUDE:ActionStatePresentation>
-          <JUDE:ActionStatePresentation xmi.id="a02-1f5868428667f45e52d202ca2a4ce5c4" version="0" depth="2147483630" stereotypeVisibility="true" constraintVisibility="true" notationType="0" width="80.0" height="24.0" doAutoResize="false" visibility="true" label="Action1" allActionVisibility="true" signalReverse="false">
+          <JUDE:ActionStatePresentation xmi.id="a02-1f5868428667f45e52d202ca2a4ce5c4" version="0" depth="2147483630" stereotypeVisibility="true" constraintVisibility="true" notationType="0" width="80.0" height="24.0" doAutoResize="false" visibility="true" label="A2" allActionVisibility="true" signalReverse="false">
             <JUDE:UPresentation.semanticModel>
               <UML:ActionState xmi.idref="a03-1f5868428667f45e52d202ca2a4ce5c4"/>
             </JUDE:UPresentation.semanticModel>

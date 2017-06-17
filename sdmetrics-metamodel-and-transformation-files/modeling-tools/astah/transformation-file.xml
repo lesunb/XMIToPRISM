@@ -1,96 +1,82 @@
 <?xml version="1.0"?>
 <!DOCTYPE xmitransformations SYSTEM 'xmitrans.dtd'>
 
-<!-- xmiTrans2_0.xml
-XMI transformations for the SDMetrics V2.3 default metamodel
-for UML2.x and XMI 2.x source files.
+<!-- xmiTrans2_0.xml XMI transformations for the SDMetrics V2.3 default metamodel for UML2.x 
+	and XMI 2.x source files. Copyright (c) 2002-2013 Juergen Wuest The MIT License Permission 
+	is hereby granted, free of charge, to any person obtaining a copy of this SDMetrics project 
+	file (the "Project File"), to deal in the Project File without restriction, including without 
+	limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+	sell copies of the Project File, and to permit persons to whom the Project File is furnished 
+	to do so, subject to the following conditions: The above copyright notice and this permission 
+	notice shall be included in all copies or substantial portions of the Project File. THE PROJECT 
+	FILE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
+	LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE PROJECT FILE. Note: this license 
+	grant only applies to this Project File, and not to any other part of SDMetrics. -->
 
-Copyright (c) 2002-2013 Juergen Wuest
-
-The MIT License
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this SDMetrics project file (the "Project File"), to deal in the Project File 
-without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Project File, and to permit persons to whom the Project File is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Project File.
-
-THE PROJECT FILE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE PROJECT FILE.
-
-Note: this license grant only applies to this Project File, and not to any
-other part of SDMetrics.
--->
-	
-<!-- **************************************************************************************** -->
-<!-- *** Transformations based on the XMI pattern of the Astah Professional modeling tool *** -->
-<!-- **************************************************************************************** -->
+<!-- ******************************************************************************** -->
+<!-- Transformations based on the XMI pattern of the Astah Professional modeling tool -->
+<!-- ******************************************************************************** -->
 <xmitransformations version="2.0">
-		
+
 	<!-- Base Element -->
 	<xmitransformation modelelement="sdmetricsbase" xmipattern="sdmetricsbase" recurse="true">
-		<trigger name="id" type="attrval" attr="xmi.id"/>
-		<trigger name="name" type="attrval" attr="name"/>
+		<trigger name="id" type="attrval" attr="xmi.id" />
+		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
 
 	<!-- Activity Diagram -->
-		<xmitransformation modelelement="activity" xmipattern="UML:ActivityGraph" recurse="true">
-			<trigger name="id" type="attrval" attr="xmi.id"/>
-		</xmitransformation>
-	
-		<!-- Nodes -->
-			<!-- Executable Node -->
-			<xmitransformation modelelement="action" xmipattern="UML:ActionState" recurse="true">
-				<trigger name="kind" type="constant" attr="executable"/>
-				<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
-				<trigger name="outgoing" type="gcattrval" src="UML:StateVertex.outgoing" attr="xmi.idref" />
-			</xmitransformation>
-		
-			<!-- Initial Node, Decision Node and Merge Node -->
-			<xmitransformation modelelement="controlnode" xmipattern="UML:Pseudostate" recurse="true">
-				<trigger name="kind" type="attrval" attr="kind" />
-				<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
-				<trigger name="outgoing" type="gcattrval" src="UML:StateVertex.outgoing" attr="xmi.idref" />
-			</xmitransformation>
-		
-			<!-- Final Node -->
-			<xmitransformation modelelement="controlnode" xmipattern="UML:FinalState" recurse="true">
-				<trigger name="kind" type="constant" attr="activityfinal" />
-				<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
-			</xmitransformation>
-	
-		<!-- Edges -->
-			<xmitransformation modelelement="controlflow" xmipattern="UML:Transition" recurse="true">
-				<trigger name="source" type="gcattrval" src="UML:Transition.source" attr="xmi.idref" />
-				<trigger name="target" type="gcattrval" src="UML:Transition.target" attr="xmi.idref" />
-				<trigger name="probability" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value" />
-			</xmitransformation>
-	
+	<xmitransformation modelelement="activity" xmipattern="UML:ActivityGraph" recurse="true">
+	</xmitransformation>
+
+	<!-- Nodes -->
+	<!-- Executable Node -->
+	<xmitransformation modelelement="action" xmipattern="UML:ActionState" recurse="true">
+		<trigger name="kind" type="constant" attr="executable" />
+		<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
+		<trigger name="outgoing" type="gcattrval" src="UML:StateVertex.outgoing" attr="xmi.idref" />
+	</xmitransformation>
+
+	<!-- Initial Node, Decision Node and Merge Node -->
+	<xmitransformation modelelement="controlnode" xmipattern="UML:Pseudostate" recurse="true">
+		<trigger name="kind" type="attrval" attr="kind" />
+		<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
+		<trigger name="outgoing" type="gcattrval" src="UML:StateVertex.outgoing" attr="xmi.idref" />
+	</xmitransformation>
+
+	<!-- Final Node -->
+	<xmitransformation modelelement="controlnode" xmipattern="UML:FinalState" recurse="true">
+		<trigger name="kind" type="constant" attr="activityfinal" />
+		<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
+	</xmitransformation>
+
+	<!-- Edges -->
+	<xmitransformation modelelement="controlflow" xmipattern="UML:Transition" recurse="true">
+		<trigger name="source" type="gcattrval" src="UML:Transition.source" attr="xmi.idref" />
+		<trigger name="target" type="gcattrval" src="UML:Transition.target" attr="xmi.idref" />
+		<trigger name="probability" type="gcattrval" src="UML:ModelElement.taggedValue"
+			attr="value" />
+	</xmitransformation>
+
 	<!-- Sequence Diagram -->
-		<xmitransformation modelelement="sequence" xmipattern="UML:Collaboration" recurse="true">
-			<trigger name="lifelines" type="xmi2assoc" attr="lifelines"/>
-			<trigger name="messages" type="xmi2assoc" attr="messages"/>
-		</xmitransformation>
-		
-		<!-- Lifeline -->
-			<xmitransformation modelelement="lifeline" xmipattern="UML:ClassifierRole" recurse="true">
-				<trigger name="BCompRel" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value"/>
-			</xmitransformation>
-			
-		<!-- Asynchronous Message -->
-			<xmitransformation modelelement="asynchronousmessage" xmipattern="UML:Message" recurse="true">
-				<trigger name="source" type="gcattrval" src="UML:Message.sender" attr="xmi.idref"/>
-				<trigger name="target" type="gcattrval" src="UML:Message.receiver" attr="xmi.idref"/>
-			</xmitransformation>
-	
+	<xmitransformation modelelement="sequence" xmipattern="UML:Model" recurse="true">
+		<trigger name="name" type="attrval" attr="name" />
+	</xmitransformation>
+	<xmitransformation modelelement="sequence" xmipattern="UML:Collaboration" recurse="true">
+	</xmitransformation>
+
+	<!-- Lifeline -->
+	<xmitransformation modelelement="lifeline" xmipattern="UML:ClassifierRole" recurse="true">
+		<trigger name="BCompRel" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value" />
+	</xmitransformation>
+
+	<!-- Asynchronous Message -->
+	<xmitransformation modelelement="asynchronousmessage" xmipattern="UML:Message" recurse="true">
+		<trigger name="source" type="gcattrval" src="UML:Message.sender" attr="xmi.idref" />
+		<trigger name="target" type="gcattrval" src="UML:Message.receiver" attr="xmi.idref" />
+	</xmitransformation>
+
 </xmitransformations>
 

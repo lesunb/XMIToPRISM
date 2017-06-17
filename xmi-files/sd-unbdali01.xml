@@ -199,7 +199,7 @@
       <UML:Namespace.collaboration>
         <UML:Collaboration xmi.id="c2-916004bb57bcd776175a55e88162e1f3" name="" version="0" unSolvedFlag="false" isRoot="false" isLeaf="false" isAbstract="false">
           <UML:Namespace.ownedElement>
-            <UML:ClassifierRole xmi.id="go-916004bb57bcd776175a55e88162e1f3" name="Lifeline0" version="0" unSolvedFlag="false" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+            <UML:ClassifierRole xmi.id="go-916004bb57bcd776175a55e88162e1f3" name="A" version="0" unSolvedFlag="false" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
               <UML:ModelElement.namespace>
                 <UML:Namespace xmi.idref="c2-916004bb57bcd776175a55e88162e1f3"/>
               </UML:ModelElement.namespace>
@@ -233,7 +233,7 @@
           <UML:Namespace xmi.idref="a1-916004bb57bcd776175a55e88162e1f3"/>
         </UML:ModelElement.namespace>
         <JUDE:Diagram.presentations>
-          <JUDE:ClassifierRolePresentation xmi.id="gn-916004bb57bcd776175a55e88162e1f3" version="0" depth="1" stereotypeVisibility="true" constraintVisibility="true" notationType="0" width="110.0" height="30.0" doAutoResize="true" visibility="true" label="Lifeline0" baseVisibility="true" nameVisibility="true" isActive="false" iconNotation="false" lifelineLength="300.0">
+          <JUDE:ClassifierRolePresentation xmi.id="gn-916004bb57bcd776175a55e88162e1f3" version="0" depth="1" stereotypeVisibility="true" constraintVisibility="true" notationType="0" width="110.0" height="30.0" doAutoResize="true" visibility="true" label="A" baseVisibility="true" nameVisibility="true" isActive="false" iconNotation="false" lifelineLength="300.0">
             <JUDE:UPresentation.semanticModel>
               <UML:ClassifierRole xmi.idref="go-916004bb57bcd776175a55e88162e1f3"/>
             </JUDE:UPresentation.semanticModel>
