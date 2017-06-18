@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.List;
 
@@ -80,7 +81,7 @@ public class ModelConverter {
 		} catch (Exception e) {
 			e.printStackTrace();
 			if (e instanceof FileNotFoundException) {
-				// TODO possível com botao de path direto?
+				// TODO exception is possible with the button option?
 				System.out.println("File was not found. Program terminated.");
 				System.exit(0);
 			}
@@ -222,7 +223,7 @@ public class ModelConverter {
 		}
 	}
 
-	private static void createOuputFile(String transformationResult, String xmiModelFilePath) {
+	private void createOuputFile(String transformationResult, String xmiModelFilePath) {
 		String s1[] = xmiModelFilePath.split("/");
 		String s2[] = s1[1].split("\\.");
 		Path path = Paths.get("output/".concat(s2[0] + ".pm"));
@@ -235,12 +236,13 @@ public class ModelConverter {
 		}
 	}
 
-	private long getConversionTime(long startTime, long endTime) {
-		return endTime - startTime;
+	private double getConversionTime(long startTime, long endTime) {
+		return (endTime - startTime) / 1000000.0;
 	}
 
-	private void printResultOnConsole(String transformationResult, long conversionTime) {
-		System.out.println("Conversion time (ms): " + (conversionTime / 1000000));
+	private void printResultOnConsole(String transformationResult, double conversionTime) {
+		DecimalFormat numberFormat = new DecimalFormat("#.0");
+		System.out.println("Conversion time (ms): " + numberFormat.format(conversionTime));
 		System.out.println(transformationResult);
 	}
 

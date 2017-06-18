@@ -9,7 +9,7 @@ We assume that the user is familiar with the Astah UML tool.
 ## Activity Diagrams
 To annotate the probability in your transitions, select an edge and insert a real number n in the "Weight" field, in the "Base" parameters of the edge, where 0.0 <= n <= 1.0.
 
-##Sequence Diagrams
+## Sequence Diagrams
 To annotate the probability in your components (lifelines), select the lilfeline and click on the tab "TaggedValue". Click on "Add" and put a name (suggestion "prob" or "p", from "probability", but it can be any name) and a value n, where 0.0 <= n <= 1.0.
 
 # How to use the transformation tool
