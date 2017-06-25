@@ -10,7 +10,7 @@ public class MainClass extends JFrame {
 
 	public static void main(String[] args) {
 
-		// metamodel, XMI transformation, and XMI input files
+		// metamodel, XMI transformation and XMI input files
 		String metaModelDefinitionURL = "sdmetrics-metamodel-and-transformation-files/unb-dali-metamodel-elements.xml";
 		String xmiTransformationURL = "sdmetrics-metamodel-and-transformation-files/modeling-tools/astah/transformation-file.xml";
 

@@ -36,6 +36,17 @@ import br.unb.dali.util.prism.PRISMModel;
 public class ModelConverter {
 
 	private static ModelConverter instance = null;
+	private MetaModel metaModel = new MetaModel();
+	private Model model = null;
+	private XMLParser parser = null;
+	XMIReader xmiReader = null;
+	private XMITransformations transformation = null;
+
+	private ActivityDiagram ad = null;
+	private SequenceDiagram sd = null;
+	private PRISMModel prismModel = null;
+	private long startTime = 0;
+	private long endTime = 0;
 
 	private ModelConverter() {
 	}
@@ -47,9 +58,27 @@ public class ModelConverter {
 		return instance;
 	}
 
-	protected void convert(String metaModelDefinitionURL, String xmiTransformationURL, String xmiModelFilePath) {
-		// read the metamodel
-		XMLParser parser = null;
+	protected void convert(String metaModelDefinitionURL, String xmiTransformationURL, String xmiModelURL) {
+
+		createParser();
+		readMetamodelDefinition(metaModelDefinitionURL);
+		transformation = new XMITransformations(metaModel);
+		readXMITransformation(xmiTransformationURL);
+		model = new Model(metaModel);
+		xmiReader = new XMIReader(transformation, model);
+		readXMIFile(xmiModelURL);
+
+		// optionally, specify element filters to get rid of standard libraries or 3rd party APIs
+		String[] filters = { "#.java", "#.javax", "#.org.xml" };
+		model.setFilter(filters, false, true);
+
+		iterateOverModel();
+		transformToPrism();
+		printResultOnConsole(prismModel.toString(), getConversionTime(startTime, endTime));
+		createOuputFile(prismModel.toString(), xmiModelURL);
+	}
+
+	private void createParser() {
 		try {
 			parser = new XMLParser();
 		} catch (SAXException e) {
@@ -57,42 +86,38 @@ public class ModelConverter {
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		}
+	}
 
-		MetaModel metaModel = new MetaModel();
+	private void readMetamodelDefinition(String metaModelDefinitionURL) {
+		// read the metamodel definition file
 		try {
 			parser.parse(metaModelDefinitionURL, metaModel.getSAXParserHandler());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
 
-		// read the XMI transformation file
-		XMITransformations transformation = new XMITransformations(metaModel);
+	private void readXMITransformation(String xmiTransformationURL) {
 		try {
 			parser.parse(xmiTransformationURL, transformation.getSAXParserHandler());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
 
-		// read the XMI file with the UML model
-		Model model = new Model(metaModel);
-		XMIReader xmiReader = new XMIReader(transformation, model);
+	private void readXMIFile(String xmiModelURL) {
 		try {
-			parser.parse(xmiModelFilePath, xmiReader);
+			parser.parse(xmiModelURL, xmiReader);
 		} catch (Exception e) {
 			e.printStackTrace();
 			if (e instanceof FileNotFoundException) {
-				// TODO exception is possible with the button option?
 				System.out.println("File was not found. Program terminated.");
 				System.exit(0);
 			}
 		}
+	}
 
-		// optionally, specify element filters to get rid of standard libraries or 3rd party APIs
-		String[] filters = { "#.java", "#.javax", "#.org.xml" };
-		model.setFilter(filters, false, true);
-
-		ActivityDiagram ad = null;
-		SequenceDiagram sd = null;
+	private void iterateOverModel() {
 		// iterate over each type and in each type iterate over each model element of that type
 		for (MetaModelElement type : metaModel) {
 			List<ModelElement> elements;
@@ -148,7 +173,6 @@ public class ModelConverter {
 					try {
 						prob = Double.parseDouble(me.getPlainAttribute("probability"));
 					} catch (Exception e) {
-						// e.printStackTrace();
 						System.out.println("Found edge without associated probability or wrong number format. Fix the UML model.");
 						System.exit(0);
 					}
@@ -167,7 +191,7 @@ public class ModelConverter {
 			case "lifeline":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					Lifeline ll = new Lifeline(me.getXMIID(), me.getName(), sd);
+					Lifeline lifeline = new Lifeline(me.getXMIID(), me.getName(), sd);
 					Double prob = null;
 					try {
 						prob = Double.parseDouble(me.getPlainAttribute("BCompRel"));
@@ -175,8 +199,8 @@ public class ModelConverter {
 						System.out.println("Found Lifeline without associated probability or wrong number format. Fix the UML model.");
 						System.exit(0);
 					}
-					ll.setBCompRel(prob);
-					sd.addLifeline(ll);
+					lifeline.setBCompRel(prob);
+					sd.addLifeline(lifeline);
 				}
 				break;
 			// SD's Asynchronous Message
@@ -190,36 +214,23 @@ public class ModelConverter {
 				break;
 			}
 		}
+	}
 
-		// transform ADs and/or SD to DTMC in PRISM language
+	private void transformToPrism() {
 		if (ad != null || sd != null) {
-			PRISMModel prismModel = null;
-			long startTime = 0;
-			long endTime = 0;
-
 			try {
 				if (ad != null) {
-					// measure time start
 					startTime = System.nanoTime();
-					// convert
 					prismModel = ad.toDTMC().toPRISM();
-					// measure time finish
 					endTime = System.nanoTime();
 				} else if (sd != null) {
-					// measure time start
 					startTime = System.nanoTime();
-					// convert
 					prismModel = sd.toDTMC().toPRISM();
-					// measure time finish
 					endTime = System.nanoTime();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
-			// output on console and file
-			printResultOnConsole(prismModel.toString(), getConversionTime(startTime, endTime));
-			createOuputFile(prismModel.toString(), xmiModelFilePath);
 		}
 	}
 
@@ -228,7 +239,6 @@ public class ModelConverter {
 		String s2[] = s1[1].split("\\.");
 		Path path = Paths.get("output/".concat(s2[0] + ".pm"));
 
-		// write result to a new file in the output folder
 		try (BufferedWriter bw = Files.newBufferedWriter(path)) {
 			bw.write(transformationResult);
 		} catch (IOException e) {
