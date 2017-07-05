@@ -12,7 +12,7 @@ public class MainClass extends JFrame {
 
 		// metamodel, XMI transformation and XMI input files
 		String metaModelDefinitionURL = "sdmetrics-metamodel-and-transformation-files/unb-dali-metamodel-elements.xml";
-		String xmiTransformationURL = "sdmetrics-metamodel-and-transformation-files/modeling-tools/astah/transformation-file.xml";
+		String xmiTransformationURL = "sdmetrics-metamodel-and-transformation-files/modeling-tools/papyrus/PapyrusTransformations.xml";
 
 		// TODO button to input file
 		// Create a file chooser

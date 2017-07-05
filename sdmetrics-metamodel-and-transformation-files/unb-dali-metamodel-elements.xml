@@ -41,56 +41,34 @@ other part of SDMetrics.
 		<attribute name="name" type="data" multiplicity="one">Name of the element in UML model.</attribute>
 	</modelelement>
 
-	<!-- Activity Diagram -->
-		<modelelement name="activity">
-			<attribute name="nodes"  type="data" multiplicity="many">The action, control, and object nodes of the activity.</attribute>
-			<attribute name="edges"  type="data" multiplicity="many">The control and object flows of the activity.</attribute>
+	<!-- Diagrams -->
+		<modelelement name="diagram">
+			<attribute name="type" type="data" multiplicity="one">The type of the UML Diagram.</attribute>
 		</modelelement>
 	
-		<!-- Nodes: executable, initial, final, decision and merge -->
-			<modelelement name="action">
-				<attribute name="kind" type="data" multiplicity="one">The default kind is executable.</attribute>
-				<attribute name="incoming" type="data" multiplicity="many">The incoming edges of an action.</attribute>
-				<attribute name="outgoing" type="data" multiplicity="many">The outgoing edges of an action.</attribute>
-			</modelelement>
-			
-			<modelelement name="controlnode">
+	<!-- AD's Nodes: executable, initial, final, decision and merge -->
+			<modelelement name="node">
 				<attribute name="kind" type="data" multiplicity="one">The kind of control node: executable, initial, activityfinal, merge or decision.</attribute>
-				<attribute name="incoming" type="data" multiplicity="many">The incoming edges of a control node.</attribute>
-				<attribute name="outgoing" type="data" multiplicity="many">The outgoing edges of a control node.</attribute>
+				<attribute name="incoming" type="data" multiplicity="many">The incoming edges</attribute>
 			</modelelement>
 	
-		<!-- Edges -->
+	<!-- AD's Edges -->
 			<modelelement name="controlflow">
 				<attribute name="source" type="data" multiplicity="one">Source of the control flow.</attribute>
 				<attribute name="target" type="data" multiplicity="one">Target of the control flow.</attribute>
 				<attribute name="probability" type="data" multiplicity="one">Probability of the control flow.</attribute>
-				<attribute name="guard" type="data" multiplicity="one">Guard of the control flow.</attribute>
 			</modelelement>
 	
-	<!-- Sequence Diagram -->
-		<modelelement name="sequence">
-			<attribute name="lifelines" type="data" multiplicity="many">The lifelines of the Sequence Diagram.</attribute>
-			<attribute name="messages" type="data" multiplicity="many">The messages of the Sequence Diagram.</attribute>
-		</modelelement>
-		
+	<!-- SD's Lifelines -->
 		<modelelement name="lifeline">
 			<attribute name="BCompRel" type="data" multiplicity="one">The probability associated with a lifeline.</attribute>
 		</modelelement>
 		
+	<!-- SD's Asynchronous Messages -->
 		<modelelement name="asynchronousmessage">
 			<attribute name="source" type="data" multiplicity="one">The sender of the asynchronous message.</attribute>
 			<attribute name="target" type="data" multiplicity="one">The receiver of the asynchronous message.</attribute>
 		</modelelement>
-		
-		<!-- UML Diagram Information 
-			<modelelement name="diagram">
-				<attribute name="type" type="data" multiplicity="one">The type of diagram (class diagram, sequence diagram, etc).</attribute>
-			</modelelement>
-			
-			<modelelement name="diagramelement">
-				<attribute name="element" type="ref">The element that is shown on the diagram.</attribute>
-			</modelelement> -->
 
 </sdmetricsmetamodel>
 

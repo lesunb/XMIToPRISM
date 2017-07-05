@@ -33,21 +33,20 @@
 
 	<!-- Nodes -->
 	<!-- Executable Node -->
-	<xmitransformation modelelement="action" xmipattern="UML:ActionState" recurse="true">
+	<xmitransformation modelelement="node" xmipattern="UML:ActionState" recurse="true">
 		<trigger name="kind" type="constant" attr="executable" />
-		<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
-		<trigger name="outgoing" type="gcattrval" src="UML:StateVertex.outgoing" attr="xmi.idref" />
+	<!--	<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />  -->
+	<!--	<trigger name="outgoing" type="gcattrval" src="UML:StateVertex.outgoing" attr="xmi.idref" /> -->
 	</xmitransformation>
 
 	<!-- Initial Node, Decision Node and Merge Node -->
-	<xmitransformation modelelement="controlnode" xmipattern="UML:Pseudostate" recurse="true">
+	<xmitransformation modelelement="node" xmipattern="UML:Pseudostate" recurse="true">
 		<trigger name="kind" type="attrval" attr="kind" />
 		<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
-		<trigger name="outgoing" type="gcattrval" src="UML:StateVertex.outgoing" attr="xmi.idref" />
 	</xmitransformation>
 
 	<!-- Final Node -->
-	<xmitransformation modelelement="controlnode" xmipattern="UML:FinalState" recurse="true">
+	<xmitransformation modelelement="node" xmipattern="UML:FinalState" recurse="true">
 		<trigger name="kind" type="constant" attr="activityfinal" />
 		<trigger name="incoming" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
 	</xmitransformation>
@@ -64,6 +63,7 @@
 	<xmitransformation modelelement="sequence" xmipattern="UML:Model" recurse="true">
 		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
+	
 	<xmitransformation modelelement="sequence" xmipattern="UML:Collaboration" recurse="true">
 	</xmitransformation>
 

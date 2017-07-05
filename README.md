@@ -5,6 +5,7 @@ This project is to attempt to extract the information of an UML diagram in the f
 
 # How to insert probabilities in your Astah Diagram
 We assume that the user is familiar with the Astah UML tool.
+
 The real number of the probability, **p**, is a number where 0.0 &#8804; **p** &#8804; 1.0
 
 ## Activity Diagrams

@@ -39,7 +39,7 @@ public class ModelConverter {
 	private MetaModel metaModel = new MetaModel();
 	private Model model = null;
 	private XMLParser parser = null;
-	XMIReader xmiReader = null;
+	private XMIReader xmiReader = null;
 	private XMITransformations transformation = null;
 
 	private ActivityDiagram ad = null;
@@ -74,7 +74,7 @@ public class ModelConverter {
 
 		iterateOverModel();
 		transformToPrism();
-		printResultOnConsole(prismModel.toString(), getConversionTime(startTime, endTime));
+		printResultOnConsole(prismModel.toString(), getTimeInMilliseconds(startTime, endTime));
 		createOuputFile(prismModel.toString(), xmiModelURL);
 	}
 
@@ -89,7 +89,6 @@ public class ModelConverter {
 	}
 
 	private void readMetamodelDefinition(String metaModelDefinitionURL) {
-		// read the metamodel definition file
 		try {
 			parser.parse(metaModelDefinitionURL, metaModel.getSAXParserHandler());
 		} catch (Exception e) {
@@ -122,14 +121,20 @@ public class ModelConverter {
 		for (MetaModelElement type : metaModel) {
 			List<ModelElement> elements;
 
-			switch (type.getName().toLowerCase()) {
-			// Activity Diagram (AD)
-			case "activity":
+			// TODO tirar
+			String s1 = type.getName().toLowerCase();
+			switch (s1) {
+			case "diagram":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					ad = new ActivityDiagram(me.getXMIID(), me.getName());
+					if(me.getPlainAttribute("type").equals("uml:Activity")) {
+						ad = new ActivityDiagram(me.getXMIID(), me.getName());
+					} else {
+						sd = new SequenceDiagram(me.getXMIID(), me.getName());
+					}
 				}
 				break;
+
 			// AD's Executable Action
 			case "action":
 				elements = model.getAcceptedElements(type);
@@ -137,18 +142,27 @@ public class ModelConverter {
 					ad.addExecutableNode(new ExecutableNode(me.getXMIID(), ad));
 				}
 				break;
-			// AD's Initial, Decision and Merge nodes.
-			case "controlnode":
+			// AD's Initial, Final, Decision and Merge nodes.
+			case "node":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-
-					switch (me.getPlainAttribute("kind").toLowerCase()) {
+					String s = me.getPlainAttribute("kind").toLowerCase();
+					switch (s) {
+					case "executable":
+					case "uml:opaqueaction":
+						ad.addExecutableNode(new ExecutableNode(me.getXMIID(), ad));
+						break;
 					case "initial":
+					case "uml:initialnode":
 						ad.addInitialNode(new InitialNode(me.getXMIID(), ad));
 						break;
 					case "activityfinal":
+					case "uml:activityfinalnode":
 						ad.addFinalNode(new FinalNode(me.getXMIID(), ad));
 						break;
+
+					case "uml:decisionnode":
+					case "uml:mergenode":
 					case "junction":
 						Collection<?> incomingNodes = me.getSetAttribute("incoming");
 						// difference between merge and decision nodes is checked with the number of incoming edges
@@ -180,14 +194,6 @@ public class ModelConverter {
 					ad.addControlFlow(cf);
 				}
 				break;
-			// Sequence Diagram (SD)
-			case "sequence":
-				elements = model.getAcceptedElements(type);
-				for (ModelElement me : elements) {
-					sd = new SequenceDiagram(me.getXMIID(), me.getName());
-				}
-				break;
-			// SD's Lifeline
 			case "lifeline":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
@@ -246,7 +252,7 @@ public class ModelConverter {
 		}
 	}
 
-	private double getConversionTime(long startTime, long endTime) {
+	private double getTimeInMilliseconds(long startTime, long endTime) {
 		return (endTime - startTime) / 1000000.0;
 	}
 
