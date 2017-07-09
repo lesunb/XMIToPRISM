@@ -18,9 +18,9 @@ public class MainClass {
 			modelingToolsFiles.put("papyrus", "SDMetrics - Metamodel and Transformations/transformations/papyrus-transformations.xml");
 		}
 
-		// Gets values from arguments of Main. Must be in the exact order.
-		String xmiTransformationPath = modelingToolsFiles.get(args[0]);
-		String xmiModelPath = args[1];
+		// Gets values from arguments of Main. Must be in the exact order. arg[0] is the own program name when in .JAR format
+		String xmiTransformationPath = modelingToolsFiles.get(args[1]);
+		String xmiModelPath = args[2];
 
 		ModelConverter converter = ModelConverter.getInstance();
 		converter.convert(sdmetricsMetaModelPath, xmiTransformationPath, xmiModelPath);

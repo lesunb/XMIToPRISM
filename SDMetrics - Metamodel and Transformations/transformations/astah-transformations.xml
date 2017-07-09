@@ -15,24 +15,33 @@
 <xmitransformations version="2.0">
 
 	<!-- Base Element -->
-	<xmitransformation modelelement="sdmetricsbase" xmipattern="UML:Model" recurse="true">
+	<xmitransformation modelelement="sdmetricsbase" xmipattern="sdmetricsbase" recurse="true">
+		<trigger name="id" type="attrval" attr="xmi.id" />
 		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
 
 	<!-- Diagram -->
+	<!-- ID -->
 	<xmitransformation modelelement="diagram" xmipattern="UML:Namespace.ownedElement" recurse="true">
 		<trigger name="id" type="cattrval" src="UML:ActivityGraph" attr="xmi.id" />
 	</xmitransformation>
-	
 	<xmitransformation modelelement="diagram" xmipattern="UML:Namespace.collaboration" recurse="true">
 		<trigger name="id" type="cattrval" src="UML:Collaboration" attr="xmi.id" />
 	</xmitransformation>
-	
-	<xmitransformation modelelement="diagram" xmipattern="XMI.extension" recurse="true">
-		<trigger name="type" type="cattrval" src="JUDE:ActivityDiagram" attr="typeInfo" />
-		<trigger name="type" type="cattrval" src="JUDE:SequenceDiagram" attr="typeInfo" />
+
+	<!-- NAME -->
+	<xmitransformation modelelement="diagram" xmipattern="UML:Model" recurse="true">
+		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
-	
+
+	<!-- TYPE: ACTIVITY OR SEQUENCE -->
+	<xmitransformation modelelement="diagram" xmipattern="UML:ActivityGraph" recurse="true">
+		<trigger name="type" type="constant" attr="Activity Diagram" />
+	</xmitransformation>
+	<xmitransformation modelelement="diagram" xmipattern="UML:Collaboration" recurse="true">
+		<trigger name="type" type="constant" attr="Sequence Diagram" />
+	</xmitransformation>
+
 	<!-- Nodes -->
 	<!-- Executable Node -->
 	<xmitransformation modelelement="node" xmipattern="UML:ActionState" recurse="true">

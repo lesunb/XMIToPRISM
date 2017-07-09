@@ -132,23 +132,22 @@ public class ModelConverter {
 			// Activity or Sequence diagrams.
 			case "diagram":
 				elements = model.getAcceptedElements(type);
-				for (ModelElement me : elements) {
-					String diagramType = me.getPlainAttribute("type");
+				ModelElement diagramElement = elements.get(0);
+				String diagramType = diagramElement.getPlainAttribute("type");
 
-					switch (diagramType) {
-					case "Activity Diagram":
-					case "uml:Activity":
-						ad = new ActivityDiagram(me.getXMIID(), me.getName());
-						break;
-					case "Sequence Diagram":
-					case "uml:Interaction":
-						sd = new SequenceDiagram(me.getXMIID(), me.getName());
-						break;
-					default:
-						System.out.println("No diagram type found.");
-						System.exit(0);
-						break;
-					}
+				switch (diagramType) {
+				case "Activity Diagram":
+				case "uml:Activity":
+					ad = new ActivityDiagram(diagramElement.getXMIID(), diagramElement.getName());
+					break;
+				case "Sequence Diagram":
+				case "uml:Interaction":
+					sd = new SequenceDiagram(diagramElement.getXMIID(), diagramElement.getName());
+					break;
+				default:
+					System.out.println("No diagram type found.");
+					System.exit(0);
+					break;
 				}
 				break;
 
@@ -178,7 +177,6 @@ public class ModelConverter {
 					case "uml:ActivityFinalNode":
 						ad.addFinalNode(new FinalNode(me.getXMIID(), ad));
 						break;
-
 					case "uml:DecisionNode":
 					case "uml:MergeNode":
 					case "junction":
