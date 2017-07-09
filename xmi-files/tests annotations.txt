@@ -1,5 +1,0 @@
-ad-t3 - stacktrace message. null pointer?
-ad-t6 - A0_initial correct state?
-ad-t8 - stackstrace message
-
-

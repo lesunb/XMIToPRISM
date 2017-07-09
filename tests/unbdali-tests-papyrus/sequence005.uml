@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_enZwYLaaEeaxSY7F6iwi9g" name="RootElement">
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_i7SAYLaaEeaxSY7F6iwi9g" name="Teste5">
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_snV2ALaaEeaxSY7F6iwi9g" name="LifelineA" coveredBy="_vp3y4LaaEeaxSY7F6iwi9g _vp3y4baaEeaxSY7F6iwi9g">
+      <selector xmi:type="uml:LiteralReal" xmi:id="_y3DgkLaaEeaxSY7F6iwi9g" name="BCompRel" value="1.0"/>
+    </lifeline>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_s7Q3kLaaEeaxSY7F6iwi9g" name="LifelineB"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_vp3y4LaaEeaxSY7F6iwi9g" name="MessageSend" covered="_snV2ALaaEeaxSY7F6iwi9g" message="_vp3L0LaaEeaxSY7F6iwi9g"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_vp3y4baaEeaxSY7F6iwi9g" name="MessageRecv" covered="_snV2ALaaEeaxSY7F6iwi9g" message="_vp3L0LaaEeaxSY7F6iwi9g"/>
+    <message xmi:type="uml:Message" xmi:id="_vp3L0LaaEeaxSY7F6iwi9g" name="msgA" messageSort="asynchCall" receiveEvent="_vp3y4baaEeaxSY7F6iwi9g" sendEvent="_vp3y4LaaEeaxSY7F6iwi9g"/>
+  </packagedElement>
+</uml:Model>
