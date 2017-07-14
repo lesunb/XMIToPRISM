@@ -9,7 +9,8 @@ public class MainClass {
 	// args order: 1) tool, 2)xmi file location (path)
 	public static void main(String[] args) {
 
-		// Initialization. The Map will increase but not to much. See if there is a better solution in the future.
+		// Initialization. Map associates modeling tool with the file location.
+		//The Map will increase but not too much. See if there is a better solution in the future.
 		String sdmetricsMetaModelPath = "SDMetrics - Metamodel and Transformations/metamodel-unb_dali.xml";
 		final Map<String, String> modelingToolsFiles;
 		{

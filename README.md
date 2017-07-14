@@ -1,5 +1,5 @@
-# Astah-XMI-UnB-DALi
-Astah UML XMI files transformed to DTMC via UnB-DALi
+# XMI-PRISM-Converter
+UML diagrams as XMI files transformed to Discrete-Time Markov Chains (DTMCs) via the UnB-Dependability Analysis Library (UnB-DALi).
 
 This project is to attempt to extract the information of an UML diagram in the form of an XMI file so that it can be used as input to the UnB-Dependability Analisys Library, that conducts the graph transformation of a UML diagram to a Discrete Time Markov Chain (DTMC) in the language of the PRISM model checker tool.
 
@@ -9,13 +9,13 @@ We assume that the user is familiar with the Astah UML tool.
 The real number of the probability, **p**, is a number where 0.0 &#8804; **p** &#8804; 1.0
 
 ## Activity Diagrams
-To annotate the probability in your transitions:
+To annotate the probability in your **transitions**:
 1. Select an edge.
 2. Select the tab "TaggedValue" and create a new TaggedValue by clicking on the "Add" button.
 3. Give a name ("p", or "PTS") and insert the probability real number, **p**,  in the "Value" field.
 
 ## Sequence Diagrams
-To annotate the probability in your transitions:
+To annotate the probability in your **components**:
 1. Select a lifeline.
 2. Select the tab "TaggedValue" and create a new TaggedValue by clicking on the "Add" button.
 3. Give a name ("p", or "BCompRel") and insert the probability real number, **p**,  in the "Value" field.
@@ -29,7 +29,7 @@ Follow these steps:
 
 2- Go to the folder where the project is and copy the generated XML file.
 
-3- Open the astah-xmi-unbdali project on Eclipse. ***(this solution is temporary for now)***
+3- Open the XMI-PRISM-Converter project on Eclipse. ***(this solution is temporary for now)***
 
 4- Paste your XML file inside the "tests" folder. 
 
