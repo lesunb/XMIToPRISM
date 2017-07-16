@@ -1,0 +1,13 @@
+How to insert probabilities in your Papyrus' Diagrams
+
+We assume that the user is familiar with the Papyrus UML tool.
+
+The real number of the probability, p, is a number where 0.0 <= p <= 1.0
+
+*Activity Diagrams*
+To annotate the probability in your transitions:
+
+
+*Sequence Diagrams*
+To annotate the probability in your components:
+
