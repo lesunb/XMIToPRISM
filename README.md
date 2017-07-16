@@ -33,7 +33,7 @@ To conduct the transformation, we assume that you have your UML model/project re
 
 1- Open the XMI-PRISM-Converter project on Eclipse.
 
-2- Go to the "JAR File and scripts" folder. Copy the contents of this folder. The contents are the folder "configuration-scripts" and the latest version of the JAR named "xpconverter.jar" (short for XMI-To-PRISM Converter).
+2- Go to the "JAR-File-And-Scripts" folder. Copy the contents of this folder. The contents are the folder "configuration-scripts" and the latest version of the JAR named "xpconverter.jar" (short for XMI-To-PRISM Converter).
 
 3- Paste these contents in the folder where the .XMI file is.
 
@@ -51,5 +51,5 @@ and press enter.
 
 Observation: Make sure you have Java installed and added to your PATH environment variable.
 
-5- The result will be out on the prompt console but also an output will be created in the same folder, with the extension ".pm". Be aware that the output file will **only be created if the diagram is well constructed**, according to the rules of the UnB-DALi Library.
+5- The result will be out on the prompt console but also an output file will be created in the same folder, with the extension ".pm". Be aware that the output file will **only be created if the diagram is well constructed**, according to the rules of the UnB-DALi Library.
 

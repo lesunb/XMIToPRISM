@@ -31,9 +31,8 @@ public class TestModelConverter {
 	private static TestModelConverter instance = null;
 	static String currentPath = System.getProperty("user.dir");
 
-	private boolean conversionSuccess = false;
 	private XMLParser parser = null;
-	private String sdmetricsMetaModelPath = currentPath + "/JAR File and scripts/configuration-scripts/metamodel-unb_dali.xml";
+	private String sdmetricsMetaModelPath = currentPath + "/JAR-File-And-Scripts/configuration-scripts/metamodel-unb_dali.xml";
 	private MetaModel metaModel = new MetaModel();
 	private Model model = null;
 	private XMITransformations transformation = null;
@@ -69,7 +68,7 @@ public class TestModelConverter {
 		readMetamodel(sdmetricsMetaModelPath);
 
 		transformation = new XMITransformations(metaModel);
-		readTransformation("/JAR File and scripts/configuration-scripts/transformations/astah-transformations.xml");
+		readTransformation(currentPath + "/JAR-File-And-Scripts/configuration-scripts/transformations/astah-transformations.xml");
 
 		model = new Model(metaModel);
 		xmiReader = new XMIReader(transformation, model);
@@ -80,8 +79,7 @@ public class TestModelConverter {
 
 		iterateOverModelAndBuildDiagram();
 
-		convertToPrism();
-		conversionSuccess = true;
+		boolean conversionSuccess = convertToPrism();
 
 		String transformationResult = prismModel.toString();
 		createOuputFile(transformationResult, xmiFile);
@@ -146,7 +144,6 @@ public class TestModelConverter {
 					break;
 				default:
 					System.out.println("No diagram type found.");
-					System.exit(0);
 					break;
 				}
 				break;
@@ -205,9 +202,10 @@ public class TestModelConverter {
 						prob = Double.parseDouble(me.getPlainAttribute("probability"));
 					} catch (Exception e) {
 						System.out.println("Found edge without associated probability or wrong number format. Fix the UML model.");
-						System.exit(0);
 					}
-					cf.setPTS(prob);
+					if (prob != null) {
+						cf.setPTS(prob);
+					}
 					ad.addControlFlow(cf);
 				}
 				break;
@@ -222,9 +220,10 @@ public class TestModelConverter {
 						prob = Double.parseDouble(me.getPlainAttribute("BCompRel"));
 					} catch (Exception e) {
 						System.out.println("Found Lifeline without associated probability or wrong number format. Fix the UML model.");
-						System.exit(0);
 					}
-					lifeline.setBCompRel(prob);
+					if (prob != null) {
+						lifeline.setBCompRel(prob);
+					}
 					sd.addLifeline(lifeline);
 				}
 				break;
@@ -242,7 +241,8 @@ public class TestModelConverter {
 		}
 	}
 
-	private void convertToPrism() {
+	private boolean convertToPrism() {
+		boolean result = false;
 		if (ad != null || sd != null) {
 			try {
 				if (ad != null) {
@@ -254,10 +254,12 @@ public class TestModelConverter {
 					prismModel = sd.toDTMC().toPRISM();
 					endTime = System.nanoTime();
 				}
+				result = true;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+		return result;
 	}
 
 	private void createOuputFile(String transformationResult, String xmiFile) {
