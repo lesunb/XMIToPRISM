@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_PpizQJxqEeaXsdCm9DcbIA" name="RootElement">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_PsVokJxqEeaXsdCm9DcbIA" name="Activity1" node="_RR_XwJxqEeaXsdCm9DcbIA _TB4oEJxqEeaXsdCm9DcbIA">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_Zvo5gJxqEeaXsdCm9DcbIA" target="_TB4oEJxqEeaXsdCm9DcbIA" source="_RR_XwJxqEeaXsdCm9DcbIA">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_p5_oQJxqEeaXsdCm9DcbIA" name="PTS" value="0.9"/>
+    </edge>
+    <node xmi:type="uml:InitialNode" xmi:id="_RR_XwJxqEeaXsdCm9DcbIA" name="Inicio" outgoing="_Zvo5gJxqEeaXsdCm9DcbIA"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_TB4oEJxqEeaXsdCm9DcbIA" name="Fim" incoming="_Zvo5gJxqEeaXsdCm9DcbIA"/>
+  </packagedElement>
+</uml:Model>

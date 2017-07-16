@@ -34,7 +34,7 @@ public class TestModelConverter {
 	static String currentPath = System.getProperty("user.dir");
 
 	private XMLParser parser = null;
-	private String sdmetricsMetaModelPath = currentPath + "/src/main/resources/configuration-scripts/metamodel-unb_dali.xml";
+	private String sdmetricsMetaModelPath = currentPath + "/jar-and-scripts/configuration-scripts/metamodel-unb_dali.xml";
 	private MetaModel metaModel = new MetaModel();
 	private Model model = null;
 	private XMITransformations transformation = null;
@@ -70,7 +70,7 @@ public class TestModelConverter {
 		readMetamodel(sdmetricsMetaModelPath);
 
 		transformation = new XMITransformations(metaModel);
-		readTransformation(currentPath + "/src/main/resources/configuration-scripts/transformations/astah-transformations.xml");
+		readTransformation(currentPath + "/jar-and-scripts/configuration-scripts/transformations/astah-transformations.xml");
 
 		model = new Model(metaModel);
 		xmiReader = new XMIReader(transformation, model);

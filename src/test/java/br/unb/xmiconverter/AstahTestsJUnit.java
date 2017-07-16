@@ -8,7 +8,7 @@ import org.junit.Assert;
 public class AstahTestsJUnit {
 
 	static final String umlTool = "astah";
-	static String testsFolder = System.getProperty("user.dir") + "/src/test/java/unbdali-tests-astah/";
+	static String testsFolder = System.getProperty("user.dir") + "/tests/astah/unbdali/";
 	TestModelConverter converter;
 
 	@Before
