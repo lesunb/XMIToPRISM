@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 public class MessageController {
 
-	public static void printString(String string) {
+	public static void print(String string) {
 		System.out.println(string);
 	}
 

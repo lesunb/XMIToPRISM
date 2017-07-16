@@ -14,9 +14,9 @@ Follow the instructions for your tool inside the folder "docs/UML Tools Instruct
 
 1- Open the XMI-PRISM-Converter project on Eclipse.
 
-2- Go to the "jar-and-scripts" folder. Copy the JAR File and the configuration-scripts folder. The JAR named "xpconverter.jar", short for XMI-To-PRISM Converter.
+2- Go to the "build" folder. Copy the JAR File named "xpconverter.jar", short for XMI-To-PRISM Converter.
 
-3- Paste these contents in the folder where the .XMI file is.
+3- Paste the JAR in the folder where the .XMI file(s) is.
 
 4- Through the terminal/prompt, go to this folder and enter:
 

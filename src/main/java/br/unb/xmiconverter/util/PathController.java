@@ -1,26 +1,22 @@
 package br.unb.xmiconverter.util;
 
+import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
 
 public class PathController {
 
-	static String currentPath = System.getProperty("user.dir");
-	static String sdmetricsMetaModelPath = currentPath + "/configuration-scripts/metamodel-unb_dali.xml";
+	private static final String metamodelFolder = "/configuration-scripts/";
+	private static final String transformationsFolder = "/configuration-scripts/transformations/";
 
-	public static String getMetamodelPath() {
-		return sdmetricsMetaModelPath;
+	private static final URL metamodelPath = PathController.class.getResource(metamodelFolder + "metamodel-unb_dali.xml");
+
+	public static URL getMetamodelPath() {
+		return metamodelPath;
 	}
 
-	public static String getTransformationPath(String tool) {
-		final Map<String, String> modelingToolsTransformations;
-		modelingToolsTransformations = new HashMap<String, String>();
-		modelingToolsTransformations.put("astah", currentPath + "/configuration-scripts/transformations/astah-transformations.xml");
-		modelingToolsTransformations.put("papyrus", currentPath + "/configuration-scripts/transformations/papyrus-transformations.xml");
-		modelingToolsTransformations.put("modelio", currentPath + "/configuration-scripts/transformations/modelio-transformations.xml");
-		return modelingToolsTransformations.get(tool);
+	public static URL getTransformationPath(String tool) {
+		return PathController.class.getResource(transformationsFolder + tool + "-transformations.xml");
 	}
 
 	public static Path getOutputPath(String xmiFile) {

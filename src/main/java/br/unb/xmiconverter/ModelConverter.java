@@ -35,7 +35,6 @@ public class ModelConverter {
 
 	private boolean conversionSuccess = false;
 	private XMLParser parser = null;
-	private String sdmetricsMetaModelPath = PathController.getMetamodelPath();
 	private MetaModel metaModel = new MetaModel();
 	private Model model = null;
 	private XMITransformations transformation = null;
@@ -57,8 +56,7 @@ public class ModelConverter {
 	}
 
 	/*-
-	 * Main method. The one the calls all the other methods necessary to accesss the information on the XMI file in order. The steps are:
-	 * 
+	 * Main method of the class. Calls all the other methods necessary to access the information on the XMI file in order. The steps are:
 	 * 1. Read the metamodel
 	 * 2. Read the XMI transformation file
 	 * 3. Read the XMI file with the UML model
@@ -68,10 +66,10 @@ public class ModelConverter {
 	 * 7. Show the results on console and creates an output file on the same folder of the model
 	 * */
 	protected boolean convert(String umlTool, String xmiFile) {
-		readMetamodel(sdmetricsMetaModelPath);
+		readMetamodel(PathController.getMetamodelPath().toString());
 
 		transformation = new XMITransformations(metaModel);
-		readTransformation(PathController.getTransformationPath(umlTool));
+		readTransformation(PathController.getTransformationPath(umlTool).toString());
 
 		model = new Model(metaModel);
 		xmiReader = new XMIReader(transformation, model);
@@ -270,7 +268,7 @@ public class ModelConverter {
 	}
 
 	private void printResultOnConsole(String transformationResult, double conversionTime) {
-		MessageController.printString(transformationResult);
+		MessageController.print(transformationResult);
 		MessageController.printConversionTime(conversionTime);
 		MessageController.printCompletionMessage();
 	}

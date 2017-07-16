@@ -273,7 +273,7 @@ public class TestModelConverter {
 	}
 
 	private void printResultOnConsole(String transformationResult, double conversionTime) {
-		MessageController.printString(transformationResult);
+		MessageController.print(transformationResult);
 		MessageController.printConversionTime(conversionTime);
 		MessageController.printCompletionMessage();
 	}
