@@ -25,6 +25,8 @@ import br.unb.dali.models.agg.uml.ad.nodes.control.MergeNode;
 import br.unb.dali.models.agg.uml.ad.nodes.executable.ExecutableNode;
 import br.unb.dali.models.agg.uml.sd.Lifeline;
 import br.unb.dali.util.prism.PRISMModel;
+import br.unb.xmiconverter.util.FileWriter;
+import br.unb.xmiconverter.util.MessageController;
 
 public class TestModelConverter {
 
@@ -32,7 +34,7 @@ public class TestModelConverter {
 	static String currentPath = System.getProperty("user.dir");
 
 	private XMLParser parser = null;
-	private String sdmetricsMetaModelPath = currentPath + "/JAR-File-And-Scripts/configuration-scripts/metamodel-unb_dali.xml";
+	private String sdmetricsMetaModelPath = currentPath + "/src/main/resources/configuration-scripts/metamodel-unb_dali.xml";
 	private MetaModel metaModel = new MetaModel();
 	private Model model = null;
 	private XMITransformations transformation = null;
@@ -68,7 +70,7 @@ public class TestModelConverter {
 		readMetamodel(sdmetricsMetaModelPath);
 
 		transformation = new XMITransformations(metaModel);
-		readTransformation(currentPath + "/JAR-File-And-Scripts/configuration-scripts/transformations/astah-transformations.xml");
+		readTransformation(currentPath + "/src/main/resources/configuration-scripts/transformations/astah-transformations.xml");
 
 		model = new Model(metaModel);
 		xmiReader = new XMIReader(transformation, model);
@@ -160,7 +162,7 @@ public class TestModelConverter {
 			case "node":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					String nodeKind = me.getPlainAttribute("kind");
+					String nodeKind = me.getPlainAttribute("type");
 					switch (nodeKind) {
 					case "executable":
 					case "uml:OpaqueAction":
@@ -177,16 +179,16 @@ public class TestModelConverter {
 					case "uml:DecisionNode":
 					case "uml:MergeNode":
 					case "junction":
-						Collection<?> incomingNodes = me.getSetAttribute("incoming");
+						Collection<?> incomingEdges = me.getSetAttribute("incomingEdges");
 						// difference between merge and decision nodes is checked with the number of incoming edges
-						if (incomingNodes.size() > 1) {
+						if (incomingEdges.size() > 1) {
 							ad.addMergeNode(new MergeNode(me.getXMIID(), ad));
 						} else {
 							ad.addDecisionNode(new DecisionNode(me.getXMIID(), ad));
 						}
 						break;
 					default:
-						System.out.println("Found Node of unknown kind.");
+						System.out.println("Found Node of unknown type.");
 						break;
 					}
 				}

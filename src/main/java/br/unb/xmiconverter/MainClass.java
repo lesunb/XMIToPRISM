@@ -1,5 +1,7 @@
 package br.unb.xmiconverter;
 
+import br.unb.xmiconverter.util.MessageController;
+
 public class MainClass {
 
 	final static Integer MINIMUM_ARGUMENTS = 2;

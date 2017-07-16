@@ -1,5 +1,4 @@
 - mudança de nome da variável de estados no PRISM gerado pela UnB-DALi (um nome menor, como "s", ajudará na legilibilidade)
 - criação de arquivo de propriedades (.pctl) com as propriedades mais comuns (faz sentido?)
 - nível de análise: reachability (fórmula: P =?[F(phi)])
-- criação de uma super classe Diagram com o atributo "tipo" para diferenciar os diagramas AD e SD
 

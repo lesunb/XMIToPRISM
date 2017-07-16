@@ -25,6 +25,9 @@ import br.unb.dali.models.agg.uml.ad.nodes.control.MergeNode;
 import br.unb.dali.models.agg.uml.ad.nodes.executable.ExecutableNode;
 import br.unb.dali.models.agg.uml.sd.Lifeline;
 import br.unb.dali.util.prism.PRISMModel;
+import br.unb.xmiconverter.util.FileWriter;
+import br.unb.xmiconverter.util.MessageController;
+import br.unb.xmiconverter.util.PathController;
 
 public class ModelConverter {
 
@@ -133,7 +136,6 @@ public class ModelConverter {
 				elements = model.getAcceptedElements(type);
 				ModelElement diagramElement = elements.get(0);
 				String diagramType = diagramElement.getPlainAttribute("type");
-
 				switch (diagramType) {
 				case "Activity Diagram":
 				case "uml:Activity":
@@ -162,8 +164,8 @@ public class ModelConverter {
 			case "node":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					String nodeKind = me.getPlainAttribute("kind");
-					switch (nodeKind) {
+					String nodeType = me.getPlainAttribute("type");
+					switch (nodeType) {
 					case "executable":
 					case "uml:OpaqueAction":
 						ad.addExecutableNode(new ExecutableNode(me.getXMIID(), ad));
@@ -179,16 +181,16 @@ public class ModelConverter {
 					case "uml:DecisionNode":
 					case "uml:MergeNode":
 					case "junction":
-						Collection<?> incomingNodes = me.getSetAttribute("incoming");
+						Collection<?> incomingEdges = me.getSetAttribute("incomingEdges");
 						// difference between merge and decision nodes is checked with the number of incoming edges
-						if (incomingNodes.size() > 1) {
+						if (incomingEdges.size() > 1) {
 							ad.addMergeNode(new MergeNode(me.getXMIID(), ad));
 						} else {
 							ad.addDecisionNode(new DecisionNode(me.getXMIID(), ad));
 						}
 						break;
 					default:
-						System.out.println("Found Node of unknown kind.");
+						System.out.println("Found Node of unknown type.");
 						break;
 					}
 				}
