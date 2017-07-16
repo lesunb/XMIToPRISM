@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_H2sJoJ-ZEeaXsdCm9DcbIA" name="RootElement">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_H364sJ-ZEeaXsdCm9DcbIA" name="Activity1" node="_KSL7sJ-ZEeaXsdCm9DcbIA _MPANsJ-ZEeaXsdCm9DcbIA _Nr63oJ-ZEeaXsdCm9DcbIA _PUEhMJ-ZEeaXsdCm9DcbIA _VyKmAJ-ZEeaXsdCm9DcbIA _WQlnYJ-ZEeaXsdCm9DcbIA">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_YG3MgJ-ZEeaXsdCm9DcbIA" target="_Nr63oJ-ZEeaXsdCm9DcbIA" source="_KSL7sJ-ZEeaXsdCm9DcbIA">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_nCL8UJ-ZEeaXsdCm9DcbIA" name="PTS" value="1.0"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ZcdGcJ-ZEeaXsdCm9DcbIA" target="_WQlnYJ-ZEeaXsdCm9DcbIA" source="_Nr63oJ-ZEeaXsdCm9DcbIA">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_qbEjsJ-ZEeaXsdCm9DcbIA" name="PTS" value="0.5"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_Z_7m8J-ZEeaXsdCm9DcbIA" target="_VyKmAJ-ZEeaXsdCm9DcbIA" source="_Nr63oJ-ZEeaXsdCm9DcbIA">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_sJOuoJ-ZEeaXsdCm9DcbIA" name="PTS" value="0.5"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_c4PQ0J-ZEeaXsdCm9DcbIA" target="_PUEhMJ-ZEeaXsdCm9DcbIA" source="_VyKmAJ-ZEeaXsdCm9DcbIA">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_v9EzsJ-ZEeaXsdCm9DcbIA" name="PTS" value="1.0"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_dYIR0J-ZEeaXsdCm9DcbIA" target="_PUEhMJ-ZEeaXsdCm9DcbIA" source="_WQlnYJ-ZEeaXsdCm9DcbIA">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_uue5oJ-ZEeaXsdCm9DcbIA" name="PTS" value="1.0"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_d-lN0J-ZEeaXsdCm9DcbIA" target="_MPANsJ-ZEeaXsdCm9DcbIA" source="_PUEhMJ-ZEeaXsdCm9DcbIA">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_xmoygJ-ZEeaXsdCm9DcbIA" name="PTS" value="1.0"/>
+    </edge>
+    <node xmi:type="uml:InitialNode" xmi:id="_KSL7sJ-ZEeaXsdCm9DcbIA" name="Inicio" outgoing="_YG3MgJ-ZEeaXsdCm9DcbIA"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_MPANsJ-ZEeaXsdCm9DcbIA" name="Fim" incoming="_d-lN0J-ZEeaXsdCm9DcbIA"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_Nr63oJ-ZEeaXsdCm9DcbIA" name="" incoming="_YG3MgJ-ZEeaXsdCm9DcbIA" outgoing="_ZcdGcJ-ZEeaXsdCm9DcbIA _Z_7m8J-ZEeaXsdCm9DcbIA"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_PUEhMJ-ZEeaXsdCm9DcbIA" name="" incoming="_c4PQ0J-ZEeaXsdCm9DcbIA _dYIR0J-ZEeaXsdCm9DcbIA" outgoing="_d-lN0J-ZEeaXsdCm9DcbIA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_VyKmAJ-ZEeaXsdCm9DcbIA" name="Action2" incoming="_Z_7m8J-ZEeaXsdCm9DcbIA" outgoing="_c4PQ0J-ZEeaXsdCm9DcbIA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_WQlnYJ-ZEeaXsdCm9DcbIA" name="Action1" incoming="_ZcdGcJ-ZEeaXsdCm9DcbIA" outgoing="_dYIR0J-ZEeaXsdCm9DcbIA"/>
+  </packagedElement>
+</uml:Model>

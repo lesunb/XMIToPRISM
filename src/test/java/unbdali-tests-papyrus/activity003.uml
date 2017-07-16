@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_yBadIKEREeaekP2_CBTjuw" name="RootElement">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_yBjnEKEREeaekP2_CBTjuw" name="Activity1" node="_zxyOkKEREeaekP2_CBTjuw _1vzacKEREeaekP2_CBTjuw _4X0lkKEREeaekP2_CBTjuw">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_6FmWAKEREeaekP2_CBTjuw" target="_4X0lkKEREeaekP2_CBTjuw" source="_zxyOkKEREeaekP2_CBTjuw">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_T7OQMKESEeaekP2_CBTjuw" name="PTS" value="0.3"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_9Y5SwKEREeaekP2_CBTjuw" target="_1vzacKEREeaekP2_CBTjuw" source="_4X0lkKEREeaekP2_CBTjuw">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_WZaJ4KESEeaekP2_CBTjuw" name="PTS" value="0.9"/>
+    </edge>
+    <node xmi:type="uml:InitialNode" xmi:id="_zxyOkKEREeaekP2_CBTjuw" name="Inicio" outgoing="_6FmWAKEREeaekP2_CBTjuw"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_1vzacKEREeaekP2_CBTjuw" name="Fim" incoming="_9Y5SwKEREeaekP2_CBTjuw"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_4X0lkKEREeaekP2_CBTjuw" name="Action1" incoming="_6FmWAKEREeaekP2_CBTjuw" outgoing="_9Y5SwKEREeaekP2_CBTjuw"/>
+  </packagedElement>
+</uml:Model>

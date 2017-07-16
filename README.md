@@ -8,13 +8,13 @@ We assume that the user is familiar with the Astah UML tool.
 
 The real number of the probability, **p**, is a number where 0.0 &#8804; **p** &#8804; 1.0
 
-## Activity Diagrams
+### Activity Diagrams
 To annotate the probability in your **transitions**:
 1. Select an edge.
 2. Select the tab "TaggedValue" and create a new TaggedValue by clicking on the "Add" button.
 3. Give a name ("p", or "PTS") and insert the probability real number, **p**,  in the "Value" field.
 
-## Sequence Diagrams
+### Sequence Diagrams
 To annotate the probability in your **components**:
 1. Select a lifeline.
 2. Select the tab "TaggedValue" and create a new TaggedValue by clicking on the "Add" button.
@@ -23,28 +23,33 @@ To annotate the probability in your **components**:
 # How to use the transformation tool
 To conduct the transformation, we assume that you have your UML model/project ready on the Astah Professional tool, properly annotated with the probabilities.
 
-Follow these steps:
+### Get the XMI file
 
 1- Inside Astah Professional, with your opened project, click on Tools > XML Input & Output > Save as XML Project.
 
 2- Go to the folder where the project is and copy the generated XML file.
 
-3- Open the XMI-PRISM-Converter project on Eclipse. ***(this solution is temporary for now)***
+### Run the JAR via terminal
 
-4- Paste your XML file inside the "tests" folder. 
+1- Open the XMI-PRISM-Converter project on Eclipse.
 
-5- Open the MainClass on the br.unb.xmiconverter package.
+2- Go to the "JAR File and scripts" folder. Copy the contents of this folder. The contents are the folder "configuration-scripts" and the latest version of the JAR named "xpconverter.jar" (short for XMI-To-PRISM Converter).
 
-6- Go on menu Run > Run Configurations...
+3- Paste these contents in the folder where the .XMI file is.
 
-7- Click on the tab "Arguments" and in the box "Program arguments" insert 2 lines:
-	1) Name of the UML modeling tool that generated the XMI file. Currently there is only "astah" and "papyrus" options. More options will
-	be available in the future.
-	2) Name of the path of your file, relative to the root folder of the project.
-		The name will probably be "tests/<nameofyourfile>.xml". To get this name you can right click on your file on Eclipse and select "Copy Qualified Name", paste and adjust the name accordingly.
+4- Through the terminal/prompt, go to this folder and enter:
 
-8- Finally, click on "Apply" and "Run".
+java -jar xpconverter.jar <UML_MODELING_TOOL> <name_of_the_file>
 
-9- The result in PRISM language is in text form on the console, starting with "dtmc" and ending with "endmodule". A file with the same name and a ".pm" extension is generated inside the same folder. If the original diagram is well-constructed, the &#60;filename&#62;.pm is a PRISM compilable file.
-In case you don't see the output file, refresh the project (hotkey: F5).
+Where <UML_MODELING_TOOL> is the UML Tool in which the file was created (currently the options are only "astah" and "papyrus") and <name_of_the_file> is the name of the XMI file.
+
+So, for example, if you want to run an XMI file, exported by Astah, with the name "ad01.xml", you have to enter:
+
+**java -jar xpconverter.jar astah ad01.xml**
+
+and press enter.
+
+Observation: Make sure you have Java installed and added to your PATH environment variable.
+
+5- The result will be out on the prompt console but also an output will be created in the same folder, with the extension ".pm". Be aware that the output file will **only be created if the diagram is well constructed**, according to the rules of the UnB-DALi Library.
 
