@@ -9,11 +9,11 @@ public class TestAstahUnbdali_ADs {
 
 	static final String umlTool = "astah";
 	static String testsFolder = System.getProperty("user.dir") + "/tests/astah/unbdali/";
-	TestModelConverter converter;
+	ModelConverter converter;
 
 	@Before
 	public void setUp() {
-		converter = TestModelConverter.getInstance();
+		converter = ModelConverter.getInstance();
 	}
 
 	@Test

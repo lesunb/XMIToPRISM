@@ -9,11 +9,11 @@ public class TestPapyrusUnbdali_SDs {
 
 	static final String umlTool = "papyrus";
 	static String testsFolder = System.getProperty("user.dir") + "/tests/papyrus/unbdali/";
-	TestModelConverter converter;
+	ModelConverter converter;
 
 	@Before
 	public void setUp() {
-		converter = TestModelConverter.getInstance();
+		converter = ModelConverter.getInstance();
 	}
 
 	@Test
@@ -21,9 +21,7 @@ public class TestPapyrusUnbdali_SDs {
 		String xmiFile = testsFolder + "sequence001.uml";
 		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
 	}
-	
+
 	// TODO Jefferson
-	
-	
-	
+
 }

@@ -33,7 +33,6 @@ public class ModelConverter {
 
 	private static ModelConverter instance = null;
 
-	private boolean conversionSuccess = false;
 	private XMLParser parser = null;
 	private MetaModel metaModel = new MetaModel();
 	private Model model = null;
@@ -41,7 +40,6 @@ public class ModelConverter {
 	private XMIReader xmiReader = null;
 	private ActivityDiagram ad = null;
 	private SequenceDiagram sd = null;
-	private PRISMModel prismModel = null;
 	private long startTime = 0;
 	private long endTime = 0;
 
@@ -64,8 +62,11 @@ public class ModelConverter {
 	 * 5. Access the UML model, type by type, and construct the diagram with the support of UnB-DALi's classes
 	 * 6. Convert UML diagrams to DTMCs in PRISM language
 	 * 7. Show the results on console and creates an output file on the same folder of the model
+	 * 
+	 * iterateOverModelAndBuildDiagram() method returns a boolean to see if every element met the criteria.
 	 * */
 	protected boolean convert(String umlTool, String xmiFile) {
+		boolean sucessfulConversion = false;
 		readMetamodel(PathController.getMetamodelPath().toString());
 
 		transformation = new XMITransformations(metaModel);
@@ -78,16 +79,19 @@ public class ModelConverter {
 		String[] filters = { "#.java", "#.javax", "#.org.xml" };
 		model.setFilter(filters, false, true);
 
-		iterateOverModelAndBuildDiagram();
+		boolean elementsOK = iterateOverModelAndBuildDiagram();
 
-		convertToPrism();
-		conversionSuccess = true;
+		if (elementsOK) {
+			PRISMModel prismModel = convertToPrism();
+			if (prismModel != null) {
+				String transformationResult = prismModel.toString();
+				createOuputFile(transformationResult, xmiFile);
+				printResultOnConsole(xmiFile, transformationResult, getTimeInMilliseconds(startTime, endTime));
+				sucessfulConversion = true;
+			}
+		}
 
-		String transformationResult = prismModel.toString();
-		createOuputFile(transformationResult, xmiFile);
-		printResultOnConsole(transformationResult, getTimeInMilliseconds(startTime, endTime));
-
-		return conversionSuccess;
+		return sucessfulConversion;
 	}
 
 	private void readMetamodel(String metaModelPath) {
@@ -122,11 +126,13 @@ public class ModelConverter {
 		}
 	}
 
-	private void iterateOverModelAndBuildDiagram() {
+	private boolean iterateOverModelAndBuildDiagram() {
+		boolean operationSuccess = true;
+
 		for (MetaModelElement type : metaModel) {
 			List<ModelElement> elements;
-
 			String elementType = type.getName();
+
 			switch (elementType) {
 
 			// Activity or Sequence diagrams.
@@ -145,8 +151,12 @@ public class ModelConverter {
 					break;
 				default:
 					System.out.println("No diagram type found.");
-					System.exit(0);
+					operationSuccess = false;
 					break;
+				}
+
+				if (!operationSuccess) {
+					return operationSuccess;
 				}
 				break;
 
@@ -188,8 +198,13 @@ public class ModelConverter {
 						}
 						break;
 					default:
-						System.out.println("Found Node of unknown type.");
+						System.out.println("Found node of unknown type.");
+						operationSuccess = false;
 						break;
+					}
+
+					if (!operationSuccess) {
+						return operationSuccess;
 					}
 				}
 				break;
@@ -204,10 +219,15 @@ public class ModelConverter {
 						prob = Double.parseDouble(me.getPlainAttribute("probability"));
 					} catch (Exception e) {
 						System.out.println("Found edge without associated probability or wrong number format. Fix the UML model.");
-						System.exit(0);
+						operationSuccess = false;
 					}
-					cf.setPTS(prob);
-					ad.addControlFlow(cf);
+
+					if (operationSuccess) {
+						cf.setPTS(prob);
+						ad.addControlFlow(cf);
+					} else {
+						return operationSuccess;
+					}
 				}
 				break;
 
@@ -221,10 +241,15 @@ public class ModelConverter {
 						prob = Double.parseDouble(me.getPlainAttribute("BCompRel"));
 					} catch (Exception e) {
 						System.out.println("Found Lifeline without associated probability or wrong number format. Fix the UML model.");
-						System.exit(0);
+						operationSuccess = false;
 					}
-					lifeline.setBCompRel(prob);
-					sd.addLifeline(lifeline);
+
+					if (operationSuccess) {
+						lifeline.setBCompRel(prob);
+						sd.addLifeline(lifeline);
+					} else {
+						return operationSuccess;
+					}
 				}
 				break;
 
@@ -235,13 +260,17 @@ public class ModelConverter {
 					sd.addAsyncMessage(me.getXMIID(), me.getPlainAttribute("source"), me.getPlainAttribute("target"), "DefaultSignal");
 				}
 				break;
+
 			default:
 				break;
 			}
 		}
+
+		return operationSuccess;
 	}
 
-	private void convertToPrism() {
+	private PRISMModel convertToPrism() {
+		PRISMModel prismModel = null;
 		if (ad != null || sd != null) {
 			try {
 				if (ad != null) {
@@ -257,6 +286,7 @@ public class ModelConverter {
 				e.printStackTrace();
 			}
 		}
+		return prismModel;
 	}
 
 	private void createOuputFile(String transformationResult, String xmiFile) {
@@ -267,9 +297,9 @@ public class ModelConverter {
 		return (endTime - startTime) / 1000000.0;
 	}
 
-	private void printResultOnConsole(String transformationResult, double conversionTime) {
+	private void printResultOnConsole(String xmiFile, String transformationResult, double conversionTime) {
+		MessageController.printHeader(xmiFile);
 		MessageController.print(transformationResult);
-		MessageController.printConversionTime(conversionTime);
-		MessageController.printCompletionMessage();
+		MessageController.printCompletionMessage(conversionTime);
 	}
 }

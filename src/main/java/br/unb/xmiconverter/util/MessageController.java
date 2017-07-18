@@ -8,13 +8,15 @@ public class MessageController {
 		System.out.println(string);
 	}
 
-	public static void printConversionTime(double conversionTime) {
-		DecimalFormat decimalFormat = new DecimalFormat("#.0");
-		System.out.println("Conversion time (ms): " + decimalFormat.format(conversionTime).replace(",", "."));
+	public static void printHeader(String filename) {
+		System.out.println("Conversion for file " + filename + "\n");
 	}
 
-	public static void printCompletionMessage() {
+	public static void printCompletionMessage(double conversionTime) {
+		DecimalFormat decimalFormat = new DecimalFormat("#.0");
+		System.out.println("Conversion time (ms): " + decimalFormat.format(conversionTime).replace(",", "."));
 		System.out.println("Conversion completed.");
+		System.out.println("****************************************\n");
 	}
 
 }
