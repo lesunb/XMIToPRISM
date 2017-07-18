@@ -67,7 +67,7 @@ public class ModelConverter {
 	protected boolean convert(String umlTool, String xmiFile) {
 		MessageController.printHeader(xmiFile);
 
-		boolean sucessfulConversion = false;
+		boolean conversionSuccess = false;
 		readMetamodel(PathController.getMetamodelPath().toString());
 
 		transformation = new XMITransformations(metaModel);
@@ -85,15 +85,13 @@ public class ModelConverter {
 		if (elementsOK) {
 			PRISMModel prismModel = convertToPrism();
 			if (prismModel != null) {
-				String transformationResult = prismModel.toString();
-				FileController.writePrismFile(transformationResult, xmiFile);
-				MessageController.print(transformationResult);
-				MessageController.printCompletionMessage(TimeController.getTimeInMilliseconds());
-				sucessfulConversion = true;
+				conversionSuccess = true;
+				FileController.writePrismFile(prismModel.toString(), xmiFile);
 			}
 		}
 
-		return sucessfulConversion;
+		MessageController.printResultOfConversion(conversionSuccess);
+		return conversionSuccess;
 	}
 
 	private void readMetamodel(String metaModelPath) {

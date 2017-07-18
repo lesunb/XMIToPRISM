@@ -8,7 +8,6 @@ public class PathController {
 
 	private static final String metamodelFolder = "/configuration-scripts/";
 	private static final String transformationsFolder = "/configuration-scripts/transformations/";
-
 	private static final URL metamodelPath = PathController.class.getResource(metamodelFolder + "metamodel-unb_dali.xml");
 
 	public static URL getMetamodelPath() {

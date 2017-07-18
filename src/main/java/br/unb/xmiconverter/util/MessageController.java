@@ -9,7 +9,15 @@ public class MessageController {
 	}
 
 	public static void printHeader(String filename) {
-		System.out.println("Conversion for file " + filename);
+		System.out.print("Conversion for file " + filename + ": ");
+	}
+
+	public static void printResultOfConversion(boolean result) {
+		if (result) {
+			System.out.print("[SUCCESS]\n");
+		} else {
+			System.out.print("[FAIL]\n");
+		}
 	}
 
 	public static void printCompletionMessage(double conversionTime) {

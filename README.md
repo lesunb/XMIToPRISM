@@ -20,7 +20,7 @@ Follow the instructions for your tool inside the folder "docs/UML Tools Instruct
 
 4- Through the terminal/prompt, go to this folder and enter:
 
-java -jar xpconverter.jar <UML_MODELING_TOOL> <name_of_the_file>
+java -jar xpconverter.jar <UML_MODELING_TOOL> [all] <name_of_file1> <name_of_file2>
 
 Where <UML_MODELING_TOOL> is the UML Tool in which the file was created (currently the options are only "astah" and "papyrus") and <name_of_the_file> is the name of the XMI file.
 
@@ -28,9 +28,14 @@ So, for example, if you want to run an XMI file, exported by Astah, with the nam
 
 **java -jar xpconverter.jar astah ad01.xml**
 
-and press enter.
+If you want to run 3 files, for example, named "sd01.xml", "sd02.xml" and "sd03.xml" you have to enter:
 
-Observation: Make sure you have Java installed and added to your PATH environment variable.
+**java -jar xpconverter.jar astah sd01.xml sd02.xml sd03.xml**
 
-5- The result will be out on the prompt console but also an output file will be created in the same folder, with the extension ".pm". Be aware that the output file will **only be created if the diagram is well constructed**, according to the rules of the UnB-DALi Library.
+And if you want you can run the conversion of ALL the XMI/XML files inside the current folder, you have to enter:
 
+**java -jar xpconverter.jar astah all**
+
+5- The result of the conversion will be out on the prompt console as "SUCCESS" or "FAIL" by the side of the file name. An output file will be created in the same folder, with the extension ".pm" (a PRISM file). Be aware that the output file will **only be created if the conversion is successful**, that is, that the diagram is well constructed according to the rules of the UnB-DALi Library.
+
+**Important: Make sure you have Java installed and added to your PATH environment variable.**
