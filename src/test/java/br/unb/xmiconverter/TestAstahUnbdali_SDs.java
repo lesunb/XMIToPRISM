@@ -17,50 +17,50 @@ public class TestAstahUnbdali_SDs {
 	}
 
 	@Test
-	public void testUnbdaliad01() {
-		String xmiFile = testsFolder + "sd-t01.xml";
+	public void testUnbdalisd01() {
+		String xmiFile = testsFolder + "sd01.xml";
 		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
 	}
 
 	@Test
-	public void testUnbdaliad02() {
-		String xmiFile = testsFolder + "sd-t02.xml";
+	public void testUnbdalisd02() {
+		String xmiFile = testsFolder + "sd02.xml";
 		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
 	}
 
 	@Test
-	public void testUnbdaliad03() {
-		String xmiFile = testsFolder + "sd-t03.xml";
+	public void testUnbdalisd03() {
+		String xmiFile = testsFolder + "sd03.xml";
 		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
 	}
 
 	@Test
-	public void testUnbdaliad04() {
-		String xmiFile = testsFolder + "sd-t04.xml";
+	public void testUnbdalisd04() {
+		String xmiFile = testsFolder + "sd04.xml";
 		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
 	}
 
 	@Test
-	public void testUnbdaliad05() {
-		String xmiFile = testsFolder + "sd-t05.xml";
+	public void testUnbdalisd05() {
+		String xmiFile = testsFolder + "sd05.xml";
 		Assert.assertEquals(false, converter.convert(umlTool, xmiFile));
 	}
 
 	@Test
-	public void testUnbdaliad06() {
-		String xmiFile = testsFolder + "sd-t06.xml";
+	public void testUnbdalisd06() {
+		String xmiFile = testsFolder + "sd06.xml";
 		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
 	}
 
 	@Test
-	public void testUnbdaliad07() {
-		String xmiFile = testsFolder + "sd-t07.xml";
+	public void testUnbdalisd07() {
+		String xmiFile = testsFolder + "sd07.xml";
 		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
 	}
 
 	@Test
-	public void testUnbdaliad08() {
-		String xmiFile = testsFolder + "sd-t08.xml";
+	public void testUnbdalisd08() {
+		String xmiFile = testsFolder + "sd08.xml";
 		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
 	}
 

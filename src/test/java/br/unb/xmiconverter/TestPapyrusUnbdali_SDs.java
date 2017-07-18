@@ -1,9 +1,8 @@
 package br.unb.xmiconverter;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import org.junit.Assert;
 
 public class TestPapyrusUnbdali_SDs {
 
@@ -22,6 +21,46 @@ public class TestPapyrusUnbdali_SDs {
 		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
 	}
 
-	// TODO Jefferson
+	@Test
+	public void testUnbdaliad02() {
+		String xmiFile = testsFolder + "sequence002.uml";
+		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
+	}
+
+	@Test
+	public void testUnbdaliad03() {
+		String xmiFile = testsFolder + "sequence003.uml";
+		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
+	}
+
+	@Test
+	public void testUnbdaliad04() {
+		String xmiFile = testsFolder + "sequence004.uml";
+		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
+	}
+
+	@Test
+	public void testUnbdaliad05() {
+		String xmiFile = testsFolder + "sequence005.uml";
+		Assert.assertEquals(false, converter.convert(umlTool, xmiFile));
+	}
+
+	@Test
+	public void testUnbdaliad06() {
+		String xmiFile = testsFolder + "sequence006.uml";
+		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
+	}
+
+	@Test
+	public void testUnbdaliad07() {
+		String xmiFile = testsFolder + "sequence007.uml";
+		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
+	}
+
+	@Test
+	public void testUnbdaliad08() {
+		String xmiFile = testsFolder + "sequence008.uml";
+		Assert.assertEquals(true, converter.convert(umlTool, xmiFile));
+	}
 
 }

@@ -1,4 +1,4 @@
 - mudança de nome da variável de estados no PRISM gerado pela UnB-DALi (um nome menor, como "s", ajudará na legilibilidade)
 - criação de arquivo de propriedades (.pctl) com as propriedades mais comuns (faz sentido?)
 - nível de análise: reachability (fórmula: P =?[F(phi)])
-
+- fazer os testes parametrizados divididos em testes com esperança de resultado correto e esperança de falha (assert true e false)

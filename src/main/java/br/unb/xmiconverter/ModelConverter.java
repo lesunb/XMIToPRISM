@@ -25,9 +25,10 @@ import br.unb.dali.models.agg.uml.ad.nodes.control.MergeNode;
 import br.unb.dali.models.agg.uml.ad.nodes.executable.ExecutableNode;
 import br.unb.dali.models.agg.uml.sd.Lifeline;
 import br.unb.dali.util.prism.PRISMModel;
-import br.unb.xmiconverter.util.FileWriter;
+import br.unb.xmiconverter.util.FileController;
 import br.unb.xmiconverter.util.MessageController;
 import br.unb.xmiconverter.util.PathController;
+import br.unb.xmiconverter.util.TimeController;
 
 public class ModelConverter {
 
@@ -40,8 +41,6 @@ public class ModelConverter {
 	private XMIReader xmiReader = null;
 	private ActivityDiagram ad = null;
 	private SequenceDiagram sd = null;
-	private long startTime = 0;
-	private long endTime = 0;
 
 	private ModelConverter() {
 	}
@@ -66,6 +65,8 @@ public class ModelConverter {
 	 * iterateOverModelAndBuildDiagram() method returns a boolean to see if every element met the criteria.
 	 * */
 	protected boolean convert(String umlTool, String xmiFile) {
+		MessageController.printHeader(xmiFile);
+
 		boolean sucessfulConversion = false;
 		readMetamodel(PathController.getMetamodelPath().toString());
 
@@ -85,8 +86,9 @@ public class ModelConverter {
 			PRISMModel prismModel = convertToPrism();
 			if (prismModel != null) {
 				String transformationResult = prismModel.toString();
-				createOuputFile(transformationResult, xmiFile);
-				printResultOnConsole(xmiFile, transformationResult, getTimeInMilliseconds(startTime, endTime));
+				FileController.writePrismFile(transformationResult, xmiFile);
+				MessageController.print(transformationResult);
+				MessageController.printCompletionMessage(TimeController.getTimeInMilliseconds());
 				sucessfulConversion = true;
 			}
 		}
@@ -269,18 +271,19 @@ public class ModelConverter {
 		return operationSuccess;
 	}
 
+	// TODO create one diagram with type attribute
 	private PRISMModel convertToPrism() {
 		PRISMModel prismModel = null;
 		if (ad != null || sd != null) {
 			try {
 				if (ad != null) {
-					startTime = System.nanoTime();
+					TimeController.setStartTimeNano();
 					prismModel = ad.toDTMC().toPRISM();
-					endTime = System.nanoTime();
+					TimeController.setEndTimeNano();
 				} else if (sd != null) {
-					startTime = System.nanoTime();
+					TimeController.setStartTimeNano();
 					prismModel = sd.toDTMC().toPRISM();
-					endTime = System.nanoTime();
+					TimeController.setEndTimeNano();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -289,17 +292,4 @@ public class ModelConverter {
 		return prismModel;
 	}
 
-	private void createOuputFile(String transformationResult, String xmiFile) {
-		FileWriter.writePrismFile(transformationResult, xmiFile);
-	}
-
-	private double getTimeInMilliseconds(long startTime, long endTime) {
-		return (endTime - startTime) / 1000000.0;
-	}
-
-	private void printResultOnConsole(String xmiFile, String transformationResult, double conversionTime) {
-		MessageController.printHeader(xmiFile);
-		MessageController.print(transformationResult);
-		MessageController.printCompletionMessage(conversionTime);
-	}
 }

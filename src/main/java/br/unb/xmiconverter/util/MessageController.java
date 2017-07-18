@@ -9,7 +9,7 @@ public class MessageController {
 	}
 
 	public static void printHeader(String filename) {
-		System.out.println("Conversion for file " + filename + "\n");
+		System.out.println("Conversion for file " + filename);
 	}
 
 	public static void printCompletionMessage(double conversionTime) {

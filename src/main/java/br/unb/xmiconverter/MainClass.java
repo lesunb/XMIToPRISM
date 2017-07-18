@@ -6,13 +6,14 @@ public class MainClass {
 
 	private static final Integer MINIMUM_ARGUMENTS = 2;
 
-	// TODO multiple files? for now, just one file
 	public static void main(String[] args) {
 		if (args.length >= MINIMUM_ARGUMENTS) {
 			String umlTool = args[0];
-			String xmiFile = args[1];
 			ModelConverter converter = ModelConverter.getInstance();
-			converter.convert(umlTool, xmiFile);
+			for (int i = 1; i < args.length; i++) {
+				String xmiFile = args[i];
+				converter.convert(umlTool, xmiFile);
+			}
 		} else {
 			MessageController.print("Not enough arguments. Need the UML Tool and the XMI filename.");
 		}

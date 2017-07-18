@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 
-public class FileWriter {
+public class FileController {
 
 	public static void writePrismFile(String transformationResult, String xmiFile) {
 		try (BufferedWriter bw = Files.newBufferedWriter(PathController.getOutputPath(xmiFile))) {
