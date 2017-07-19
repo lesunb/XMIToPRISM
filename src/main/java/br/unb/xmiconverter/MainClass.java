@@ -1,36 +1,50 @@
 package br.unb.xmiconverter;
 
 import java.io.File;
+import java.util.Scanner;
 
 import br.unb.xmiconverter.util.FileController;
 import br.unb.xmiconverter.util.MessageController;
 
 public class MainClass {
 
-	private static final Integer MINIMUM_ARGUMENTS = 2;
-	private static final String RUN_ALL_FLAG = "all";
+	private static final Integer NUMBER_SUPPORTED_TOOLS = 2;
 
 	public static void main(String[] args) {
-		if (args.length >= MINIMUM_ARGUMENTS) {
-			String umlTool = args[0];
-			ModelConverter converter = ModelConverter.getInstance();
-			if (args[1].equals(RUN_ALL_FLAG)) {
-				File folder = new File(System.getProperty("user.dir"));
-				File[] listOfFiles = folder.listFiles();
 
-				for (int i = 0; i < listOfFiles.length; i++) {
-					String filename = listOfFiles[i].getName();
-					if (listOfFiles[i].isFile() && FileController.isXmi(filename)) {
-						converter.convert(umlTool, filename);
-					}
-				}
-			} else {
-				for (int i = 1; i < args.length; i++) {
-					converter.convert(umlTool, args[i]);
+		int a = 0;
+		for (String s : args) {
+			System.out.println("args[" + a + "]: " + s);
+			a++;
+		}
+
+		MessageController.printToolOptionMenu();
+		Scanner reader = new Scanner(System.in);
+		Integer option = reader.nextInt();
+		while (option < 1 || option > NUMBER_SUPPORTED_TOOLS) {
+			MessageController.printOptionNotExistent(NUMBER_SUPPORTED_TOOLS);
+			MessageController.printToolOptionMenu();
+			option = reader.nextInt();
+		}
+		reader.close();
+		String umlTool = MessageController.getTool(option);
+
+		ModelConverter converter = ModelConverter.getInstance();
+
+		if (args.length == 0) {
+			// TODO filter xmi files right here. erase method isXmi
+			File folder = new File(System.getProperty("user.dir"));
+			File[] listOfFiles = folder.listFiles();
+			for (int i = 0; i < listOfFiles.length; i++) {
+				String filename = listOfFiles[i].getName();
+				if (listOfFiles[i].isFile() && FileController.isXmi(filename)) {
+					converter.convert(umlTool, filename);
 				}
 			}
 		} else {
-			MessageController.print("Not enough arguments. Need the UML Tool and the XMI filename.");
+			for (int i = 0; i < args.length; i++) {
+				converter.convert(umlTool, args[i]);
+			}
 		}
 	}
 }
