@@ -17,7 +17,7 @@ public class FileController {
 		}
 	}
 
-	public static boolean fileIsXmi(String inputStr) {
+	public static boolean isXmi(String inputStr) {
 		return Arrays.stream(acceptedFileExtensions).parallel().anyMatch(inputStr::contains);
 	}
 

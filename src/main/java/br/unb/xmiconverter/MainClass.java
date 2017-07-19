@@ -20,7 +20,7 @@ public class MainClass {
 
 				for (int i = 0; i < listOfFiles.length; i++) {
 					String filename = listOfFiles[i].getName();
-					if (listOfFiles[i].isFile() && FileController.fileIsXmi(filename)) {
+					if (listOfFiles[i].isFile() && FileController.isXmi(filename)) {
 						converter.convert(umlTool, filename);
 					}
 				}
