@@ -20,11 +20,11 @@ Follow the instructions for your tool inside the folder "docs/UML Tools Instruct
 	
 - If you want to convert all the XMI files inside the folder, run the command:
 	
-	'java -jar xpconverter.jar'
+`java -jar xpconverter.jar`
 
 - If you want to convert just one or any arbitrary number of files, just type their names as arguments. Example
 
-	java -jar xpconverter.jar diagram1.xml diagram2.xml ... diagramN.xml
+`java -jar xpconverter.jar diagram1.xml diagram2.xml ... diagramN.xml`
 
 3) Choose a number according to the tool that generated the XMI files.
 
