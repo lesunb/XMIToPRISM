@@ -11,25 +11,23 @@ Follow the instructions for your tool inside the folder "docs/UML Tools Instruct
 
 
 ## Run the JAR file via terminal
-
-1- Open the XMI-PRISM-Converter project on Eclipse.
-
-2- Go to the "build" folder. Copy the JAR File named "xpconverter.jar", short for XMI-To-PRISM Converter.
-
-3- Paste the JAR in the folder where the .XMI file(s) is.
-
-4- Through the terminal/prompt, go to this folder and enter:
-
-**java -jar xpconverter.jar**
-
-In this example you will convert all the XMI files inside the folder. Be sure that they were exported by the same UML tool.
-
-If you want to convert just one, or two, or any arbitrary number of files, just type them as arguments for the program. Example
-
-**java -jar xpconverter.jar diagram1.xml diagram2.xml ... diagramN.xml**
-
-5- At the start of the program you will be asked to choose an option, a number that corresponds to the tool that generated the XMI files.
-
-6- The result of the conversion(s) will be out on the prompt console as "SUCCESS" or "FAIL" by the side of the file name. An output file will be created in the same folder, with the extension ".pm" (a PRISM file) for each successfully converted file.
-
 **Important: Make sure you have Java installed and added to your PATH environment variable.**
+
+1) Get the JAR file in the "build" folder. Copy and paste inside the folder where your XMI files are.
+*Be sure that these files come from the same tool.
+
+2) Go to this folder via terminal and enter a command according to what you want to do.
+	
+- If you want to convert all the XMI files inside the folder, run the command:
+	
+	'java -jar xpconverter.jar'
+
+- If you want to convert just one or any arbitrary number of files, just type their names as arguments. Example
+
+	java -jar xpconverter.jar diagram1.xml diagram2.xml ... diagramN.xml
+
+3) Choose a number according to the tool that generated the XMI files.
+
+4) The result of the conversion(s) will be out on the prompt console as "SUCCESS" or "FAIL" by the side of the file name.
+
+An output file will be created in the same folder, with the extension ".pm" (a PRISM file) for each **successfully** converted file.
