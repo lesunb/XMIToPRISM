@@ -3,10 +3,12 @@ package br.unb.xmiconverter.util;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class MessageController {
 
 	private static final Map<Integer, String> toolsMap = createMap();
+	private static final Integer NUMBER_SUPPORTED_TOOLS = 2;
 
 	public static void print(String string) {
 		System.out.println(string);
@@ -52,6 +54,19 @@ public class MessageController {
 	public static String getTool(Integer option) {
 		String tool = toolsMap.get(option);
 		return tool;
+	}
+
+	public static String startMenu() {
+		MessageController.printToolOptionMenu();
+		Scanner reader = new Scanner(System.in);
+		Integer option = reader.nextInt();
+		while (option < 1 || option > NUMBER_SUPPORTED_TOOLS) {
+			MessageController.printOptionNotExistent(NUMBER_SUPPORTED_TOOLS);
+			MessageController.printToolOptionMenu();
+			option = reader.nextInt();
+		}
+		reader.close();
+		return MessageController.getTool(option);
 	}
 
 }

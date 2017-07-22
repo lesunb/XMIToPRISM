@@ -1,6 +1,8 @@
 package br.unb.xmiconverter.util;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Arrays;
@@ -17,8 +19,21 @@ public class FileController {
 		}
 	}
 
-	public static boolean isXmi(String inputStr) {
-		return Arrays.stream(acceptedFileExtensions).parallel().anyMatch(inputStr::contains);
+	public static File[] getXmiFiles() {
+		File currentDirectory = new File(System.getProperty("user.dir"));
+
+		FilenameFilter textFilter = new FilenameFilter() {
+			public boolean accept(File currentDirectory, String name) {
+				String lowercaseName = name.toLowerCase();
+				if (Arrays.stream(acceptedFileExtensions).parallel().anyMatch(lowercaseName::endsWith)) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		};
+
+		return currentDirectory.listFiles(textFilter);
 	}
 
 }

@@ -29,9 +29,9 @@ public class ModelConverter_PARAMETERIZEDTEST {
 		File folder = new File(testsFolder);
 		File[] listOfFiles = folder.listFiles();
 		for (int i = 0; i < listOfFiles.length; i++) {
-			if (listOfFiles[i].isFile() && FileController.isXmi(listOfFiles[i].getName())) {
-				xmiFiles.add(testsFolder + listOfFiles[i].getName());
-			}
+			// if (listOfFiles[i].isFile() && FileController.isXmi(listOfFiles[i].getName())) {
+			// xmiFiles.add(testsFolder + listOfFiles[i].getName());
+			// }
 		}
 		converter = ModelConverter.getInstance();
 	}
