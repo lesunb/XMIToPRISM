@@ -1,98 +1,54 @@
 package br.unb.xmiconverter;
 
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
 
-import org.junit.Assert;
-
+@RunWith(Parameterized.class)
 public class ModelConverter_AstahUnbdaliSuccess {
-
 	static final String umlTool = "astah";
-	static String testsFolder = System.getProperty("user.dir") + "/tests/astah/unbdali/expected-success/";
-	boolean expectedResult = true;
-	ModelConverter converter;
+	static final boolean expectedResult = true;
+	static String testsFolder = System.getProperty("user.dir") + "\\tests\\astah\\unbdali\\expected-success\\";
+	static ModelConverter converter;
 
-	@Before
-	public void setUp() {
+	@BeforeClass
+	public static void setUp() {
 		converter = ModelConverter.getInstance();
 	}
 
-	@Test
-	public void testUnbdaliSuccess01() {
-		String xmiFile = testsFolder + "ad01.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
+	@Parameters(name = "{index}: File: {0}")
+	public static Collection<Object[]> data() {
+		// @formatter:off
+		return Arrays.asList(new Object[][] { { testsFolder + "ad01.xml" },
+											  { testsFolder + "ad04.xml" },
+											  { testsFolder + "ad05.xml" },
+											  { testsFolder + "ad06.xml" },
+											  { testsFolder + "ad07.xml" },
+											  { testsFolder + "ad10.xml" },
+											  { testsFolder + "sd01.xml" },
+											  { testsFolder + "sd02.xml" },
+											  { testsFolder + "sd03.xml" },
+											  { testsFolder + "sd04.xml" },
+											  { testsFolder + "sd06.xml" },
+											  { testsFolder + "sd07.xml" },
+											  { testsFolder + "sd08.xml" }});
 	}
+	//@formatter:on
+
+	@Parameter(0)
+	public String filename;
 
 	@Test
-	public void testUnbdaliSuccess02() {
-		String xmiFile = testsFolder + "ad04.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
-	}
-
-	@Test
-	public void testUnbdaliSuccess03() {
-		String xmiFile = testsFolder + "ad05.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
-	}
-
-	@Test
-	public void testUnbdaliSuccess04() {
-		String xmiFile = testsFolder + "ad06.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
-	}
-
-	@Test
-	public void testUnbdaliSuccess05() {
-		String xmiFile = testsFolder + "ad07.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
-	}
-
-	@Test
-	public void testUnbdaliSuccess06() {
-		String xmiFile = testsFolder + "ad10.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
-	}
-
-	@Test
-	public void testUnbdaliSuccess07() {
-		String xmiFile = testsFolder + "sd01.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
-	}
-
-	@Test
-	public void testUnbdaliSuccess08() {
-		String xmiFile = testsFolder + "sd02.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
-	}
-
-	@Test
-	public void testUnbdaliSuccess09() {
-		String xmiFile = testsFolder + "sd03.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
-	}
-
-	@Test
-	public void testUnbdaliSuccess10() {
-		String xmiFile = testsFolder + "sd04.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
-	}
-
-	@Test
-	public void testUnbdaliSuccess11() {
-		String xmiFile = testsFolder + "sd06.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
-	}
-
-	@Test
-	public void testUnbdaliSuccess12() {
-		String xmiFile = testsFolder + "sd07.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
-	}
-
-	@Test
-	public void testUnbdaliSuccess13() {
-		String xmiFile = testsFolder + "sd08.xml";
-		Assert.assertEquals(expectedResult, converter.convert(umlTool, xmiFile));
+	public void correctConversion() {
+		assertEquals(expectedResult, converter.convert(umlTool, filename));
 	}
 
 }

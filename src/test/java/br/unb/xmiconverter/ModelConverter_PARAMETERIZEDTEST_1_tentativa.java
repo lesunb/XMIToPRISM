@@ -13,8 +13,8 @@ import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class ModelConverter_PapyrusUnbdaliSuccess {
-	static final String umlTool = "papyrus";
+public class ModelConverter_PARAMETERIZEDTEST_1_tentativa {
+	static final String umlTool = "astah";
 	static final boolean expectedResult = true;
 	static String testsFolder = System.getProperty("user.dir") + "\\tests\\astah\\unbdali\\expected-success\\";
 	static ModelConverter converter;
@@ -27,7 +27,6 @@ public class ModelConverter_PapyrusUnbdaliSuccess {
 	@Parameters(name = "{index}: File: {0}")
 	public static Collection<Object[]> data() {
 		// @formatter:off
-		// TODO PREENCHER OS NOMES
 		return Arrays.asList(new Object[][] { { testsFolder + "ad01.xml" },
 											  { testsFolder + "ad04.xml" },
 											  { testsFolder + "ad05.xml" },

@@ -21,7 +21,6 @@ public class FileController {
 
 	public static File[] getXmiFiles() {
 		File currentDirectory = new File(System.getProperty("user.dir"));
-
 		FilenameFilter textFilter = new FilenameFilter() {
 			public boolean accept(File currentDirectory, String name) {
 				String lowercaseName = name.toLowerCase();
@@ -32,8 +31,11 @@ public class FileController {
 				}
 			}
 		};
-
 		return currentDirectory.listFiles(textFilter);
+	}
+
+	public static String[] getAcceptedfileextensions() {
+		return acceptedFileExtensions;
 	}
 
 }
