@@ -25,6 +25,7 @@ import br.unb.dali.models.agg.uml.ad.nodes.control.MergeNode;
 import br.unb.dali.models.agg.uml.ad.nodes.executable.ExecutableNode;
 import br.unb.dali.models.agg.uml.sd.Lifeline;
 import br.unb.dali.util.prism.PRISMModel;
+import br.unb.xmiconverter.util.DiagramController;
 import br.unb.xmiconverter.util.FileController;
 import br.unb.xmiconverter.util.MessageController;
 import br.unb.xmiconverter.util.PathController;
@@ -39,8 +40,6 @@ public class ModelConverter {
 	private Model model = null;
 	private XMITransformations transformation = null;
 	private XMIReader xmiReader = null;
-	private ActivityDiagram ad = null;
-	private SequenceDiagram sd = null;
 
 	private ModelConverter() {
 	}
@@ -52,7 +51,8 @@ public class ModelConverter {
 		return instance;
 	}
 
-	/*-
+	// @formatter:off
+	/*
 	 * Main method of the class. Calls all the other methods necessary to access the information on the XMI file in order. The steps are:
 	 * 1. Read the metamodel
 	 * 2. Read the XMI transformation file
@@ -60,10 +60,11 @@ public class ModelConverter {
 	 * 4. Optionally, specify element filters to get rid of standard libraries or 3rd party APIs
 	 * 5. Access the UML model, type by type, and construct the diagram with the support of UnB-DALi's classes
 	 * 6. Convert UML diagrams to DTMCs in PRISM language
-	 * 7. Show the results on console and creates an output file on the same folder of the model
+	 * 7. Show result of conversion on console and creates an output file on the same folder of the model
 	 * 
-	 * iterateOverModelAndBuildDiagram() method returns a boolean to see if every element met the criteria.
+	 * iterateOverModelAndBuildDiagram() method returns a boolean to see if every element was correct to be added to the diagram.
 	 * */
+	// @formatter:on
 	protected boolean convert(String umlTool, String xmiFile) {
 		MessageController.printHeader(xmiFile);
 
@@ -127,7 +128,7 @@ public class ModelConverter {
 	}
 
 	private boolean iterateOverModelAndBuildDiagram() {
-		boolean operationSuccess = true;
+		boolean elementAdditionSuccess = true;
 
 		for (MetaModelElement type : metaModel) {
 			List<ModelElement> elements;
@@ -143,20 +144,20 @@ public class ModelConverter {
 				switch (diagramType) {
 				case "Activity Diagram":
 				case "uml:Activity":
-					ad = new ActivityDiagram(diagramElement.getXMIID(), diagramElement.getName());
+					DiagramController.setActivityDiagram(new ActivityDiagram(diagramElement.getXMIID(), diagramElement.getName()));
 					break;
 				case "Sequence Diagram":
 				case "uml:Interaction":
-					sd = new SequenceDiagram(diagramElement.getXMIID(), diagramElement.getName());
+					DiagramController.setSequenceDiagram(new SequenceDiagram(diagramElement.getXMIID(), diagramElement.getName()));
 					break;
 				default:
 					System.out.println("No diagram type found.");
-					operationSuccess = false;
+					elementAdditionSuccess = false;
 					break;
 				}
 
-				if (!operationSuccess) {
-					return operationSuccess;
+				if (!elementAdditionSuccess) {
+					return elementAdditionSuccess;
 				}
 				break;
 
@@ -164,7 +165,7 @@ public class ModelConverter {
 			case "action":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					ad.addExecutableNode(new ExecutableNode(me.getXMIID(), ad));
+					DiagramController.getActivityDiagram().addExecutableNode(new ExecutableNode(me.getXMIID(), DiagramController.getActivityDiagram()));
 				}
 				break;
 
@@ -176,15 +177,15 @@ public class ModelConverter {
 					switch (nodeType) {
 					case "executable":
 					case "uml:OpaqueAction":
-						ad.addExecutableNode(new ExecutableNode(me.getXMIID(), ad));
+						DiagramController.getActivityDiagram().addExecutableNode(new ExecutableNode(me.getXMIID(), DiagramController.getActivityDiagram()));
 						break;
 					case "initial":
 					case "uml:InitialNode":
-						ad.addInitialNode(new InitialNode(me.getXMIID(), ad));
+						DiagramController.getActivityDiagram().addInitialNode(new InitialNode(me.getXMIID(), DiagramController.getActivityDiagram()));
 						break;
 					case "activityfinal":
 					case "uml:ActivityFinalNode":
-						ad.addFinalNode(new FinalNode(me.getXMIID(), ad));
+						DiagramController.getActivityDiagram().addFinalNode(new FinalNode(me.getXMIID(), DiagramController.getActivityDiagram()));
 						break;
 					case "uml:DecisionNode":
 					case "uml:MergeNode":
@@ -192,19 +193,19 @@ public class ModelConverter {
 						Collection<?> incomingEdges = me.getSetAttribute("incomingEdges");
 						// difference between merge and decision nodes is checked with the number of incoming edges
 						if (incomingEdges.size() > 1) {
-							ad.addMergeNode(new MergeNode(me.getXMIID(), ad));
+							DiagramController.getActivityDiagram().addMergeNode(new MergeNode(me.getXMIID(), DiagramController.getActivityDiagram()));
 						} else {
-							ad.addDecisionNode(new DecisionNode(me.getXMIID(), ad));
+							DiagramController.getActivityDiagram().addDecisionNode(new DecisionNode(me.getXMIID(), DiagramController.getActivityDiagram()));
 						}
 						break;
 					default:
 						System.out.println("Found node of unknown type.");
-						operationSuccess = false;
+						elementAdditionSuccess = false;
 						break;
 					}
 
-					if (!operationSuccess) {
-						return operationSuccess;
+					if (!elementAdditionSuccess) {
+						return elementAdditionSuccess;
 					}
 				}
 				break;
@@ -213,20 +214,20 @@ public class ModelConverter {
 			case "controlflow":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					ControlFlow cf = new ControlFlow(me.getXMIID(), me.getPlainAttribute("source"), me.getPlainAttribute("target"), ad);
+					ControlFlow cf = new ControlFlow(me.getXMIID(), me.getPlainAttribute("source"), me.getPlainAttribute("target"), DiagramController.getActivityDiagram());
 					Double prob = null;
 					try {
 						prob = Double.parseDouble(me.getPlainAttribute("probability"));
 					} catch (Exception e) {
 						System.out.println("Found edge without associated probability or wrong number format. Fix the UML model.");
-						operationSuccess = false;
+						elementAdditionSuccess = false;
 					}
 
-					if (operationSuccess) {
+					if (elementAdditionSuccess) {
 						cf.setPTS(prob);
-						ad.addControlFlow(cf);
+						DiagramController.getActivityDiagram().addControlFlow(cf);
 					} else {
-						return operationSuccess;
+						return elementAdditionSuccess;
 					}
 				}
 				break;
@@ -235,20 +236,20 @@ public class ModelConverter {
 			case "lifeline":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					Lifeline lifeline = new Lifeline(me.getXMIID(), me.getName(), sd);
+					Lifeline lifeline = new Lifeline(me.getXMIID(), me.getName(), DiagramController.getSequenceDiagram());
 					Double prob = null;
 					try {
 						prob = Double.parseDouble(me.getPlainAttribute("BCompRel"));
 					} catch (Exception e) {
 						System.out.println("Found Lifeline without associated probability or wrong number format. Fix the UML model.");
-						operationSuccess = false;
+						elementAdditionSuccess = false;
 					}
 
-					if (operationSuccess) {
+					if (elementAdditionSuccess) {
 						lifeline.setBCompRel(prob);
-						sd.addLifeline(lifeline);
+						DiagramController.getSequenceDiagram().addLifeline(lifeline);
 					} else {
-						return operationSuccess;
+						return elementAdditionSuccess;
 					}
 				}
 				break;
@@ -257,7 +258,7 @@ public class ModelConverter {
 			case "asynchronousmessage":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					sd.addAsyncMessage(me.getXMIID(), me.getPlainAttribute("source"), me.getPlainAttribute("target"), "DefaultSignal");
+					DiagramController.getSequenceDiagram().addAsyncMessage(me.getXMIID(), me.getPlainAttribute("source"), me.getPlainAttribute("target"), "DefaultSignal");
 				}
 				break;
 
@@ -266,21 +267,21 @@ public class ModelConverter {
 			}
 		}
 
-		return operationSuccess;
+		return elementAdditionSuccess;
 	}
 
-	// TODO create one diagram with type attribute
+	// TODO create one diagram with type attribute?
 	private PRISMModel convertToPrism() {
 		PRISMModel prismModel = null;
-		if (ad != null || sd != null) {
+		if (DiagramController.getActivityDiagram() != null || DiagramController.getSequenceDiagram() != null) {
 			try {
-				if (ad != null) {
+				if (DiagramController.getActivityDiagram() != null) {
 					TimeController.setStartTimeNano();
-					prismModel = ad.toDTMC().toPRISM();
+					prismModel = DiagramController.getActivityDiagram().toDTMC().toPRISM();
 					TimeController.setEndTimeNano();
-				} else if (sd != null) {
+				} else if (DiagramController.getSequenceDiagram() != null) {
 					TimeController.setStartTimeNano();
-					prismModel = sd.toDTMC().toPRISM();
+					prismModel = DiagramController.getSequenceDiagram().toDTMC().toPRISM();
 					TimeController.setEndTimeNano();
 				}
 			} catch (Exception e) {

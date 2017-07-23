@@ -1,24 +1,45 @@
 <?xml version="1.0"?>
 <!DOCTYPE xmitransformations SYSTEM 'xmitrans.dtd'>
 
-<!-- xmiTrans2_0.xml XMI transformations for the SDMetrics V2.3 default metamodel for UML2.x and XMI 2.x source files. Copyright 
-	(c) 2002-2013 Juergen Wuest The MIT License Permission is hereby granted, free of charge, to any person obtaining a copy 
-	of this SDMetrics project file (the "Project File"), to deal in the Project File without restriction, including without limitation 
-	the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Project File, and to permit 
-	persons to whom the Project File is furnished to do so, subject to the following conditions: The above copyright notice and 
-	this permission notice shall be included in all copies or substantial portions of the Project File. THE PROJECT FILE IS PROVIDED 
-	"AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
-	CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION 
-	WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE PROJECT FILE. Note: this license grant only applies to this Project 
-	File, and not to any other part of SDMetrics. -->
+<!-- 
+
+XMI transformations for the SDMetrics V2.3 default metamodel
+for UML2.x and XMI 2.x source files.
+
+Copyright (c) 2002-2013 Juergen Wuest
+
+The MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this SDMetrics project file (the "Project File"), to deal in the Project File 
+without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Project File, and to permit persons to whom the Project File is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Project File.
+
+THE PROJECT FILE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE PROJECT FILE.
+
+Note: this license grant only applies to this Project File, and not to any
+other part of SDMetrics.
+
+ -->
 
 <!-- ************************************************************************************* -->
 <!-- Framework for the user to create a transformations file adapted to your modeling tool -->
 <!-- ************************************************************************************* -->
 <xmitransformations version="2.0">
 
-	<!-- If you don't have an answer for your question, check the SDMetrics Manual inside the docs folder. -->
+	<!-- If you don't have an answer for your question, check the SDMetrics Manual inside the docs folder.
+	 	 or on the website: http://www.sdmetrics.com/manual/MetaTrans.html -->
 
 	<!-- GENERAL TIPS AND EXPLANATION -->
 	<!-- "modelelement" is the name of the Metamodel element you are referring to -->

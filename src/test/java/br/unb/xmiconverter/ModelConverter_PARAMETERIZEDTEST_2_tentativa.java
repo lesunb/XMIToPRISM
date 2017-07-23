@@ -23,7 +23,7 @@ public class ModelConverter_PARAMETERIZEDTEST_2_tentativa {
 	static final String umlTool = "astah";
 	static final boolean expectedResult = true;
 	static String testsFolder = System.getProperty("user.dir") + "\\tests\\astah\\unbdali\\expected-success\\";
-	static ModelConverter converter;
+	static ZModelConverter_backup converter;
 	static File[] listOfFiles;
 
 	@BeforeClass
@@ -44,7 +44,7 @@ public class ModelConverter_PARAMETERIZEDTEST_2_tentativa {
 		listOfFiles = directory.listFiles(textFilter);
 
 		// initialize the converter to begin tests
-		converter = ModelConverter.getInstance();
+		converter = ZModelConverter_backup.getInstance();
 	}
 
 	@Parameters(name = "{index}: File: {0}")

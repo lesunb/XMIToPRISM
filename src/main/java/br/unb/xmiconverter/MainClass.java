@@ -8,7 +8,7 @@ import br.unb.xmiconverter.util.MessageController;
 public class MainClass {
 	public static void main(String[] args) {
 		String umlTool = MessageController.startMenu();
-		ModelConverter converter = ModelConverter.getInstance();
+		ZModelConverter_backup converter = ZModelConverter_backup.getInstance();
 
 		// if the user runs the .JAR with no arguments, it converts all XMI files inside the folder
 		if (args.length == 0) {

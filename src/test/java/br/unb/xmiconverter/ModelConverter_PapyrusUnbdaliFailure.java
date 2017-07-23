@@ -17,11 +17,11 @@ public class ModelConverter_PapyrusUnbdaliFailure {
 	static final String umlTool = "papyrus";
 	static final boolean expectedResult = false;
 	static String testsFolder = System.getProperty("user.dir") + "\\tests\\papyrus\\unbdali\\expected-failure\\";
-	static ModelConverter converter;
+	static ZModelConverter_backup converter;
 
 	@BeforeClass
 	public static void setUp() {
-		converter = ModelConverter.getInstance();
+		converter = ZModelConverter_backup.getInstance();
 	}
 
 	@Parameters(name = "{index}: File: {0}")
