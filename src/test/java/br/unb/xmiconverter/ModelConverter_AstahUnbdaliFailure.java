@@ -17,11 +17,11 @@ public class ModelConverter_AstahUnbdaliFailure {
 	static final String umlTool = "astah";
 	static final boolean expectedResult = false;
 	static String testsFolder = System.getProperty("user.dir") + "\\tests\\astah\\unbdali\\expected-failure\\";
-	static ZModelConverter_backup converter;
+	static Converter converter;
 
 	@BeforeClass
 	public static void setUp() {
-		converter = ZModelConverter_backup.getInstance();
+		converter = Converter.getInstance();
 	}
 
 	@Parameters(name = "{index}: File: {0}")

@@ -14,7 +14,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
-import br.unb.xmiconverter.util.FileController;
+import br.unb.xmiconverter.util.FileUtil;
 
 // TODO Problem of iteration of a list going as arguments to vector
 @RunWith(Parameterized.class)
@@ -23,7 +23,7 @@ public class ModelConverter_PARAMETERIZEDTEST_2_tentativa {
 	static final String umlTool = "astah";
 	static final boolean expectedResult = true;
 	static String testsFolder = System.getProperty("user.dir") + "\\tests\\astah\\unbdali\\expected-success\\";
-	static ZModelConverter_backup converter;
+	static Converter converter;
 	static File[] listOfFiles;
 
 	@BeforeClass
@@ -34,7 +34,7 @@ public class ModelConverter_PARAMETERIZEDTEST_2_tentativa {
 		FilenameFilter textFilter = new FilenameFilter() {
 			public boolean accept(File directory, String name) {
 				String lowercaseName = name.toLowerCase();
-				if (Arrays.stream(FileController.getAcceptedfileextensions()).parallel().anyMatch(lowercaseName::endsWith)) {
+				if (Arrays.stream(FileUtil.getAcceptedFileExtensions()).parallel().anyMatch(lowercaseName::endsWith)) {
 					return true;
 				} else {
 					return false;
@@ -44,7 +44,7 @@ public class ModelConverter_PARAMETERIZEDTEST_2_tentativa {
 		listOfFiles = directory.listFiles(textFilter);
 
 		// initialize the converter to begin tests
-		converter = ZModelConverter_backup.getInstance();
+		converter = Converter.getInstance();
 	}
 
 	@Parameters(name = "{index}: File: {0}")

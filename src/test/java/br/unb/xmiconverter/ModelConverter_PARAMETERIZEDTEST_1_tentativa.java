@@ -17,11 +17,11 @@ public class ModelConverter_PARAMETERIZEDTEST_1_tentativa {
 	static final String umlTool = "astah";
 	static final boolean expectedResult = true;
 	static String testsFolder = System.getProperty("user.dir") + "\\tests\\astah\\unbdali\\expected-success\\";
-	static ZModelConverter_backup converter;
+	static Converter converter;
 
 	@BeforeClass
 	public static void setUp() {
-		converter = ZModelConverter_backup.getInstance();
+		converter = Converter.getInstance();
 	}
 
 	@Parameters(name = "{index}: File: {0}")
