@@ -7,7 +7,7 @@ This project is to attempt to extract the information of an UML diagram in the f
 
 ## Annotate the probabilities and Export the XMI file of your diagram
 
-Follow the instructions for your tool inside the folder "docs/UML Tools Instructions".
+Follow the instructions for your tool inside the folder "docs/UML Modeling Tools Instructions".
 
 
 ## Run the JAR file via terminal
