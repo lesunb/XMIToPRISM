@@ -30,8 +30,8 @@ public class MessageUtil {
 		return toolsMap;
 	}
 
-	public static void printResultOfConversion(String filename, boolean result) {
-		System.out.print("Conversion for file [" + filename + "]: ");
+	public static void printResultOfConversion(String filePath, boolean result) {
+		System.out.print("File " + FileUtil.getFileNameFromPathInString(filePath) + ": ");
 		if (result) {
 			System.out.print("[SUCCESS]\n");
 		} else {

@@ -38,4 +38,14 @@ public class FileUtil {
 		return acceptedFileExtensions;
 	}
 
+	public static String getFileNameFromPathInString(String filePath) {
+		String filename = "";
+		if (filePath.lastIndexOf('\\') != -1) {
+			filename = filePath.substring(filePath.lastIndexOf('\\') + 1, filePath.length());
+		} else {
+			filename = filePath.substring(filePath.lastIndexOf('/') + 1, filePath.length());
+		}
+		return filename;
+	}
+
 }
