@@ -23,8 +23,7 @@ public class PathUtil {
 	}
 
 	public static Path getOutputPath(String xmiFile) {
-		Path outputPath = Paths.get(xmiFile.substring(0, xmiFile.lastIndexOf('.')) + ".pm");
-		return outputPath;
+		return Paths.get(xmiFile.substring(0, xmiFile.lastIndexOf('.')) + ".pm");
 	}
 
 }

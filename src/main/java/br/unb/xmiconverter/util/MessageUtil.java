@@ -15,7 +15,7 @@ public class MessageUtil {
 		Scanner reader = new Scanner(System.in);
 		Integer option = reader.nextInt();
 		while (option < 1 || option > NUMBER_SUPPORTED_TOOLS) {
-			MessageUtil.printOptionNotExistent(NUMBER_SUPPORTED_TOOLS);
+			MessageUtil.printNonExistentOption(NUMBER_SUPPORTED_TOOLS);
 			MessageUtil.printToolOptionMenu();
 			option = reader.nextInt();
 		}
@@ -30,15 +30,12 @@ public class MessageUtil {
 		return toolsMap;
 	}
 
-	public static void printHeader(String filename) {
-		System.out.print("Conversion for file " + filename + ": ");
-	}
-
-	public static void printResultOfConversion(boolean result) {
+	public static void printResultOfConversion(String filename, boolean result) {
+		System.out.print("Conversion for file [" + filename + "]: ");
 		if (result) {
 			System.out.print("[SUCCESS]\n");
 		} else {
-			System.out.print("[FAIL]\n");
+			System.out.print("[FAIL]\n\n");
 		}
 	}
 
@@ -56,7 +53,7 @@ public class MessageUtil {
 		System.out.print("Enter a number: ");
 	}
 
-	public static void printOptionNotExistent(Integer numberOfTools) {
+	public static void printNonExistentOption(Integer numberOfTools) {
 		System.out.println("\nYou must select a number between 1 and " + numberOfTools + "!. Try again.");
 	}
 
@@ -64,6 +61,5 @@ public class MessageUtil {
 		String tool = toolsMap.get(option);
 		return tool;
 	}
-
 
 }

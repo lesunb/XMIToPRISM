@@ -16,7 +16,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 import br.unb.xmiconverter.util.FileUtil;
 
-// TODO Problem of iteration of a list going as arguments to vector
+// TODO arguments as list to initialize vector
 @RunWith(Parameterized.class)
 public class ModelConverter_PARAMETERIZEDTEST_2_tentativa {
 

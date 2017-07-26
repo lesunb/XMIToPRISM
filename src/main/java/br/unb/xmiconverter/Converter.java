@@ -27,7 +27,7 @@ public class Converter {
 	}
 
 	// @formatter:off
-	/* 1. Build MetalModel and model (with the help of configuration files and the XMI file
+	/* 1. Build MetalModel and model (with the configuration files and the XMI file)
 	 * 2. Iterate over MetaModel elements and build a diagram with the elements found in the model
 	 * 3. Convert to PRISM using UnB-DALi
 	 * 4. Write output file
@@ -35,12 +35,10 @@ public class Converter {
 	 * */
 	// @formatter:on
 	protected boolean convert(String umlModelingTool, String xmiFile) {
-		MessageUtil.printHeader(xmiFile);
 		ModelBuilder.buildModel(umlModelingTool, xmiFile);
 		AbstractAggModel diagram = DiagramBuilder.buildDiagram(ModelBuilder.getMetaModel(), ModelBuilder.getModel());
-
 		boolean conversionResult = false;
-		// diagram is converted if there were no errors during it's construction
+		// diagram is converted to PRISM if there were no errors during it's construction
 		if (diagram != null) {
 			PRISMModel prismModel = convertToPRISM(diagram);
 			if (prismModel != null) {
@@ -49,8 +47,7 @@ public class Converter {
 
 			}
 		}
-
-		MessageUtil.printResultOfConversion(conversionResult);
+		MessageUtil.printResultOfConversion(xmiFile, conversionResult);
 		return conversionResult;
 	}
 
@@ -59,8 +56,9 @@ public class Converter {
 		long startTime = 0;
 		long finishTime = 0;
 
+		// TODO check an auto cast solution
 		try {
-			if (diagram.getClass().isInstance(ActivityDiagram.class)) {
+			if (diagram.getClass().getSimpleName().equals("ActivityDiagram")) {
 				startTime = TimeUtil.getTimeNano();
 				prismModel = ((ActivityDiagram) diagram).toDTMC().toPRISM();
 				finishTime = TimeUtil.getTimeNano();

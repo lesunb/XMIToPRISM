@@ -45,7 +45,7 @@ other part of SDMetrics.
 	</xmitransformation>
 
 	<!-- Diagram -->
-	<!-- ID -->
+	<!-- attribute id is different for AD and SD -->
 	<xmitransformation modelelement="diagram" xmipattern="UML:Namespace.ownedElement" recurse="true">
 		<trigger name="id" type="cattrval" src="UML:ActivityGraph" attr="xmi.id" />
 	</xmitransformation>
@@ -53,23 +53,23 @@ other part of SDMetrics.
 		<trigger name="id" type="cattrval" src="UML:Collaboration" attr="xmi.id" />
 	</xmitransformation>
 
-	<!-- NAME -->
+	<!-- attribute name -->
 	<xmitransformation modelelement="diagram" xmipattern="UML:Model" recurse="true">
 		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
 
-	<!-- TYPE: ACTIVITY OR SEQUENCE -->
+	<!-- attribute type -->
 	<xmitransformation modelelement="diagram" xmipattern="UML:ActivityGraph" recurse="true">
-		<trigger name="type" type="constant" attr="Activity Diagram" />
+		<trigger name="type" type="constant" attr="uml:Activity" />
 	</xmitransformation>
 	<xmitransformation modelelement="diagram" xmipattern="UML:Collaboration" recurse="true">
-		<trigger name="type" type="constant" attr="Sequence Diagram" />
+		<trigger name="type" type="constant" attr="uml:Interaction" />
 	</xmitransformation>
 
 	<!-- Nodes -->
 	<!-- Executable Node -->
 	<xmitransformation modelelement="node" xmipattern="UML:ActionState" recurse="true">
-		<trigger name="type" type="constant" attr="executable" />
+		<trigger name="type" type="constant" attr="uml:OpaqueAction" />
 	</xmitransformation>
 
 	<!-- Initial Node, Decision Node and Merge Node -->

@@ -1,6 +1,6 @@
 package br.unb.xmiconverter.builder;
 
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.List;
 
 import com.sdmetrics.model.MetaModel;
@@ -21,93 +21,58 @@ import br.unb.dali.models.agg.uml.sd.Lifeline;
 
 public class DiagramBuilder {
 
+	// Different type names for the diagram elements. May differ depending on the modeling tool
+	static String[] adTypes = { "uml:Activity" };
+	static String[] sdTypes = { "uml:Interaction" };
+	static String[] initialNodeTypes = { "initial", "uml:InitialNode" };
+	static String[] executableNodeTypes = { "uml:OpaqueAction" };
+	static String[] junctionNodeTypes = { "junction", "uml:DecisionNode", "uml:MergeNode" };
+	static String[] decisionNodeTypes = { "uml:DecisionNode" };
+	static String[] mergeNodeTypes = { "uml:MergeNode" };
+	static String[] finalNodeTypes = { "activityfinal", "uml:ActivityFinalNode" };
+
 	public static AbstractAggModel buildDiagram(MetaModel metaModel, Model model) {
 		AbstractAggModel diagram = null;
 		boolean elementAdditionSuccess = true;
 
 		for (MetaModelElement type : metaModel) {
-			List<ModelElement> elements;
 			String elementType = type.getName();
-
-			switch (elementType) {
-
-			// TODO Only processing one diagram for now
-			// Activity or Sequence diagrams
-			case "diagram":
+			List<ModelElement> elements;
+			// DIAGRAMS
+			if (elementType.equals("diagram")) {
 				elements = model.getAcceptedElements(type);
-				ModelElement diagramElement = elements.get(0);
-				String diagramType = diagramElement.getPlainAttribute("type");
-				switch (diagramType) {
-				case "Activity Diagram":
-				case "uml:Activity":
-					diagram = new ActivityDiagram(diagramElement.getXMIID(), diagramElement.getName());
-					break;
-				case "Sequence Diagram":
-				case "uml:Interaction":
-					diagram = new SequenceDiagram(diagramElement.getXMIID(), diagramElement.getName());
-					break;
-				default:
+				ModelElement me = elements.get(0);
+				if (modelElementIsOfType(me, adTypes)) {
+					diagram = new ActivityDiagram(me.getXMIID(), me.getName());
+				} else if (modelElementIsOfType(me, sdTypes)) {
+					diagram = new SequenceDiagram(me.getXMIID(), me.getName());
+				} else {
 					System.out.println("No diagram type found.");
-					elementAdditionSuccess = false;
-					break;
-				}
-
-				if (!elementAdditionSuccess) {
 					return null;
 				}
-				break;
-
-			// Activity Diagram's - Executable Action
-			case "action":
+				// AD NODES
+			} else if (elementType.equals("node")) {
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					((ActivityDiagram) diagram).addExecutableNode(new ExecutableNode(me.getXMIID(), (ActivityDiagram) diagram));
-				}
-				break;
-
-			// Activity Diagram's - Initial, Final, Decision and Merge nodes.
-			case "node":
-				elements = model.getAcceptedElements(type);
-				for (ModelElement me : elements) {
-					String nodeType = me.getPlainAttribute("type");
-					switch (nodeType) {
-					case "executable":
-					case "uml:OpaqueAction":
-						((ActivityDiagram) diagram).addExecutableNode(new ExecutableNode(me.getXMIID(), (ActivityDiagram) diagram));
-						break;
-					case "initial":
-					case "uml:InitialNode":
+					if (modelElementIsOfType(me, initialNodeTypes)) {
 						((ActivityDiagram) diagram).addInitialNode(new InitialNode(me.getXMIID(), (ActivityDiagram) diagram));
-						break;
-					case "activityfinal":
-					case "uml:ActivityFinalNode":
-						((ActivityDiagram) diagram).addFinalNode(new FinalNode(me.getXMIID(), (ActivityDiagram) diagram));
-						break;
-					case "uml:DecisionNode":
-					case "uml:MergeNode":
-					case "junction":
-						Collection<?> incomingEdges = me.getSetAttribute("incomingEdges");
-						// difference between merge and decision nodes is checked with the number of incoming edges
-						if (incomingEdges.size() > 1) {
-							((ActivityDiagram) diagram).addMergeNode(new MergeNode(me.getXMIID(), (ActivityDiagram) diagram));
-						} else {
+					} else if (modelElementIsOfType(me, executableNodeTypes)) {
+						((ActivityDiagram) diagram).addExecutableNode(new ExecutableNode(me.getXMIID(), (ActivityDiagram) diagram));
+					} else if (modelElementIsOfType(me, junctionNodeTypes)) {
+						if (modelElementIsOfType(me, decisionNodeTypes) || me.getSetAttribute("incomingEdges").size() == 1) {
 							((ActivityDiagram) diagram).addDecisionNode(new DecisionNode(me.getXMIID(), (ActivityDiagram) diagram));
+						} else {
+							((ActivityDiagram) diagram).addMergeNode(new MergeNode(me.getXMIID(), (ActivityDiagram) diagram));
 						}
-						break;
-					default:
+					} else if (modelElementIsOfType(me, finalNodeTypes)) {
+						((ActivityDiagram) diagram).addFinalNode(new FinalNode(me.getXMIID(), (ActivityDiagram) diagram));
+					} else {
 						System.out.println("Found node of unknown type.");
-						elementAdditionSuccess = false;
-						break;
-					}
-
-					if (!elementAdditionSuccess) {
 						return null;
 					}
 				}
-				break;
-
-			// Activity Diagram's - Edges
-			case "controlflow":
+				// AD EDGES
+			} else if (elementType.equals("controlflow")) {
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
 					ControlFlow cf = new ControlFlow(me.getXMIID(), me.getPlainAttribute("source"), me.getPlainAttribute("target"), (ActivityDiagram) diagram);
@@ -126,10 +91,8 @@ public class DiagramBuilder {
 						return null;
 					}
 				}
-				break;
-
-			// Sequence Diagram's - Lifelines
-			case "lifeline":
+				// SD LIFELINES
+			} else if (elementType.equals("lifeline")) {
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
 					Lifeline lifeline = new Lifeline(me.getXMIID(), me.getName(), (SequenceDiagram) diagram);
@@ -148,21 +111,23 @@ public class DiagramBuilder {
 						return null;
 					}
 				}
-				break;
-
-			// Sequence Diagram's - Asynchronous Messages
-			case "asynchronousmessage":
+				// SD ASYNCHRONOUS MESSAGES
+			} else if (elementType.equals("asynchronousmessage")) {
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
 					((SequenceDiagram) diagram).addAsyncMessage(me.getXMIID(), me.getPlainAttribute("source"), me.getPlainAttribute("target"), "DefaultSignal");
 				}
-				break;
-
-			default:
-				break;
 			}
+
 		}
 		return diagram;
+	}
+
+	private static boolean modelElementIsOfType(ModelElement me, String[] typeList) {
+		if (Arrays.stream(typeList).parallel().anyMatch(me.getPlainAttribute("type")::contains)) {
+			return true;
+		}
+		return false;
 	}
 
 }

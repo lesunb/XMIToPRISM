@@ -13,14 +13,14 @@ public class MainClass {
 
 		// if the user runs the .JAR with no arguments, it converts all XMI files inside the folder
 		if (args.length == 0) {
-			File[] listOfXmiFiles = FileUtil.getListOfXmiFilesInFolder(PathUtil.getCurrentFolder());
-			for (int i = 0; i < listOfXmiFiles.length; i++) {
-				converter.convert(umlModelingTool, listOfXmiFiles[i].getName());
+			File[] listXMIFiles = FileUtil.getListOfXmiFilesInFolder(PathUtil.getCurrentFolder());
+			for (File file : listXMIFiles) {
+				converter.convert(umlModelingTool, file.getName());
 			}
 			// else just converts what came in as arguments
 		} else {
-			for (int i = 0; i < args.length; i++) {
-				converter.convert(umlModelingTool, args[i]);
+			for (String file : args) {
+				converter.convert(umlModelingTool, file);
 			}
 		}
 	}
