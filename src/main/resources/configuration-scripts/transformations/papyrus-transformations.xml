@@ -53,16 +53,19 @@ other part of SDMetrics.
 	</xmitransformation>
 
 	<xmitransformation modelelement="controlflow" xmipattern="edge" recurse="true">
+		<trigger name="type" type="constant" attr="controlflow"/>
 		<trigger name="source" type="attrval" attr="source" />
 		<trigger name="target" type="attrval" attr="target" />
 		<trigger name="probability" type="cattrval" src="weight" attr="value" />
 	</xmitransformation>
 
 	<xmitransformation modelelement="lifeline" xmipattern="lifeline" recurse="true">
+		<trigger name="type" type="constant" attr="lifeline"/>
 		<trigger name="BCompRel" type="cattrval" src="selector" attr="value" />
 	</xmitransformation>
 
-	<xmitransformation modelelement="asynchronousmessage" xmipattern="fragment" recurse="true">
+	<xmitransformation modelelement="message" xmipattern="fragment" recurse="true">
+		<trigger name="type" type="constant" attr="asynchronous" />
 		<trigger name="source" type="attrval" attr="covered" />
 		<trigger name="target" type="attrval" attr="covered" />
 	</xmitransformation>

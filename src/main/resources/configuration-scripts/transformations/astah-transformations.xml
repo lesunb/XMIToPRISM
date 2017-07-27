@@ -85,6 +85,7 @@ other part of SDMetrics.
 
 	<!-- Edges -->
 	<xmitransformation modelelement="controlflow" xmipattern="UML:Transition" recurse="true">
+		<trigger name="type" type="constant" attr="controlflow"/>
 		<trigger name="source" type="gcattrval" src="UML:Transition.source" attr="xmi.idref" />
 		<trigger name="target" type="gcattrval" src="UML:Transition.target" attr="xmi.idref" />
 		<trigger name="probability" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value" />
@@ -92,11 +93,13 @@ other part of SDMetrics.
 
 	<!-- Lifeline -->
 	<xmitransformation modelelement="lifeline" xmipattern="UML:ClassifierRole" recurse="true">
+		<trigger name="type" type="constant" attr="lifeline"/>
 		<trigger name="BCompRel" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value" />
 	</xmitransformation>
 
 	<!-- Asynchronous Message -->
-	<xmitransformation modelelement="asynchronousmessage" xmipattern="UML:Message" recurse="true">
+	<xmitransformation modelelement="message" xmipattern="UML:Message" recurse="true">
+		<trigger name="type" type="constant" attr="asynchronous" />
 		<trigger name="source" type="gcattrval" src="UML:Message.sender" attr="xmi.idref" />
 		<trigger name="target" type="gcattrval" src="UML:Message.receiver" attr="xmi.idref" />
 	</xmitransformation>

@@ -87,6 +87,7 @@ other part of SDMetrics.
 
 	<!-- Activity Diagram Control Flow -->
 	<xmitransformation modelelement="controlflow" xmipattern="TAG_OF_CONTROL_FLOW" recurse="true">
+		<trigger name="type" type="constant" attr="controlflow"/>
 		<trigger name="source" type="" attr="" />
 		<trigger name="target" type="" attr="" />
 		<trigger name="probability" type="" attr="" />
@@ -94,6 +95,7 @@ other part of SDMetrics.
 
 	<!-- Sequence Diagram Lifeline/Component -->
 	<xmitransformation modelelement="lifeline" xmipattern="TAG_OF_LIFELINE" recurse="true">
+		<trigger name="type" type="constant" attr="lifeline"/>
 		<trigger name="BCompRel" type="" attr="" />
 	</xmitransformation>
 

@@ -56,6 +56,7 @@ other part of SDMetrics.
 
 	<!-- AD's Edges -->
 	<modelelement name="controlflow">
+		<attribute name="type" type="data" multiplicity="one">The type of the control flow.</attribute>
 		<attribute name="source" type="data" multiplicity="one">Source of the control flow.</attribute>
 		<attribute name="target" type="data" multiplicity="one">Target of the control flow.</attribute>
 		<attribute name="probability" type="data" multiplicity="one">Probability of the control flow.</attribute>
@@ -63,11 +64,13 @@ other part of SDMetrics.
 
 	<!-- SD's Lifelines -->
 	<modelelement name="lifeline">
+	<attribute name="type" type="data" multiplicity="one">The type of the lifeline.</attribute>
 		<attribute name="BCompRel" type="data" multiplicity="one">The probability associated with a lifeline (component).</attribute>
 	</modelelement>
 
 	<!-- SD's Asynchronous Messages -->
-	<modelelement name="asynchronousmessage">
+	<modelelement name="message">
+		<attribute name="type" type="data" multiplicity="one">The type of message (only asyncrhonous for now)</attribute>
 		<attribute name="source" type="data" multiplicity="one">The sender of the asynchronous message.</attribute>
 		<attribute name="target" type="data" multiplicity="one">The receiver of the asynchronous message.</attribute>
 	</modelelement>
