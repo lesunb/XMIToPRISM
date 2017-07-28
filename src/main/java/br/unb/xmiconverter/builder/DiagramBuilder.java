@@ -17,12 +17,12 @@ import br.unb.dali.models.agg.uml.ad.nodes.control.InitialNode;
 import br.unb.dali.models.agg.uml.ad.nodes.control.MergeNode;
 import br.unb.dali.models.agg.uml.ad.nodes.executable.ExecutableNode;
 import br.unb.dali.models.agg.uml.sd.Lifeline;
-import br.unb.xmiconverter.util.ElementNames;
 import br.unb.xmiconverter.util.ElementUtils;
 
 public class DiagramBuilder {
 
 	public static AbstractAggModel buildDiagram(MetaModel metaModel, Model model) {
+		ElementUtils eu = new ElementUtils();
 		AbstractAggModel diagram = null;
 
 		for (MetaModelElement type : metaModel) {
@@ -35,9 +35,9 @@ public class DiagramBuilder {
 			case "diagram":
 				elements = model.getAcceptedElements(type);
 				ModelElement e = elements.get(0);
-				if (ElementUtils.getElementTypeName(e).equals(ElementNames.ACTIVITY.getElement())) {
+				if (eu.isAD(e)) {
 					diagram = new ActivityDiagram(e.getXMIID(), e.getName());
-				} else if (ElementUtils.getElementTypeName(e).equals(ElementNames.SEQUENCE.getElement())) {
+				} else if (eu.isSD(e)) {
 					diagram = new SequenceDiagram(e.getXMIID(), e.getName());
 				} else {
 					System.out.println("Diagram type not found.");
@@ -49,18 +49,18 @@ public class DiagramBuilder {
 			case "node":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
-					if (ElementUtils.getElementTypeName(me).equals(ElementNames.INITIAL.getElement())) {
-						((ActivityDiagram) diagram).addInitialNode(new InitialNode(me.getXMIID(), (ActivityDiagram) diagram));
-					} else if (ElementUtils.getElementTypeName(me).equals(ElementNames.FINAL.getElement())) {
-						((ActivityDiagram) diagram).addFinalNode(new FinalNode(me.getXMIID(), (ActivityDiagram) diagram));
-					} else if (ElementUtils.getElementTypeName(me).equals(ElementNames.EXECUTABLE.getElement())) {
+					if (eu.isExecutableNode(me)) {
 						((ActivityDiagram) diagram).addExecutableNode(new ExecutableNode(me.getXMIID(), (ActivityDiagram) diagram));
-					} else if (ElementUtils.getElementTypeName(me).equals(ElementNames.JUNCTION.getElement())) {
-						if (ElementUtils.getElementTypeName(me).equals(ElementNames.DECISION.getElement()) || me.getSetAttribute("incomingEdges").size() == 1) {
+					} else if (eu.isJunctionNode(me)) {
+						if (eu.isDecisionNode(me) || me.getSetAttribute("incomingEdges").size() == 1) {
 							((ActivityDiagram) diagram).addDecisionNode(new DecisionNode(me.getXMIID(), (ActivityDiagram) diagram));
 						} else {
 							((ActivityDiagram) diagram).addMergeNode(new MergeNode(me.getXMIID(), (ActivityDiagram) diagram));
 						}
+					} else if (eu.isInitialNode(me)) {
+						((ActivityDiagram) diagram).addInitialNode(new InitialNode(me.getXMIID(), (ActivityDiagram) diagram));
+					} else if (eu.isFinalNode(me)) {
+						((ActivityDiagram) diagram).addFinalNode(new FinalNode(me.getXMIID(), (ActivityDiagram) diagram));
 					} else {
 						System.out.println("Node type not found.");
 						return null;
@@ -73,7 +73,7 @@ public class DiagramBuilder {
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
 					ControlFlow cf = new ControlFlow(me.getXMIID(), me.getPlainAttribute("source"), me.getPlainAttribute("target"), (ActivityDiagram) diagram);
-					Double probability = ElementUtils.getProbability(me);
+					Double probability = eu.getProbability(me);
 					if (probability != null) {
 						cf.setPTS(probability);
 						((ActivityDiagram) diagram).addControlFlow(cf);
@@ -88,7 +88,7 @@ public class DiagramBuilder {
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
 					Lifeline lifeline = new Lifeline(me.getXMIID(), me.getName(), (SequenceDiagram) diagram);
-					Double probability = ElementUtils.getProbability(me);
+					Double probability = eu.getProbability(me);
 					if (probability != null) {
 						lifeline.setBCompRel(probability);
 						((SequenceDiagram) diagram).addLifeline(lifeline);

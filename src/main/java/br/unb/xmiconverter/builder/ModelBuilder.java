@@ -21,6 +21,8 @@ public class ModelBuilder {
 	private static XMIReader xmiReader = null;
 
 	public static void buildModel(String umlModelingTool, String xmiFile) {
+		PathUtil pu = new PathUtil();
+
 		try {
 			parser = new XMLParser();
 		} catch (SAXException e) {
@@ -30,14 +32,14 @@ public class ModelBuilder {
 		}
 
 		try {
-			parser.parse(PathUtil.getMetamodelPath(), metaModel.getSAXParserHandler());
+			parser.parse(pu.getMetamodelPath(), metaModel.getSAXParserHandler());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		transformation = new XMITransformations(metaModel);
 		try {
-			parser.parse(PathUtil.getTransformationPath(umlModelingTool), transformation.getSAXParserHandler());
+			parser.parse(pu.getTransformationPath(umlModelingTool), transformation.getSAXParserHandler());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -21,7 +21,7 @@ public class ModelConverter_PapyrusUnbdaliFailure {
 
 	@BeforeClass
 	public static void setUp() {
-		converter = Converter.getInstance();
+		converter = new Converter();
 	}
 
 	@Parameters(name = "{index}: File: {0}")

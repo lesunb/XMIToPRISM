@@ -8,18 +8,18 @@ import java.nio.file.Files;
 import java.util.Arrays;
 
 public class FileUtil {
+	private PathUtil pu = new PathUtil();
+	static final String[] acceptedFileExtensions = { ".xml", ".xmi", ".uml" };
 
-	final static String[] acceptedFileExtensions = { ".xml", ".xmi", ".uml" };
-
-	public static void writePrismFile(String transformationResult, String xmiFile) {
-		try (BufferedWriter bw = Files.newBufferedWriter(PathUtil.getOutputPath(xmiFile))) {
+	public void writePrismFile(String transformationResult, String xmiFile) {
+		try (BufferedWriter bw = Files.newBufferedWriter(pu.getOutputPath(xmiFile))) {
 			bw.write(transformationResult);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public static File[] getListOfXmiFilesInFolder(String folder) {
+	public File[] getListOfXmiFilesInFolder(String folder) {
 		File currentDirectory = new File(folder);
 		FilenameFilter textFilter = new FilenameFilter() {
 			public boolean accept(File currentDirectory, String name) {
@@ -34,11 +34,11 @@ public class FileUtil {
 		return currentDirectory.listFiles(textFilter);
 	}
 
-	public static String[] getAcceptedFileExtensions() {
+	public String[] getAcceptedFileExtensions() {
 		return acceptedFileExtensions;
 	}
 
-	public static String getFileNameFromPathInString(String filePath) {
+	public String getFileNameFromPathInString(String filePath) {
 		String filename = "";
 		if (filePath.lastIndexOf('\\') != -1) {
 			filename = filePath.substring(filePath.lastIndexOf('\\') + 1, filePath.length());

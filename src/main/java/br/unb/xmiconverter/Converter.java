@@ -12,18 +12,11 @@ import br.unb.xmiconverter.util.TimeUtil;
 
 public class Converter {
 
-	private static Converter instance = null;
 	@SuppressWarnings("unused")
 	private double conversionTime = 0;
 
-	private Converter() {
-	}
+	public Converter() {
 
-	public static Converter getInstance() {
-		if (instance == null) {
-			instance = new Converter();
-		}
-		return instance;
 	}
 
 	// @formatter:off
@@ -43,31 +36,33 @@ public class Converter {
 			PRISMModel prismModel = convertToPRISM(diagram);
 			if (prismModel != null) {
 				conversionResult = true;
-				FileUtil.writePrismFile(prismModel.toString(), xmiFile);
-
+				FileUtil fu = new FileUtil();
+				fu.writePrismFile(prismModel.toString(), xmiFile);
 			}
 		}
-		MessageUtil.printResultOfConversion(xmiFile, conversionResult);
+		MessageUtil mu = new MessageUtil();
+		mu.printResultOfConversion(xmiFile, conversionResult);
 		return conversionResult;
 	}
 
 	private PRISMModel convertToPRISM(AbstractAggModel diagram) {
 		PRISMModel prismModel = null;
+		TimeUtil tu = new TimeUtil();
 		long startTime = 0;
 		long finishTime = 0;
 
 		// TODO check an auto cast solution
 		try {
 			if (diagram.getClass().getSimpleName().equals("ActivityDiagram")) {
-				startTime = TimeUtil.getTimeNano();
+				startTime = tu.getTimeNano();
 				prismModel = ((ActivityDiagram) diagram).toDTMC().toPRISM();
-				finishTime = TimeUtil.getTimeNano();
+				finishTime = tu.getTimeNano();
 			} else {
-				startTime = TimeUtil.getTimeNano();
+				startTime = tu.getTimeNano();
 				prismModel = ((SequenceDiagram) diagram).toDTMC().toPRISM();
-				finishTime = TimeUtil.getTimeNano();
+				finishTime = tu.getTimeNano();
 			}
-			conversionTime = TimeUtil.getTimeInMilliseconds(startTime, finishTime);
+			conversionTime = tu.getTimeInMilliseconds(startTime, finishTime);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

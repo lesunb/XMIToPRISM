@@ -19,7 +19,8 @@ import br.unb.xmiconverter.util.FileUtil;
 // TODO arguments as list to initialize vector
 @RunWith(Parameterized.class)
 public class ModelConverter_PARAMETERIZEDTEST_2_tentativa {
-
+	
+	static FileUtil fu = new FileUtil();
 	static final String umlTool = "astah";
 	static final boolean expectedResult = true;
 	static String testsFolder = System.getProperty("user.dir") + "\\tests\\astah\\unbdali\\expected-success\\";
@@ -34,7 +35,7 @@ public class ModelConverter_PARAMETERIZEDTEST_2_tentativa {
 		FilenameFilter textFilter = new FilenameFilter() {
 			public boolean accept(File directory, String name) {
 				String lowercaseName = name.toLowerCase();
-				if (Arrays.stream(FileUtil.getAcceptedFileExtensions()).parallel().anyMatch(lowercaseName::endsWith)) {
+				if (Arrays.stream(fu.getAcceptedFileExtensions()).parallel().anyMatch(lowercaseName::endsWith)) {
 					return true;
 				} else {
 					return false;
@@ -44,7 +45,7 @@ public class ModelConverter_PARAMETERIZEDTEST_2_tentativa {
 		listOfFiles = directory.listFiles(textFilter);
 
 		// initialize the converter to begin tests
-		converter = Converter.getInstance();
+		converter = new Converter();
 	}
 
 	@Parameters(name = "{index}: File: {0}")

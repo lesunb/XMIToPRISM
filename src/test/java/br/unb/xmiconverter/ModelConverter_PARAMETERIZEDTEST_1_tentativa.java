@@ -21,7 +21,7 @@ public class ModelConverter_PARAMETERIZEDTEST_1_tentativa {
 
 	@BeforeClass
 	public static void setUp() {
-		converter = Converter.getInstance();
+		converter = new Converter();
 	}
 
 	@Parameters(name = "{index}: File: {0}")
