@@ -1,4 +1,4 @@
-package br.unb.xmiconverter;
+/*package br.unb.xmiconverter;
 
 import static org.junit.Assert.assertEquals;
 
@@ -69,3 +69,4 @@ public class ModelConverter_PARAMETERIZEDTEST_2_tentativa {
 	}
 
 }
+*/

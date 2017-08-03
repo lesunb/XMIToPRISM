@@ -44,8 +44,9 @@ other part of SDMetrics.
 		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
 
-	<!-- Diagram -->
-	<!-- attribute id is different for AD and SD -->
+	<!-- ***************************** Diagram ***************************** -->
+	
+	<!-- id is different for AD and SD -->
 	<xmitransformation modelelement="diagram" xmipattern="UML:Namespace.ownedElement" recurse="true">
 		<trigger name="id" type="cattrval" src="UML:ActivityGraph" attr="xmi.id" />
 	</xmitransformation>
@@ -53,12 +54,12 @@ other part of SDMetrics.
 		<trigger name="id" type="cattrval" src="UML:Collaboration" attr="xmi.id" />
 	</xmitransformation>
 
-	<!-- attribute name -->
+	<!-- name -->
 	<xmitransformation modelelement="diagram" xmipattern="UML:Model" recurse="true">
 		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
 
-	<!-- attribute type -->
+	<!-- type -->
 	<xmitransformation modelelement="diagram" xmipattern="UML:ActivityGraph" recurse="true">
 		<trigger name="type" type="constant" attr="uml:Activity" />
 	</xmitransformation>
@@ -66,7 +67,8 @@ other part of SDMetrics.
 		<trigger name="type" type="constant" attr="uml:Interaction" />
 	</xmitransformation>
 
-	<!-- Nodes -->
+	<!-- ***************************** Nodes ***************************** -->
+	
 	<!-- Executable Node -->
 	<xmitransformation modelelement="node" xmipattern="UML:ActionState" recurse="true">
 		<trigger name="type" type="constant" attr="uml:OpaqueAction" />
@@ -80,10 +82,10 @@ other part of SDMetrics.
 
 	<!-- Final Node -->
 	<xmitransformation modelelement="node" xmipattern="UML:FinalState" recurse="true">
-		<trigger name="type" type="constant" attr="activityfinal" />
+		<trigger name="type" type="constant" attr="uml:ActivityFinalNode" />
 	</xmitransformation>
 
-	<!-- Edges -->
+	<!-- ***************************** Edges ***************************** -->
 	<xmitransformation modelelement="controlflow" xmipattern="UML:Transition" recurse="true">
 		<trigger name="type" type="constant" attr="controlflow"/>
 		<trigger name="source" type="gcattrval" src="UML:Transition.source" attr="xmi.idref" />
@@ -91,13 +93,13 @@ other part of SDMetrics.
 		<trigger name="probability" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value" />
 	</xmitransformation>
 
-	<!-- Lifeline -->
+	<!-- ***************************** Lifelines ***************************** -->
 	<xmitransformation modelelement="lifeline" xmipattern="UML:ClassifierRole" recurse="true">
 		<trigger name="type" type="constant" attr="lifeline"/>
 		<trigger name="BCompRel" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value" />
 	</xmitransformation>
 
-	<!-- Asynchronous Message -->
+	<!-- ***************************** Messages ***************************** -->
 	<xmitransformation modelelement="message" xmipattern="UML:Message" recurse="true">
 		<trigger name="type" type="constant" attr="asynchronous" />
 		<trigger name="source" type="gcattrval" src="UML:Message.sender" attr="xmi.idref" />

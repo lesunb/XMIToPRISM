@@ -10,28 +10,36 @@ import br.unb.xmiconverter.util.FileUtil;
 import br.unb.xmiconverter.util.MessageUtil;
 import br.unb.xmiconverter.util.TimeUtil;
 
+/**
+ * Represents the high level steps for the conversion to happen. First the model
+ * is built using the XMI file provided. Then, the AGG diagram is built with the
+ * information extracted from the model and converted to PRISM language using
+ * the appropriate method from UnB-DALi. It contains only one variable, to
+ * evaluate the conversion time.
+ * 
+ * @author Pedro
+ */
 public class Converter {
 
 	@SuppressWarnings("unused")
-	private double conversionTime = 0;
+	private double conversionTimeMilli = 0;
 
-	public Converter() {
-
-	}
-
-	// @formatter:off
-	/* 1. Build MetalModel and model (with the configuration files and the XMI file)
-	 * 2. Iterate over MetaModel elements and build a diagram with the elements found in the model
-	 * 3. Convert to PRISM using UnB-DALi
-	 * 4. Write output file
-	 * 5. If the conversion was successful returns true, else returns false
-	 * */
-	// @formatter:on
+	/**
+	 * 
+	 * 
+	 * @param umlModelingTool
+	 * @param xmiFile
+	 * @return
+	 */
 	protected boolean convert(String umlModelingTool, String xmiFile) {
-		ModelBuilder.buildModel(umlModelingTool, xmiFile);
-		AbstractAggModel diagram = DiagramBuilder.buildDiagram(ModelBuilder.getMetaModel(), ModelBuilder.getModel());
+		ModelBuilder mb = new ModelBuilder();
+		DiagramBuilder db = new DiagramBuilder();
+
+		mb.buildModel(umlModelingTool, xmiFile);
+		AbstractAggModel diagram = db.buildDiagram(mb.getMetaModel(),
+				mb.getModel());
+
 		boolean conversionResult = false;
-		// diagram is converted to PRISM if there were no errors during it's construction
 		if (diagram != null) {
 			PRISMModel prismModel = convertToPRISM(diagram);
 			if (prismModel != null) {
@@ -47,22 +55,21 @@ public class Converter {
 
 	private PRISMModel convertToPRISM(AbstractAggModel diagram) {
 		PRISMModel prismModel = null;
-		TimeUtil tu = new TimeUtil();
 		long startTime = 0;
 		long finishTime = 0;
 
-		// TODO check an auto cast solution
+		// TODO auto cast solution? where to put toDTMC method?
 		try {
 			if (diagram.getClass().getSimpleName().equals("ActivityDiagram")) {
-				startTime = tu.getTimeNano();
+				startTime = TimeUtil.getTimeNano();
 				prismModel = ((ActivityDiagram) diagram).toDTMC().toPRISM();
-				finishTime = tu.getTimeNano();
+				finishTime = TimeUtil.getTimeNano();
 			} else {
-				startTime = tu.getTimeNano();
+				startTime = TimeUtil.getTimeNano();
 				prismModel = ((SequenceDiagram) diagram).toDTMC().toPRISM();
-				finishTime = tu.getTimeNano();
+				finishTime = TimeUtil.getTimeNano();
 			}
-			conversionTime = tu.getTimeInMilliseconds(startTime, finishTime);
+			conversionTimeMilli = TimeUtil.getTimeMilli(startTime, finishTime);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
