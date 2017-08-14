@@ -29,6 +29,9 @@ import br.unb.dali.models.agg.uml.sd.Lifeline;
 public class DiagramBuilder {
 
 	/**
+	 * Parses the accepted elements by the MetaModel that are present in the
+	 * model, one by one, and adds to the appropriate type of diagram.
+	 * 
 	 * @param metaModel
 	 *            The MetaModel constructed in the previous step, according to
 	 *            its definition in a XMI file.
@@ -177,8 +180,8 @@ public class DiagramBuilder {
 	}
 
 	/**
-	 * Gets the probability from different attributes depending on the type of
-	 * the element.
+	 * Tries to parse the probability attribute (as a Double). The probability
+	 * attribute varies from element to element.
 	 * 
 	 * @param me
 	 *            A model element of the model.

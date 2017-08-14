@@ -25,11 +25,13 @@ public class Converter {
 	private double conversionTimeMilli = 0;
 
 	/**
-	 * 
+	 * Aggregates the calls to the main steps in the conversion process. First
+	 * it builds the model, then parses the XMI file, then builds a PRISMModel
+	 * and finally calls the output generator.
 	 * 
 	 * @param umlModelingTool
 	 * @param xmiFile
-	 * @return
+	 * @return True, if the conversion is successful. False, if not.
 	 */
 	protected boolean convert(String umlModelingTool, String xmiFile) {
 		ModelBuilder mb = new ModelBuilder();
@@ -53,6 +55,14 @@ public class Converter {
 		return conversionResult;
 	}
 
+	/**
+	 * Receives an AbstractAggModel diagram and converts it to a PRISMModel
+	 * using UnB-DALi's methods.
+	 * 
+	 * @param diagram
+	 * 
+	 * @return A PRISMModel
+	 */
 	private PRISMModel convertToPRISM(AbstractAggModel diagram) {
 		PRISMModel prismModel = null;
 		long startTime = 0;
