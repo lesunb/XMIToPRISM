@@ -16,7 +16,8 @@ import org.junit.runners.Parameterized.Parameters;
 public class ModelConverter_PapyrusUnbdaliFailure {
 	static final String umlTool = "papyrus";
 	static final boolean expectedResult = false;
-	static String testsFolder = System.getProperty("user.dir") + "\\tests\\papyrus\\unbdali\\expected-failure\\";
+	static String testsFolder = System.getProperty("user.dir")
+			+ "\\tests\\papyrus\\unbdali\\expected-failure\\";
 	static Converter converter;
 
 	@BeforeClass
@@ -27,20 +28,11 @@ public class ModelConverter_PapyrusUnbdaliFailure {
 	@Parameters(name = "{index}: File: {0}")
 	public static Collection<Object[]> data() {
 		// @formatter:off
-		// TODO PREENCHER OS NOMES
-		return Arrays.asList(new Object[][] { { testsFolder + "ad01.xml" },
-											  { testsFolder + "ad04.xml" },
-											  { testsFolder + "ad05.xml" },
-											  { testsFolder + "ad06.xml" },
-											  { testsFolder + "ad07.xml" },
-											  { testsFolder + "ad10.xml" },
-											  { testsFolder + "sd01.xml" },
-											  { testsFolder + "sd02.xml" },
-											  { testsFolder + "sd03.xml" },
-											  { testsFolder + "sd04.xml" },
-											  { testsFolder + "sd06.xml" },
-											  { testsFolder + "sd07.xml" },
-											  { testsFolder + "sd08.xml" }});
+		return Arrays.asList(new Object[][] { { testsFolder + "ad02.uml" },
+											  { testsFolder + "ad03.uml" },
+											  { testsFolder + "ad08.uml" },
+											  { testsFolder + "ad09.uml" },
+											  { testsFolder + "sd05.uml" }});
 	}
 	//@formatter:on
 

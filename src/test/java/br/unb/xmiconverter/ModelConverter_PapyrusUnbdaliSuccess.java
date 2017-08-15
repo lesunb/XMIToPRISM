@@ -16,7 +16,8 @@ import org.junit.runners.Parameterized.Parameters;
 public class ModelConverter_PapyrusUnbdaliSuccess {
 	static final String umlTool = "papyrus";
 	static final boolean expectedResult = true;
-	static String testsFolder = System.getProperty("user.dir") + "\\tests\\astah\\unbdali\\expected-success\\";
+	static String testsFolder = System.getProperty("user.dir")
+			+ "\\tests\\papyrus\\unbdali\\expected-success\\";
 	static Converter converter;
 
 	@BeforeClass
@@ -28,19 +29,19 @@ public class ModelConverter_PapyrusUnbdaliSuccess {
 	public static Collection<Object[]> data() {
 		// @formatter:off
 		// TODO PREENCHER OS NOMES
-		return Arrays.asList(new Object[][] { { testsFolder + "ad01.xml" },
-											  { testsFolder + "ad04.xml" },
-											  { testsFolder + "ad05.xml" },
-											  { testsFolder + "ad06.xml" },
-											  { testsFolder + "ad07.xml" },
-											  { testsFolder + "ad10.xml" },
-											  { testsFolder + "sd01.xml" },
-											  { testsFolder + "sd02.xml" },
-											  { testsFolder + "sd03.xml" },
-											  { testsFolder + "sd04.xml" },
-											  { testsFolder + "sd06.xml" },
-											  { testsFolder + "sd07.xml" },
-											  { testsFolder + "sd08.xml" }});
+		return Arrays.asList(new Object[][] { { testsFolder + "ad01.uml" },
+											  { testsFolder + "ad04.uml" },
+											  { testsFolder + "ad05.uml" },
+											  { testsFolder + "ad06.uml" },
+											  { testsFolder + "ad07.uml" },
+											  { testsFolder + "ad10.uml" },
+											  { testsFolder + "sd01.uml" },
+											  { testsFolder + "sd02.uml" },
+											  { testsFolder + "sd03.uml" },
+											  { testsFolder + "sd04.uml" },
+											  { testsFolder + "sd06.uml" },
+											  { testsFolder + "sd07.uml" },
+											  { testsFolder + "sd08.uml" }});
 	}
 	//@formatter:on
 
