@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Ea23EIFVEeeN5etHE0j_Hw" name="RootElement">
-  <packagedElement xmi:type="uml:Interaction" xmi:id="_Eb4KwIFVEeeN5etHE0j_Hw" name="Interaction1">
-    <lifeline xmi:type="uml:Lifeline" xmi:id="_GUUTEIFVEeeN5etHE0j_Hw" name="A" coveredBy="_Q7qsQIFVEeeN5etHE0j_Hw _fi73oIFVEeeN5etHE0j_Hw">
-      <selector xmi:type="uml:LiteralReal" xmi:id="_K-hYYIFVEeeN5etHE0j_Hw" name="BCompRel" value="1.0"/>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_1fbtIIXUEeeW1I90Qdss4Q" name="RootElement">
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_1fxEUIXUEeeW1I90Qdss4Q" name="sd04">
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_6hGQMIXUEeeW1I90Qdss4Q" name="A" coveredBy="_M-k4IIXVEeeW1I90Qdss4Q _Pz9w4IXVEeeW1I90Qdss4Q">
+      <selector xmi:type="uml:LiteralReal" xmi:id="_GnnWEIXVEeeW1I90Qdss4Q" name="BCompRel" value="1.0"/>
     </lifeline>
-    <lifeline xmi:type="uml:Lifeline" xmi:id="_MosbMIFVEeeN5etHE0j_Hw" name="B" coveredBy="_Q7rTUIFVEeeN5etHE0j_Hw _fi6pgIFVEeeN5etHE0j_Hw"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Q7qsQIFVEeeN5etHE0j_Hw" name="MessageSend" covered="_GUUTEIFVEeeN5etHE0j_Hw" message="_Q7XxUIFVEeeN5etHE0j_Hw"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Q7rTUIFVEeeN5etHE0j_Hw" name="MessageRecv" covered="_MosbMIFVEeeN5etHE0j_Hw" message="_Q7XxUIFVEeeN5etHE0j_Hw"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_fi6pgIFVEeeN5etHE0j_Hw" name="Message0Send" covered="_MosbMIFVEeeN5etHE0j_Hw" message="_fi40UIFVEeeN5etHE0j_Hw"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_fi73oIFVEeeN5etHE0j_Hw" name="Message0Recv" covered="_GUUTEIFVEeeN5etHE0j_Hw" message="_fi40UIFVEeeN5etHE0j_Hw"/>
-    <message xmi:type="uml:Message" xmi:id="_Q7XxUIFVEeeN5etHE0j_Hw" name="1: hW()" messageSort="asynchCall" receiveEvent="_Q7rTUIFVEeeN5etHE0j_Hw" sendEvent="_Q7qsQIFVEeeN5etHE0j_Hw"/>
-    <message xmi:type="uml:Message" xmi:id="_fi40UIFVEeeN5etHE0j_Hw" name="2: resp" messageSort="asynchCall" receiveEvent="_fi73oIFVEeeN5etHE0j_Hw" sendEvent="_fi6pgIFVEeeN5etHE0j_Hw"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_62l_EIXUEeeW1I90Qdss4Q" name="B" coveredBy="_M-mGQIXVEeeW1I90Qdss4Q _Pz8iwIXVEeeW1I90Qdss4Q">
+      <selector xmi:type="uml:LiteralReal" xmi:id="_JDQSEIXVEeeW1I90Qdss4Q" name="BCompRel" value="0.9"/>
+    </lifeline>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_M-k4IIXVEeeW1I90Qdss4Q" name="MessageSend" covered="_6hGQMIXUEeeW1I90Qdss4Q" message="_M-RWIIXVEeeW1I90Qdss4Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_M-mGQIXVEeeW1I90Qdss4Q" name="MessageRecv" covered="_62l_EIXUEeeW1I90Qdss4Q" message="_M-RWIIXVEeeW1I90Qdss4Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Pz8iwIXVEeeW1I90Qdss4Q" name="MessageSend0" covered="_62l_EIXUEeeW1I90Qdss4Q" message="_Pz4RUIXVEeeW1I90Qdss4Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Pz9w4IXVEeeW1I90Qdss4Q" name="MessageRecv0" covered="_6hGQMIXUEeeW1I90Qdss4Q" message="_Pz4RUIXVEeeW1I90Qdss4Q"/>
+    <message xmi:type="uml:Message" xmi:id="_M-RWIIXVEeeW1I90Qdss4Q" name="1: hW()" messageSort="asynchCall" receiveEvent="_M-mGQIXVEeeW1I90Qdss4Q" sendEvent="_M-k4IIXVEeeW1I90Qdss4Q"/>
+    <message xmi:type="uml:Message" xmi:id="_Pz4RUIXVEeeW1I90Qdss4Q" name="2: resp" messageSort="asynchCall" receiveEvent="_Pz9w4IXVEeeW1I90Qdss4Q" sendEvent="_Pz8iwIXVEeeW1I90Qdss4Q"/>
   </packagedElement>
-  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_EgEHMIFVEeeN5etHE0j_Hw">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EgGjcIFVEeeN5etHE0j_Hw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#/"/>
-    </eAnnotations>
-    <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_zaC5cAPHEdyeNfbOYuD9pg"/>
-  </profileApplication>
 </uml:Model>

@@ -15,7 +15,7 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(Parameterized.class)
 public class ModelConverter_PapyrusUnbdaliFailure {
 	static final String umlTool = "papyrus";
-	static final boolean expectedResult = false;
+	static final boolean FAIL = false;
 	static String testsFolder = System.getProperty("user.dir")
 			+ "\\tests\\papyrus\\unbdali\\expected-failure\\";
 	static Converter converter;
@@ -41,7 +41,7 @@ public class ModelConverter_PapyrusUnbdaliFailure {
 
 	@Test
 	public void correctConversion() {
-		assertEquals(expectedResult, converter.convert(umlTool, filename));
+		assertEquals(FAIL, converter.convert(umlTool, filename));
 	}
 
 }
