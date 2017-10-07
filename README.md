@@ -30,7 +30,7 @@ Export the project as a runnable JAR file. Copy and paste this JAR file inside t
 
 `java -jar xpconverter.jar <modeling_tool>* diagram1.xml diagram2.xml ... diagramN.xml`
 
-* At this moment, `<modeling_tool>` can only assume the values "astah" and "papyrus".
+** * At this moment, `<modeling_tool>` can only assume the values "astah" and "papyrus".**
 
 3) The result of the conversion(s) will show the file names alongside "[SUCCESS]" or "[FAIL]" messages.
 
