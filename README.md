@@ -24,14 +24,14 @@ Export the project as a runnable JAR file. Copy and paste this JAR file inside t
 	
 - If you want to convert all the XMI files inside the folder, run the command:
 	
-`java -jar xpconverter.jar`
+`java -jar xpconverter.jar <modeling_tool>*`
 
 - If you want to convert one or any arbitrary number of files, type their names as arguments, like:
 
-`java -jar xpconverter.jar diagram1.xml diagram2.xml ... diagramN.xml`
+`java -jar xpconverter.jar <modeling_tool>* diagram1.xml diagram2.xml ... diagramN.xml`
 
-3) Choose a number at the menu according to the modeling tool that generated the XMI files.
+* At this moment, `<modeling_tool>` can only assume the values "astah" and "papyrus".
 
-4) The result of the conversion(s) will show the file names alongside "[SUCCESS]" or "[FAIL]" messages.
+3) The result of the conversion(s) will show the file names alongside "[SUCCESS]" or "[FAIL]" messages.
 
-For each **successfully** converted XMI file, an output, a PRISM file (.pm), will be created in the same folder, with the same name as the original file.
+For each **successfully** converted XMI file, a PRISM file output (.pm) will be created in the same folder, with the same name as the original file.

@@ -68,7 +68,7 @@ public class Converter {
 		long startTime = 0;
 		long finishTime = 0;
 
-		// TODO auto cast solution? where to put toDTMC method?
+		// TODO Avoid code repetition. auto cast solution? where to put toDTMC method?
 		try {
 			if (diagram.getClass().getSimpleName().equals("ActivityDiagram")) {
 				startTime = TimeUtil.getTimeNano();

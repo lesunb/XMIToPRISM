@@ -31,9 +31,9 @@ other part of SDMetrics.
 
  -->
 
-<!-- ***************************************************************** -->
-<!-- *** Current Model Elements recognized by the UnD-DALi Library *** -->
-<!-- ***************************************************************** -->
+<!-- *************************************************************************** -->
+<!-- *** Reduced UML Metamodel - Elements recognized by the UnD-DALi Library *** -->
+<!-- *************************************************************************** -->
 <sdmetricsmetamodel version="2.0">
 
 	<!-- Base Element -->
@@ -48,31 +48,31 @@ other part of SDMetrics.
 		<attribute name="type" type="data" multiplicity="one">The type of the UML Diagram. AD or SD.</attribute>
 	</modelelement>
 
-	<!-- AD's Nodes: executable, initial, final, decision and merge -->
+	<!-- Activity Diagram - Nodes -->
 	<modelelement name="node">
 		<attribute name="type" type="data" multiplicity="one">The type of the node: executable, initial, final, merge or decision.</attribute>
-		<attribute name="incomingEdges" type="data" multiplicity="many">The incoming edges of a node</attribute>
+		<attribute name="incomingEdges" type="data" multiplicity="many">The incoming edges of a node.</attribute>
 	</modelelement>
 
-	<!-- AD's Edges -->
+	<!-- Activity Diagram - Edges -->
 	<modelelement name="controlflow">
 		<attribute name="type" type="data" multiplicity="one">The type of the control flow.</attribute>
-		<attribute name="source" type="data" multiplicity="one">Source of the control flow.</attribute>
-		<attribute name="target" type="data" multiplicity="one">Target of the control flow.</attribute>
-		<attribute name="probability" type="data" multiplicity="one">Probability of the control flow.</attribute>
+		<attribute name="source" type="data" multiplicity="one">Source of the control flow (transition).</attribute>
+		<attribute name="target" type="data" multiplicity="one">Target of the control flow(transition).</attribute>
+		<attribute name="probability" type="data" multiplicity="one">Probability of the control flow (transition).</attribute>
 	</modelelement>
 
-	<!-- SD's Lifelines -->
+	<!-- Sequence Diagram - Lifelines -->
 	<modelelement name="lifeline">
 	<attribute name="type" type="data" multiplicity="one">The type of the lifeline.</attribute>
-		<attribute name="BCompRel" type="data" multiplicity="one">The probability associated with a lifeline (component).</attribute>
+		<attribute name="BCompRel" type="data" multiplicity="one">The reliability of a lifeline (component).</attribute>
 	</modelelement>
 
-	<!-- SD's Asynchronous Messages -->
+	<!-- Sequence Diagram - Messages -->
 	<modelelement name="message">
-		<attribute name="type" type="data" multiplicity="one">The type of message (only asyncrhonous for now)</attribute>
-		<attribute name="source" type="data" multiplicity="one">The sender of the asynchronous message.</attribute>
-		<attribute name="target" type="data" multiplicity="one">The receiver of the asynchronous message.</attribute>
+		<attribute name="type" type="data" multiplicity="one">The message type (ONLY asyncrhonous for now).</attribute>
+		<attribute name="source" type="data" multiplicity="one">The sender of the message.</attribute>
+		<attribute name="target" type="data" multiplicity="one">The receiver of the message.</attribute>
 	</modelelement>
 
 </sdmetricsmetamodel>

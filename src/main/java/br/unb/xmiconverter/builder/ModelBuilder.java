@@ -10,14 +10,14 @@ import com.sdmetrics.model.XMIReader;
 import com.sdmetrics.model.XMITransformations;
 import com.sdmetrics.util.XMLParser;
 
-import br.unb.xmiconverter.util.PathUtil;
+import br.unb.xmiconverter.util.FileUtil;
 
 /**
- * Provides a setup for the model to be accessed. With the help of the
- * XMLParser, it builds an SDMetrics model according to the MetaModel, XMI
- * Transformation and XMI file provided. The XMIReader parses the XMI file and
- * fetches the information according to the triggers set in the XMI
- * Transformation.
+ * Provides a setup for the model that will be accessed later when instantiating
+ * the diagram. With the XMLParser, it builds an SDMetrics model according to
+ * the MetaModel, XMI Transformation and XMI file provided. The XMIReader parses
+ * the XMI file and fetches the information according to the triggers set in the
+ * XMI Transformation.
  * 
  * @author Pedro
  */
@@ -40,7 +40,7 @@ public class ModelBuilder {
 	 *            The name of the XMI file that will have its model constructed.
 	 */
 	public void buildModel(String umlModelingTool, String xmiFile) {
-		PathUtil pu = new PathUtil();
+		FileUtil fu = new FileUtil();
 
 		try {
 			parser = new XMLParser();
@@ -51,7 +51,7 @@ public class ModelBuilder {
 		}
 
 		try {
-			parser.parse(pu.getMetamodelPath(),
+			parser.parse(fu.getMetamodelPath(),
 					metaModel.getSAXParserHandler());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,7 +59,7 @@ public class ModelBuilder {
 
 		transformation = new XMITransformations(metaModel);
 		try {
-			parser.parse(pu.getTransformationPath(umlModelingTool),
+			parser.parse(fu.getTransformationPath(umlModelingTool),
 					transformation.getSAXParserHandler());
 		} catch (Exception e) {
 			e.printStackTrace();

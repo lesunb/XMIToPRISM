@@ -19,18 +19,23 @@ import br.unb.dali.models.agg.uml.ad.nodes.executable.ExecutableNode;
 import br.unb.dali.models.agg.uml.sd.Lifeline;
 
 /**
- * Provides a building method that iterates over the constructed model in the
- * previous step and builds, element by element, an abstract diagram in the form
- * of an AGG Model. This class is the bridge that enables the communication
+ * Provides a method that iterates over the constructed model in the
+ * ModelBuilder class and builds, element by element, a diagram instance in the
+ * form of an AGG Model. This class is the bridge that enables the communication
  * between the UML Diagram information and the UnB-DALi library.
  * 
  * @author Pedro
  */
 public class DiagramBuilder {
 
+	// TODO Build multiple diagrams. Will need to use the references inside the
+	// XMI file.
 	/**
 	 * Parses the accepted elements by the MetaModel that are present in the
-	 * model, one by one, and adds to the appropriate type of diagram.
+	 * model, one by one, and adds to the appropriate type of diagram. If the
+	 * element is a diagram, it creates a new instance of the correct type of
+	 * diagram. This class only creates one diagram at a time and that's why the
+	 * limit for diagrams in a single file is one.
 	 * 
 	 * @param metaModel
 	 *            The MetaModel constructed in the previous step, according to
@@ -184,7 +189,8 @@ public class DiagramBuilder {
 	 * attribute varies from element to element.
 	 * 
 	 * @param me
-	 *            A model element of the model.
+	 *            A model element that has a probability attribute (AD Edge or
+	 *            SD Lifeline).
 	 * 
 	 * @return A Double, in case of a successful conversion. Null if
 	 *         unsuccessful.

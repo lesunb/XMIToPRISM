@@ -16,7 +16,8 @@ import org.junit.runners.Parameterized.Parameters;
 public class ModelConverter_AstahUnbdaliFailure {
 	static final String umlTool = "astah";
 	static final boolean expectedResult = false;
-	static String testsFolder = System.getProperty("user.dir") + "\\tests\\astah\\unbdali\\expected-failure\\";
+	static String testsFolder = System.getProperty("user.dir")
+			+ "\\tests\\astah\\unbdali\\expected-failure\\";
 	static Converter converter;
 
 	@BeforeClass

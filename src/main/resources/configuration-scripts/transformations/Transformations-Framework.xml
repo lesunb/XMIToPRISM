@@ -33,40 +33,43 @@ other part of SDMetrics.
 
  -->
 
-<!-- ************************************************************************************* -->
-<!-- Framework for the user to create a transformations file adapted to your modeling tool -->
-<!-- ************************************************************************************* -->
-<xmitransformations version="2.0">
+<!-- ******************************************************************************* -->
+<!-- Default Transformation - Adaptable to the XMI structure of an UML modeling tool -->
+<!-- ******************************************************************************* -->
 
-	<!-- If you don't have an answer for your question, check the SDMetrics Manual inside the docs folder.
-	 	 or on the website: http://www.sdmetrics.com/manual/MetaTrans.html -->
+	<!-- Check the SDMetrics Manual inside the docs folder for specific questions.
+	 	 Or the website: http://www.sdmetrics.com/manual/MetaTrans.html -->
 
 	<!-- GENERAL TIPS AND EXPLANATION -->
 	<!-- "modelelement" is the name of the Metamodel element you are referring to -->
-	<!-- "xmipattern" is where you put the tag of where the model element is inside the XMI file -->
+	<!-- "xmipattern" is where you put the tag name of where the model element information is inside the XMI file -->
+	
 	<!-- The trigger attributes: -->
 	<!-- name: Name of the attribute in the Metamodel element -->
-	<!-- type: Depends on where the information is. It can be attrval, ctext, cattrval, gattrval, constant, etc. Check manual 
-		(7.2.2 section) for more information -->
+	<!-- type: Depends on where the information is. It can be attrval, ctext, cattrval, gattrval, constant, etc. Check
+		 SDMetrics manual section 7.2.2 for more information -->
 	<!-- attr: The name of the attribute you want, inside the XMI tag -->
-
-	<!-- id is generally "xmi.id" or "xmi:id". Change accordingly -->
-	<!-- id and name of the element may be in different tags. Create 2 <xmitransformation> elements in this case -->
+	
+	<!-- id is generally "xmi.id" or "xmi:id". Change according to your tool. -->
+	<!-- id and name of the element may be in different tags. Create 2 <xmitransformation> elements in this case. -->
 	<!-- src="" attribute depends on the type of the trigger. Used in cattrval and gattrval (child and grandchild) -->
+<xmitransformations version="2.0">
 
-	<!-- Base Element - You don't need to change anything here. -->
+	<!-- Base Element - Don't change anything here other than the "xmi.id" attribute (to xmi:id, for example). -->
 	<xmitransformation modelelement="sdmetricsbase" xmipattern="sdmetricsbase" recurse="true">
 		<trigger name="id" type="attrval" attr="xmi.id" />
 		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
 
-	<!-- Diagram -->
+	<!-- ***************************** Diagram ***************************** -->
+	<!-- If in different tags, create an <xmitransformation> for each one. -->
 	<xmitransformation modelelement="diagram" xmipattern="TAG_OF_THE_DIAGRAM_INFORMATIONS" recurse="true">
 		<trigger name="id" type="" attr="xmi.id" />
 		<trigger name="name" type="" attr="name" />
 		<trigger name="type" type="" attr="Activity Diagram" />
 	</xmitransformation>
-
+	
+	<!-- ***************************** AD Elements ***************************** -->
 	<!-- Activity Control Nodes -->
 
 	<!-- Executable Node/Opaque Action -->
