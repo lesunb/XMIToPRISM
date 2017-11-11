@@ -11,11 +11,11 @@ import br.unb.xmiconverter.util.MessageUtil;
 import br.unb.xmiconverter.util.TimeUtil;
 
 /**
- * Represents the high level steps for the conversion to happen. First the model
- * is built using the XMI file provided. Then, the AGG diagram is built with the
+ * Represents the high level steps of the conversion. First the model is built
+ * using the XMI file provided. Then, the AGG diagram is built with the
  * information extracted from the model and converted to PRISM language using
- * the appropriate method from UnB-DALi. It contains only one variable, to
- * evaluate the conversion time.
+ * the UnB-DALi's method. The class' only variable is to evaluate the conversion
+ * time.
  * 
  * @author Pedro
  */
@@ -25,25 +25,27 @@ public class Converter {
 	private double conversionTimeMilli = 0;
 
 	/**
-	 * Aggregates the calls to the main steps in the conversion process. First
-	 * it builds the model, then parses the XMI file, then builds a PRISMModel
-	 * and finally calls the output generator.
+	 * Calls the main steps in the conversion process. Builds the model, parses
+	 * the XMI file, builds a PRISMModel and calls the output generator.
 	 * 
 	 * @param umlModelingTool
+	 *            The modeling tool entered by the user in the execution command
 	 * @param xmiFile
+	 *            The next file in the list of XMI files entered by the user in
+	 *            the execution command
 	 * @return True, if the conversion is successful. False, if not.
 	 */
 	protected boolean convert(String umlModelingTool, String xmiFile) {
 		ModelBuilder mb = new ModelBuilder();
 		DiagramBuilder db = new DiagramBuilder();
 
-		mb.buildModel(umlModelingTool, xmiFile);
-		AbstractAggModel diagram = db.buildDiagram(mb.getMetaModel(),
+		mb.buildSdmetricsModel(umlModelingTool, xmiFile);
+		AbstractAggModel aggModel = db.buildAggModel(mb.getMetaModel(),
 				mb.getModel());
 
 		boolean conversionResult = false;
-		if (diagram != null) {
-			PRISMModel prismModel = convertToPRISM(diagram);
+		if (aggModel != null) {
+			PRISMModel prismModel = convertToPRISM(aggModel);
 			if (prismModel != null) {
 				conversionResult = true;
 				FileUtil fu = new FileUtil();
@@ -56,19 +58,19 @@ public class Converter {
 	}
 
 	/**
-	 * Receives an AbstractAggModel diagram and converts it to a PRISMModel
-	 * using UnB-DALi's methods.
+	 * Converts an AbstractAggModel to a PRISMModel using UnB-DALi's methods.
 	 * 
 	 * @param diagram
+	 *            An AbstractAggModel previously built
 	 * 
-	 * @return A PRISMModel
+	 * @return A PRISMModel (UnB-DALi class)
 	 */
 	private PRISMModel convertToPRISM(AbstractAggModel diagram) {
 		PRISMModel prismModel = null;
 		long startTime = 0;
 		long finishTime = 0;
 
-		// TODO Avoid code repetition. auto cast solution? where to put toDTMC method?
+		// TODO Code repetition. auto cast solution? where to put toDTMC?
 		try {
 			if (diagram.getClass().getSimpleName().equals("ActivityDiagram")) {
 				startTime = TimeUtil.getTimeNano();

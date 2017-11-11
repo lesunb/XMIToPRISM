@@ -15,13 +15,12 @@ public class MainClass {
 	private static MessageUtil mu = new MessageUtil();
 
 	/**
-	 * Calls the interface Menu and process the files according to the user's
-	 * option.
+	 * Entry point of the program.
 	 * 
 	 * @param args
-	 *            The XMI files that the user wants to convert. If the user
-	 *            enters no arguments, the converter will process every file in
-	 *            the folder with the extensions .xmi, .xml and .uml.
+	 *            The XMI files to be converted. If the user enters no
+	 *            arguments, the converter will process every file in the folder
+	 *            with XMI extensions (.xmi, .xml and .uml).
 	 * 
 	 */
 	public static void main(String[] args) {

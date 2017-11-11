@@ -19,9 +19,7 @@ import br.unb.dali.models.agg.uml.ad.nodes.executable.ExecutableNode;
 import br.unb.dali.models.agg.uml.sd.Lifeline;
 
 /**
- * Provides a method that iterates over the constructed model in the
- * ModelBuilder class and builds, element by element, a diagram instance in the
- * form of an AGG Model. This class is the bridge that enables the communication
+ * Builds an AGG Model. This class is the bridge that enables the communication
  * between the UML Diagram information and the UnB-DALi library.
  * 
  * @author Pedro
@@ -32,10 +30,8 @@ public class DiagramBuilder {
 	// XMI file.
 	/**
 	 * Parses the accepted elements by the MetaModel that are present in the
-	 * model, one by one, and adds to the appropriate type of diagram. If the
-	 * element is a diagram, it creates a new instance of the correct type of
-	 * diagram. This class only creates one diagram at a time and that's why the
-	 * limit for diagrams in a single file is one.
+	 * model and adds, one by one, to the diagram. If the element is a diagram,
+	 * it creates a new instance of the correct type of diagram.
 	 * 
 	 * @param metaModel
 	 *            The MetaModel constructed in the previous step, according to
@@ -47,7 +43,7 @@ public class DiagramBuilder {
 	 * @return An AbstractAggModel, which can be and Activity Diagram or a
 	 *         Sequence Diagram, since these are its subclasses.
 	 */
-	public AbstractAggModel buildDiagram(MetaModel metaModel, Model model) {
+	public AbstractAggModel buildAggModel(MetaModel metaModel, Model model) {
 		AbstractAggModel diagram = null;
 		for (MetaModelElement type : metaModel) {
 			String elementType = type.getName();

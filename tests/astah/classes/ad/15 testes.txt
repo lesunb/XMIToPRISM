@@ -1,0 +1,18 @@
+Falhas esperadas
+01- cf-no-prob
+02- mandatory-cf-in
+03- mandatory-cf-fn
+04- mandatory-outgoing-cf-dn
+05- mandatory-incoming-cf-en
+06- mandatory-outgoing-cf-en
+07- mult-cf-to-fn
+08- mult-cf-from-en
+09- mult-cf-to-en
+10- mult-cf-to-dn-or-mn
+11- cf-loop
+
+Sucessos
+12- in-to-fn
+13- all-elements
+14- all-elements-repetition
+15- one-hundred-en

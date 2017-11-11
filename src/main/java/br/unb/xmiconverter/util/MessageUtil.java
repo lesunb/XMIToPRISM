@@ -3,7 +3,7 @@ package br.unb.xmiconverter.util;
 import java.text.DecimalFormat;
 
 /**
- * Provides operations that display some message on the screen. Mainly for
+ * Provides operations that display some message on the screen, such as the
  * conversion result.
  * 
  * @author Pedro

@@ -13,33 +13,29 @@ import com.sdmetrics.util.XMLParser;
 import br.unb.xmiconverter.util.FileUtil;
 
 /**
- * Provides a setup for the model that will be accessed later when instantiating
- * the diagram. With the XMLParser, it builds an SDMetrics model according to
- * the MetaModel, XMI Transformation and XMI file provided. The XMIReader parses
- * the XMI file and fetches the information according to the triggers set in the
- * XMI Transformation.
+ * Builds the SDMetrics model.
  * 
  * @author Pedro
  */
 public class ModelBuilder {
 
-	private static XMLParser parser = null;
 	private static MetaModel metaModel = new MetaModel();
 	private static XMITransformations transformation = null;
 	private static Model model = null;
+	private static XMLParser parser = null;
 	private static XMIReader xmiReader = null;
 
 	/**
-	 * Builds the SDMetrics Model but does not return anything. The MetaModel
-	 * and Model created here will be accessed via get methods in this class.
+	 * Builds the SDMetrics MetaModel and Model. The MetaModel and Model created
+	 * here are accessed via get methods.
 	 * 
 	 * @param umlModelingTool
 	 *            The UML tool name. Necessary to choose the proper XMI
-	 *            Transformation.
+	 *            Transformation. If it's not
 	 * @param xmiFile
 	 *            The name of the XMI file that will have its model constructed.
 	 */
-	public void buildModel(String umlModelingTool, String xmiFile) {
+	public void buildSdmetricsModel(String umlModelingTool, String xmiFile) {
 		FileUtil fu = new FileUtil();
 
 		try {
