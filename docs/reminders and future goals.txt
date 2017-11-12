@@ -1,4 +1,5 @@
-- mudança de nome da variável de estados no PRISM gerado pela UnB-DALi (um nome menor, como "s", ajudará na legilibilidade)
-- criação de arquivo de propriedades (.pctl) com as propriedades mais comuns (faz sentido?)
-- nível de análise: reachability (fórmula: P =?[F(phi)])
-- fazer os testes parametrizados divididos em testes com esperança de resultado correto e esperança de falha (assert true e false)
+- nome do "module" do PRISM deve obedecer Ã  sintaxe [Aâ€Zaâ€z_][Aâ€Zaâ€z0â€9_]*. Padronizar esta etapa pode ajudar a nÃ£o causar erros no futuro.
+Note que o underscore '_' Ã© permitido, mas o hÃ­fen '-' nÃ£o. EntÃ£o um nome de diagrama como "AD-Teste" darÃ¡ problema no PRISM.
+- nome da variÃ¡vel de estados no PRISM gerado pela UnB-DALi (um nome menor, como "sA" "sB", ajudarÃ¡ na legilibilidade)
+- criaÃ§Ã£o de arquivo de propriedades (.pctl) com as propriedades mais comuns (faz sentido?)
+- nÃ­vel de anÃ¡lise: reachability (fÃ³rmula: P =?[F(phi)])

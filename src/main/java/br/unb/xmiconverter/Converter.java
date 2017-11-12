@@ -21,7 +21,6 @@ import br.unb.xmiconverter.util.TimeUtil;
  */
 public class Converter {
 
-	@SuppressWarnings("unused")
 	private double conversionTimeMilli = 0;
 
 	/**
@@ -88,4 +87,7 @@ public class Converter {
 		return prismModel;
 	}
 
+	public double getConversionTimeMilli() {
+		return conversionTimeMilli;
+	}
 }

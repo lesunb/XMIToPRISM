@@ -12,7 +12,6 @@ Currently supported UML Modeling Tools:
 - Astah
 - Papyrus
 
-
 ## Run the JAR file via terminal
 **Important: Make sure you have Java installed and added to your PATH environment variable.**
 
