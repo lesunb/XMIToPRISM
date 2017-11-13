@@ -1,7 +1,7 @@
 # XMI-PRISM-Converter
 UML diagrams as XMI files transformed to Discrete-Time Markov Chains (DTMCs) in PRISM language via the UnB-Dependability Analysis Library (UnB-DALi).
 
-This project is to attempt to extract the information of an UML diagram in the form of an XMI file so that it can be used as input to the UnB-Dependability Analysis Library, that conducts the graph transformation of a UML diagram to a Discrete Time Markov Chain (DTMC) in the language of the PRISM model checker tool.
+This project goal is to extract the information of an UML diagram in the form of an XMI file so that it can be used as input to the UnB-Dependability Analysis Library, that conducts the graph transformation of a UML diagram to a Discrete Time Markov Chain (DTMC) in the language of the PRISM model checker tool.
 
 # How to use the XMI-PRISM-Converter tool
 

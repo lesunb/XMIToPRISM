@@ -31,7 +31,7 @@ public class ModelBuilder {
 	 * 
 	 * @param umlModelingTool
 	 *            The UML tool name. Necessary to choose the proper XMI
-	 *            Transformation. If it's not
+	 *            Transformation.
 	 * @param xmiFile
 	 *            The name of the XMI file that will have its model constructed.
 	 */
