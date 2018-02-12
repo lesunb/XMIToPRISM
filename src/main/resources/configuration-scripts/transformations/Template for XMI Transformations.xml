@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE xmitransformations SYSTEM 'xmitrans.dtd'>
 
-<!-- 
-
-XMI transformations for the SDMetrics V2.3 default metamodel
+<!-- XMI transformations for the SDMetrics V2.3 default metamodel
 for UML2.x and XMI 2.x source files.
 
 Copyright (c) 2002-2013 Juergen Wuest
@@ -29,30 +27,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE PROJECT FILE.
 
 Note: this license grant only applies to this Project File, and not to any
-other part of SDMetrics.
+other part of SDMetrics. -->
 
- -->
-
-<!-- ******************************************************************************* -->
-<!-- Default Transformation - Adaptable to the XMI structure of an UML modeling tool -->
-<!-- ******************************************************************************* -->
-
-	<!-- Check the SDMetrics Manual inside the docs folder for specific questions.
-	 	 Or the website: http://www.sdmetrics.com/manual/MetaTrans.html -->
-
-	<!-- GENERAL TIPS AND EXPLANATION -->
-	<!-- "modelelement" is the name of the Metamodel element you are referring to -->
-	<!-- "xmipattern" is where you put the tag name of where the model element information is inside the XMI file -->
+<!-- Template for XMI Transformations for any UML modeling tool
+	See the SDMetrics Manual (inside docs folder) for further details or go to the website:
+	http://www.sdmetrics.com/manual/MetaTrans.html
 	
-	<!-- The trigger attributes: -->
-	<!-- name: Name of the attribute in the Metamodel element -->
-	<!-- type: Depends on where the information is. It can be attrval, ctext, cattrval, gattrval, constant, etc. Check
-		 SDMetrics manual section 7.2.2 for more information -->
-	<!-- attr: The name of the attribute you want, inside the XMI tag -->
+	GENERAL TIPS
+	"modelelement" is the name of the Metamodel element you are referring to
+	"xmipattern" is where you put the tag name of where the model element information is inside the XMI file
 	
-	<!-- id is generally "xmi.id" or "xmi:id". Change according to your tool. -->
-	<!-- id and name of the element may be in different tags. Create 2 <xmitransformation> elements in this case. -->
-	<!-- src="" attribute depends on the type of the trigger. Used in cattrval and gattrval (child and grandchild) -->
+	<trigger> tag attributes:
+		name: Name of the attribute in the SDMetrics Metamodel.
+		type: Depends on where the information is. It can be attrval, ctext, cattrval, gcattrval, constant, etc.
+			  Check the SDMetrics manual section 7.2.2 for more information.
+		attr: The name of the attribute you want, inside the XMI tag.
+	
+	The "id" of an element is generaly is generally on a "xmi.id" or "xmi:id" attribute. Change according to the XMI of your tool.
+	The "id" and "name" of an element may be in different tags. Create 2 different <xmitransformation> elements in this case. 
+	The "src" attribute depends on the type of the trigger. Used in cattrval and gcattrval (child and grandchild values). 
+-->
 <xmitransformations version="2.0">
 
 	<!-- Base Element - Don't change anything here other than the "xmi.id" attribute (to xmi:id, for example). -->
@@ -61,52 +55,52 @@ other part of SDMetrics.
 		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
 
-	<!-- ***************************** Diagram ***************************** -->
-	<!-- If in different tags, create an <xmitransformation> for each one. -->
+	<!-- * Diagram * -->
+	<!-- If different informations are in different tags, create an <xmitransformation> for each one. -->
 	<xmitransformation modelelement="diagram" xmipattern="TAG_OF_THE_DIAGRAM_INFORMATIONS" recurse="true">
 		<trigger name="id" type="" attr="xmi.id" />
 		<trigger name="name" type="" attr="name" />
 		<trigger name="type" type="" attr="Activity Diagram" />
 	</xmitransformation>
 	
-	<!-- ***************************** AD Elements ***************************** -->
-	<!-- Activity Control Nodes -->
+	<!-- * AD Elements * -->
 
-	<!-- Executable Node/Opaque Action -->
+	<!-- AD Executable Node/Opaque Action -->
 	<xmitransformation modelelement="node" xmipattern="TAG_OF_THE_NODE_INFORMATIONS" recurse="true">
 		<trigger name="type" type="constant" attr="executable" />
 	</xmitransformation>
 
-	<!-- Initial Node - Decision Node - Merge Node -->
+	<!-- AD Initial Node - Decision Node - Merge Node -->
 	<xmitransformation modelelement="node" xmipattern="TAG_OF_THESE_KINDS_OF_NODES" recurse="true">
 		<trigger name="type" type="" attr="ATTRIBUTE_OF_THE_TYPE" />
 		<trigger name="incomingEdges" type="" attr="ATTRIBUTE_OF_INCOMING_EDGES" />
 	</xmitransformation>
 
-	<!-- Final Node -->
+	<!-- AD Final Node -->
 	<xmitransformation modelelement="node" xmipattern="TAG_OF_FINAL_NODE" recurse="true">
 		<trigger name="type" type="constant" attr="activityfinal" />
 	</xmitransformation>
 
-	<!-- Activity Diagram Control Flow -->
+	<!-- AD Control Flow -->
 	<xmitransformation modelelement="controlflow" xmipattern="TAG_OF_CONTROL_FLOW" recurse="true">
 		<trigger name="type" type="constant" attr="controlflow"/>
 		<trigger name="source" type="" attr="" />
 		<trigger name="target" type="" attr="" />
 		<trigger name="probability" type="" attr="" />
 	</xmitransformation>
-
-	<!-- Sequence Diagram Lifeline/Component -->
+	
+	<!-- * SD Elements * -->
+	
+	<!-- SD Lifeline/Component -->
 	<xmitransformation modelelement="lifeline" xmipattern="TAG_OF_LIFELINE" recurse="true">
 		<trigger name="type" type="constant" attr="lifeline"/>
 		<trigger name="BCompRel" type="" attr="" />
 	</xmitransformation>
 
-	<!-- Sequence Diagram Asynchronous Message -->
+	<!-- SD Asynchronous Message -->
 	<xmitransformation modelelement="asynchronousmessage" xmipattern="TAG_OF_ASYNC_MESSAGE" recurse="true">
 		<trigger name="source" type="" src="" attr="" />
 		<trigger name="target" type="" src="" attr="" />
 	</xmitransformation>
 
 </xmitransformations>
-
