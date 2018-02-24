@@ -57,52 +57,61 @@ other part of SDMetrics. -->
 
 	<!-- * Diagram * -->
 	<!-- If different informations are in different tags, create an <xmitransformation> for each one. -->
-	<xmitransformation modelelement="diagram" xmipattern="TAG_OF_THE_DIAGRAM_INFORMATIONS" recurse="true">
+	<xmitransformation modelelement="diagram" xmipattern="UML:ActivityGraph" recurse="true">
 		<trigger name="id" type="attrval" attr="xmi.id" />
 		<trigger name="name" type="attrval" attr="name" />
-		
-		<!-- uml:Activity or uml:Interaction. Constant, because it generally depends on the tag itself -->
-		<trigger name="type" type="constant" attr="" />
+		<trigger name="type" type="constant" attr="uml:Activity" />
+	</xmitransformation>
+	
+	<xmitransformation modelelement="diagram" xmipattern="UML:Collaboration" recurse="true">
+		<trigger name="id" type="attrval" attr="xmi.id" />
+		<trigger name="name" type="attrval" attr="name" />
+		<trigger name="type" type="constant" attr="uml:Interaction" />
 	</xmitransformation>
 	
 	<!-- * AD Elements * -->
 
 	<!-- AD Executable Node/Opaque Action -->
-	<xmitransformation modelelement="node" xmipattern="TAG_OF_THE_NODE_INFORMATIONS" recurse="true">
-		<trigger name="type" type="constant" attr="executable" />
+	<xmitransformation modelelement="node" xmipattern="UML:ActionState" recurse="true">
+		<trigger name="type" type="constant" attr="uml:OpaqueAction" />
 	</xmitransformation>
 
 	<!-- AD Initial Node - Decision Node - Merge Node -->
-	<xmitransformation modelelement="node" xmipattern="TAG_OF_THESE_KINDS_OF_NODES" recurse="true">
-		<trigger name="type" type="" attr="ATTRIBUTE_OF_THE_TYPE" />
-		<trigger name="incomingEdges" type="" attr="ATTRIBUTE_OF_INCOMING_EDGES" />
+	<xmitransformation modelelement="node" xmipattern="UML:Pseudostate" recurse="true">
+		<trigger name="type" type="attrval" attr="kind" />
+		<trigger name="incomingEdges" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
 	</xmitransformation>
 
 	<!-- AD Final Node -->
-	<xmitransformation modelelement="node" xmipattern="TAG_OF_FINAL_NODE" recurse="true">
-		<trigger name="type" type="constant" attr="activityfinal" />
+	<xmitransformation modelelement="node" xmipattern="UML:FinalState" recurse="true">
+		<trigger name="type" type="constant" attr="uml:ActivityFinalNode" />
 	</xmitransformation>
 
 	<!-- AD Control Flow -->
-	<xmitransformation modelelement="controlflow" xmipattern="TAG_OF_CONTROL_FLOW" recurse="true">
+	<xmitransformation modelelement="controlflow" xmipattern="UML:Transition" recurse="true">
 		<trigger name="type" type="constant" attr="controlflow"/>
-		<trigger name="source" type="" attr="" />
-		<trigger name="target" type="" attr="" />
-		<trigger name="probability" type="" attr="" />
+		<trigger name="source" type="gcattrval" src="UML:Transition.source" attr="xmi.idref" />
+		<trigger name="target" type="gcattrval" src="UML:Transition.target" attr="xmi.idref" />
+		<trigger name="probability" type="ctext" src="UML:TaggedValue.dataValue" />
 	</xmitransformation>
-	
+	<!-- 
+	<xmitransformation modelelement="controlflow" xmipattern="UML:ModelElement.taggedValue" recurse="true">
+		
+	</xmitransformation>
+	 -->
 	<!-- * SD Elements * -->
 	
-	<!-- SD Lifeline/Component -->
-	<xmitransformation modelelement="lifeline" xmipattern="TAG_OF_LIFELINE" recurse="true">
+	<!-- SD Lifelines/Components -->
+	<xmitransformation modelelement="lifeline" xmipattern="UML:ClassifierRole" recurse="true">
 		<trigger name="type" type="constant" attr="lifeline"/>
-		<trigger name="BCompRel" type="" attr="" />
+		<trigger name="BCompRel" type="ctext" src="UML:TaggedValue.dataValue" />
 	</xmitransformation>
 
-	<!-- SD Asynchronous Message -->
-	<xmitransformation modelelement="message" xmipattern="TAG_OF_ASYNC_MESSAGE" recurse="true">
-		<trigger name="source" type="" src="" attr="" />
-		<trigger name="target" type="" src="" attr="" />
+	<!-- SD Messages -->
+	<xmitransformation modelelement="message" xmipattern="UML:Message" recurse="true">
+		<trigger name="type" type="constant" attr="asynchronous" />
+		<trigger name="source" type="gcattrval" src="UML:Message.sender" attr="xmi.idref" />
+		<trigger name="target" type="gcattrval" src="UML:Message.receiver" attr="xmi.idref" />
 	</xmitransformation>
 
 </xmitransformations>

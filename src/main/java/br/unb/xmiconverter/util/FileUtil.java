@@ -136,7 +136,10 @@ public class FileUtil {
 	 */
 	private static Map<String, String> createTransformationsMap() {
 		Map<String, String> transformationsMap = new HashMap<String, String>();
+		transformationsMap.put("argo", "argouml-transformations.xml");
 		transformationsMap.put("astah", "astah-transformations.xml");
+		transformationsMap.put("bouml", "bouml-transformations.xml");
+		transformationsMap.put("magicdraw", "magicdraw-transformations.xml");
 		transformationsMap.put("papyrus", "papyrus-transformations.xml");
 		return transformationsMap;
 	}

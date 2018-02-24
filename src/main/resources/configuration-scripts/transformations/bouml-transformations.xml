@@ -51,58 +51,46 @@ other part of SDMetrics. -->
 
 	<!-- Base Element - Don't change anything here other than the "xmi.id" attribute (to xmi:id, for example). -->
 	<xmitransformation modelelement="sdmetricsbase" xmipattern="sdmetricsbase" recurse="true">
-		<trigger name="id" type="attrval" attr="xmi.id" />
+		<trigger name="id" type="attrval" attr="xmi:id" />
 		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
 
 	<!-- * Diagram * -->
 	<!-- If different informations are in different tags, create an <xmitransformation> for each one. -->
-	<xmitransformation modelelement="diagram" xmipattern="TAG_OF_THE_DIAGRAM_INFORMATIONS" recurse="true">
-		<trigger name="id" type="attrval" attr="xmi.id" />
-		<trigger name="name" type="attrval" attr="name" />
-		
-		<!-- uml:Activity or uml:Interaction. Constant, because it generally depends on the tag itself -->
-		<trigger name="type" type="constant" attr="" />
+	<xmitransformation modelelement="diagram" xmipattern="packagedElement" recurse="true">
+		<trigger name="id" type="cattrval" src="packagedElement" attr="xmi:id" />
+		<trigger name="name" type="cattrval" src="packagedElement" attr="name" />
+		<trigger name="type" type="cattrval" src="packagedElement" attr="xmi:type" />
 	</xmitransformation>
 	
 	<!-- * AD Elements * -->
 
-	<!-- AD Executable Node/Opaque Action -->
-	<xmitransformation modelelement="node" xmipattern="TAG_OF_THE_NODE_INFORMATIONS" recurse="true">
-		<trigger name="type" type="constant" attr="executable" />
+	<!-- nodes -->
+	<xmitransformation modelelement="node" xmipattern="node" recurse="true">
+		<trigger name="type" type="attrval" attr="xmi:type" />
+		<trigger name="incomingEdges" type="cattrval" src="incoming" attr="xmi:idref" />
 	</xmitransformation>
 
-	<!-- AD Initial Node - Decision Node - Merge Node -->
-	<xmitransformation modelelement="node" xmipattern="TAG_OF_THESE_KINDS_OF_NODES" recurse="true">
-		<trigger name="type" type="" attr="ATTRIBUTE_OF_THE_TYPE" />
-		<trigger name="incomingEdges" type="" attr="ATTRIBUTE_OF_INCOMING_EDGES" />
-	</xmitransformation>
-
-	<!-- AD Final Node -->
-	<xmitransformation modelelement="node" xmipattern="TAG_OF_FINAL_NODE" recurse="true">
-		<trigger name="type" type="constant" attr="activityfinal" />
-	</xmitransformation>
-
-	<!-- AD Control Flow -->
-	<xmitransformation modelelement="controlflow" xmipattern="TAG_OF_CONTROL_FLOW" recurse="true">
+	<!-- flows -->
+	<xmitransformation modelelement="controlflow" xmipattern="edge" recurse="true">
 		<trigger name="type" type="constant" attr="controlflow"/>
-		<trigger name="source" type="" attr="" />
-		<trigger name="target" type="" attr="" />
-		<trigger name="probability" type="" attr="" />
+		<trigger name="source" type="attrval" attr="source" />
+		<trigger name="target" type="attrval" attr="target" />
+		<trigger name="probability" type="cattrval" src="ownedComment" attr="body" />
 	</xmitransformation>
 	
 	<!-- * SD Elements * -->
 	
 	<!-- SD Lifeline/Component -->
-	<xmitransformation modelelement="lifeline" xmipattern="TAG_OF_LIFELINE" recurse="true">
+	<xmitransformation modelelement="lifeline" xmipattern="packagedElement" recurse="true">
 		<trigger name="type" type="constant" attr="lifeline"/>
-		<trigger name="BCompRel" type="" attr="" />
+		<trigger name="BCompRel" type="cattrval" src="ownedComment" attr="body" />
 	</xmitransformation>
 
 	<!-- SD Asynchronous Message -->
-	<xmitransformation modelelement="message" xmipattern="TAG_OF_ASYNC_MESSAGE" recurse="true">
-		<trigger name="source" type="" src="" attr="" />
-		<trigger name="target" type="" src="" attr="" />
+	<xmitransformation modelelement="message" xmipattern="message" recurse="true">
+		<trigger name="source" type="attrval" attr="sendEvent" />
+		<trigger name="target" type="attrval" attr="receiveEvent" />
 	</xmitransformation>
 
 </xmitransformations>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.3" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+	<xmi:Documentation exporter="Bouml" exporterVersion="5.1"/>
+	<uml:Model xmi:type="uml:Model" xmi:id="themodel" name="AD_bouml">
+		<packagedElement xmi:type="uml:Package" xmi:id="BOUML_0x81_22" name ="AD_bouml">
+			<packagedElement xmi:type="uml:Activity" xmi:id="BOUML_0x1f42a_39" name="AD_bouml">
+				<node xmi:type="uml:InitialNode" xmi:id="BOUML_0x1f42a_70">
+					<outgoing xmi:idref="BOUML_0x1f42a_40"/>
+				</node>
+				<node xmi:type="uml:ActivityFinalNode" xmi:id="BOUML_0x1f4aa_72">
+					<incoming xmi:idref="BOUML_0x1f6aa_40"/>
+				</node>
+				<node xmi:type="uml:OpaqueAction" xmi:id="BOUML_0x1f42a_46" name="A1">
+					<outgoing xmi:idref="BOUML_0x1f5aa_40"/>
+					<incoming xmi:idref="BOUML_0x1f4aa_40"/>
+				</node>
+				<node xmi:type="uml:OpaqueAction" xmi:id="BOUML_0x1f4aa_46" name="A2">
+					<outgoing xmi:idref="BOUML_0x1f62a_40"/>
+					<incoming xmi:idref="BOUML_0x1f52a_40"/>
+				</node>
+				<node xmi:type="uml:MergeNode" xmi:id="BOUML_0x1f52a_74">
+					<outgoing xmi:idref="BOUML_0x1f6aa_40"/>
+					<incoming xmi:idref="BOUML_0x1f5aa_40"/>
+					<incoming xmi:idref="BOUML_0x1f62a_40"/>
+				</node>
+				<node xmi:type="uml:DecisionNode" xmi:id="BOUML_0x1f5aa_73">
+					<outgoing xmi:idref="BOUML_0x1f4aa_40"/>
+					<outgoing xmi:idref="BOUML_0x1f52a_40"/>
+					<incoming xmi:idref="BOUML_0x1f42a_40"/>
+				</node>
+				<edge xmi:type="uml:ControlFlow" xmi:id="BOUML_0x1f42a_40" source="BOUML_0x1f42a_70" target="BOUML_0x1f5aa_73">
+					<ownedComment xmi:type="uml:Comment" xmi:id="COMMENT_1" body="0.9" annotatedElement="BOUML_0x1f42a_40"/>
+				</edge>
+				<edge xmi:type="uml:ControlFlow" xmi:id="BOUML_0x1f5aa_40" source="BOUML_0x1f42a_46" target="BOUML_0x1f52a_74">
+				</edge>
+				<edge xmi:type="uml:ControlFlow" xmi:id="BOUML_0x1f62a_40" source="BOUML_0x1f4aa_46" target="BOUML_0x1f52a_74">
+				</edge>
+				<edge xmi:type="uml:ControlFlow" xmi:id="BOUML_0x1f6aa_40" source="BOUML_0x1f52a_74" target="BOUML_0x1f4aa_72">
+				</edge>
+				<edge xmi:type="uml:ControlFlow" xmi:id="BOUML_0x1f4aa_40" source="BOUML_0x1f5aa_73" target="BOUML_0x1f42a_46">
+				</edge>
+				<edge xmi:type="uml:ControlFlow" xmi:id="BOUML_0x1f52a_40" source="BOUML_0x1f5aa_73" target="BOUML_0x1f4aa_46">
+				</edge>
+			</packagedElement>
+		</packagedElement>
+	</uml:Model>
+</xmi:XMI>

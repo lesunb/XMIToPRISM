@@ -62,7 +62,8 @@ public class DiagramBuilder {
 				case "uml:Activity":
 					diagram = new ActivityDiagram(diagId, diagName);
 					break;
-
+				
+				case "uml:Collaboration":
 				case "uml:Interaction":
 					diagram = new SequenceDiagram(diagId, diagName);
 					break;
@@ -81,6 +82,7 @@ public class DiagramBuilder {
 
 					String nodeType = me.getPlainAttribute("type");
 					switch (nodeType) {
+					case "uml:CallBehaviorAction":
 					case "uml:OpaqueAction":
 						ExecutableNode en = new ExecutableNode(nodeId,
 								(ActivityDiagram) diagram);
@@ -142,6 +144,7 @@ public class DiagramBuilder {
 				break;
 
 			// *** SEQUENCE DIAGRAM LIFELINE ***
+			case "uml:Lifeline":
 			case "lifeline":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
@@ -160,6 +163,7 @@ public class DiagramBuilder {
 				break;
 
 			// *** SEQUENCE DIAGRAM MESSAGE (ONLY ASYNCHRONOUS) ***
+			case "uml:Message":
 			case "message":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
