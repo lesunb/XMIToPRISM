@@ -1,4 +1,4 @@
-package br.unb.xmiconverter.util;
+package br.unb.xmitoprism.util;
 
 /**
  * Provides simple time methods to measure the conversion.

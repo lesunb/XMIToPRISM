@@ -1,4 +1,4 @@
-package br.unb.xmiconverter.util;
+package br.unb.xmitoprism.util;
 
 import java.io.BufferedWriter;
 import java.io.File;

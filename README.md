@@ -1,16 +1,16 @@
-# XMI PRISM Converter
+# XMIToPRISM
 UML diagrams as XMI files transformed to Discrete-Time Markov Chains (DTMCs) in PRISM language via the UnB-Dependability Analysis Library (UnB-DALi). Check the [UnB-DALi project](https://github.com/lesunb/UnB-DALi).
 
-This project goal is to extract the information of an UML diagram in the form of an XMI file and use it as input to the UnB-Dependability Analysis Library, that conducts the graph transformation of a UML diagram to a Discrete Time Markov Chain (DTMC) in the language of the PRISM model checker tool.
+The project's goal is to extract the information of an UML diagram, in the form of an XMI file, and use it as input to UnB-DALi, that conducts the graph transformation of an UML diagram to a DTMC in the language of the PRISM model checker tool.
 
-# How to use the XMI PRISM Converter tool
+# How to use
 
 ## Annotate the probabilities and Export the XMI file of your diagram
 
-Follow the instructions for the corresponding tool inside the folder "docs/UML Modeling Tools Instructions".
+Follow the instructions for the corresponding tool inside the folder "docs/UML Modeling Tools Instructions". Each tool has it's own way of inserting the probabilities.
 Currently supported UML Modeling Tools: Astah and Papyrus.
 
-## Build the project and JAR file
+## Build the project and create JAR file
 **Important: Make sure you have Java installed and added to your PATH environment variable.**
 
 1. Install Gradle [(https://gradle.org/)](https://gradle.org/) in your IDE (Eclipse/IntelliJ).

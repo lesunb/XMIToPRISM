@@ -1,14 +1,14 @@
-package br.unb.xmiconverter;
+package br.unb.xmitoprism;
 
 import br.unb.dali.models.agg.AbstractAggModel;
 import br.unb.dali.models.agg.uml.ActivityDiagram;
 import br.unb.dali.models.agg.uml.SequenceDiagram;
 import br.unb.dali.util.prism.PRISMModel;
-import br.unb.xmiconverter.builder.DiagramBuilder;
-import br.unb.xmiconverter.builder.ModelBuilder;
-import br.unb.xmiconverter.util.FileUtil;
-import br.unb.xmiconverter.util.MessageUtil;
-import br.unb.xmiconverter.util.TimeUtil;
+import br.unb.xmitoprism.builder.DiagramBuilder;
+import br.unb.xmitoprism.builder.ModelBuilder;
+import br.unb.xmitoprism.util.FileUtil;
+import br.unb.xmitoprism.util.MessageUtil;
+import br.unb.xmitoprism.util.TimeUtil;
 
 /**
  * Represents the high level steps of the conversion. First the model is built
@@ -34,7 +34,7 @@ public class Converter {
 	 *            the execution command
 	 * @return True, if the conversion is successful. False, if not.
 	 */
-	protected boolean convert(String umlModelingTool, String xmiFile) {
+	public boolean convert(String umlModelingTool, String xmiFile) {
 		ModelBuilder mb = new ModelBuilder();
 		DiagramBuilder db = new DiagramBuilder();
 

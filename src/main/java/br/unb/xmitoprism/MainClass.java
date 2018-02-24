@@ -1,9 +1,9 @@
-package br.unb.xmiconverter;
+package br.unb.xmitoprism;
 
 import java.io.File;
 
-import br.unb.xmiconverter.util.FileUtil;
-import br.unb.xmiconverter.util.MessageUtil;
+import br.unb.xmitoprism.util.FileUtil;
+import br.unb.xmitoprism.util.MessageUtil;
 
 /**
  * The entry point of the application. It has utility objects to find the

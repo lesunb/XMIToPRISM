@@ -1,4 +1,4 @@
-package br.unb.xmiconverter.builder;
+package br.unb.xmitoprism.builder;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -10,7 +10,7 @@ import com.sdmetrics.model.XMIReader;
 import com.sdmetrics.model.XMITransformations;
 import com.sdmetrics.util.XMLParser;
 
-import br.unb.xmiconverter.util.FileUtil;
+import br.unb.xmitoprism.util.FileUtil;
 
 /**
  * Builds the SDMetrics model.

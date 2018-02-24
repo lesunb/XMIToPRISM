@@ -12,6 +12,8 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
+import br.unb.xmitoprism.Converter;
+
 @RunWith(Parameterized.class)
 public class ModelConverter_AstahUnbdaliFailure {
 	static final String umlTool = "astah";

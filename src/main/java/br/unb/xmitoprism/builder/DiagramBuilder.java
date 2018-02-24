@@ -1,4 +1,4 @@
-package br.unb.xmiconverter.builder;
+package br.unb.xmitoprism.builder;
 
 import java.util.List;
 

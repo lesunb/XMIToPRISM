@@ -2,7 +2,8 @@ package br.unb.xmiconverter;
 
 import java.io.File;
 
-import br.unb.xmiconverter.util.FileUtil;
+import br.unb.xmitoprism.Converter;
+import br.unb.xmitoprism.util.FileUtil;
 
 /**
  * Programa que roda cada um dos testes 10 vezes cada. Extrai informações de
