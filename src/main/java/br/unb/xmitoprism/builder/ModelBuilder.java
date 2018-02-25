@@ -29,13 +29,10 @@ public class ModelBuilder {
 	 * Builds the SDMetrics MetaModel and Model. The MetaModel and Model created
 	 * here are accessed via get methods.
 	 * 
-	 * @param umlModelingTool
-	 *            The UML tool name. Necessary to choose the proper XMI
-	 *            Transformation.
 	 * @param xmiFile
 	 *            The name of the XMI file that will have its model constructed.
 	 */
-	public void buildSdmetricsModel(String umlModelingTool, String xmiFile) {
+	public void buildSdmetricsModel(String xmiFile) {
 		FileUtil fu = new FileUtil();
 
 		try {
@@ -55,7 +52,7 @@ public class ModelBuilder {
 
 		transformation = new XMITransformations(metaModel);
 		try {
-			parser.parse(fu.getTransformationPath(umlModelingTool),
+			parser.parse(fu.getTransformationPath(),
 					transformation.getSAXParserHandler());
 		} catch (Exception e) {
 			e.printStackTrace();

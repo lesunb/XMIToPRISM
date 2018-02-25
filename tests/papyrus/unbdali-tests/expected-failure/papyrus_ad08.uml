@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_QN0WgIFPEeesM7BLzjUnYA" name="RootElement">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_QOed0IFPEeesM7BLzjUnYA" name="Activity1" node="_XRo-kIFPEeesM7BLzjUnYA _YaZWYIFPEeesM7BLzjUnYA">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_bPxoEIFPEeesM7BLzjUnYA" name="PTS" target="_YaZWYIFPEeesM7BLzjUnYA" source="_XRo-kIFPEeesM7BLzjUnYA">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_eknc8IFPEeesM7BLzjUnYA" name="PTS" value="1.0"/>
+    </edge>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_XRo-kIFPEeesM7BLzjUnYA" name="Action1" outgoing="_bPxoEIFPEeesM7BLzjUnYA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_YaZWYIFPEeesM7BLzjUnYA" name="Action2" incoming="_bPxoEIFPEeesM7BLzjUnYA"/>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_QQnL0IFPEeesM7BLzjUnYA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QQpBAIFPEeesM7BLzjUnYA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#/"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_zaC5cAPHEdyeNfbOYuD9pg"/>
+  </profileApplication>
+</uml:Model>

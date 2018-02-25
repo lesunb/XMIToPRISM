@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_ucuIgFbmEeeutZNN0B8EtQ" name="RootElement">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_uc35gFbmEeeutZNN0B8EtQ" name="modelo006" node="_yiAi4FbmEeeutZNN0B8EtQ _0Y4k8FbmEeeutZNN0B8EtQ _9nFZ4FbmEeeutZNN0B8EtQ _-RY7IFbmEeeutZNN0B8EtQ __BzEYFbmEeeutZNN0B8EtQ _D2LZYFbnEeeutZNN0B8EtQ _IPqiIFbnEeeutZNN0B8EtQ _uf3qoIFNEeesM7BLzjUnYA">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_AiTN0FbnEeeutZNN0B8EtQ" name="PTS" target="_9nFZ4FbmEeeutZNN0B8EtQ" source="_0Y4k8FbmEeeutZNN0B8EtQ">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_Y5k6sFbnEeeutZNN0B8EtQ" name="PTS" value="0.5"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_BHAdYFbnEeeutZNN0B8EtQ" name="PTS" target="_-RY7IFbmEeeutZNN0B8EtQ" source="_0Y4k8FbmEeeutZNN0B8EtQ">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_bWheQFbnEeeutZNN0B8EtQ" name="PTS" value="0.5"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_Bh30cFbnEeeutZNN0B8EtQ" name="PTS" target="__BzEYFbmEeeutZNN0B8EtQ" source="_-RY7IFbmEeeutZNN0B8EtQ">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_SXDB0FbnEeeutZNN0B8EtQ" name="PTS" value="1.0"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_Fwyr8FbnEeeutZNN0B8EtQ" name="PTS" target="_D2LZYFbnEeeutZNN0B8EtQ" source="_9nFZ4FbmEeeutZNN0B8EtQ">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_N-S44FbnEeeutZNN0B8EtQ" name="PTS" value="1.0"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_GRXCYFbnEeeutZNN0B8EtQ" name="PTS" target="_D2LZYFbnEeeutZNN0B8EtQ" source="__BzEYFbmEeeutZNN0B8EtQ">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_btYcAIFNEeesM7BLzjUnYA" name="PTS" value="1.0"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_K4aGAFbnEeeutZNN0B8EtQ" name="PTS" target="_IPqiIFbnEeeutZNN0B8EtQ" source="_D2LZYFbnEeeutZNN0B8EtQ">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_VF_UUFbnEeeutZNN0B8EtQ" name="PTS" value="1.0"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_yGSXsIFNEeesM7BLzjUnYA" name="PTS" target="_uf3qoIFNEeesM7BLzjUnYA" source="_yiAi4FbmEeeutZNN0B8EtQ">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_2hO5AIFNEeesM7BLzjUnYA" name="PTS" value="1.0"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_zI2n8IFNEeesM7BLzjUnYA" name="PTS" target="_0Y4k8FbmEeeutZNN0B8EtQ" source="_uf3qoIFNEeesM7BLzjUnYA">
+      <weight xmi:type="uml:LiteralReal" xmi:id="_6NPQsIFNEeesM7BLzjUnYA" name="PTS" value="1.0"/>
+    </edge>
+    <node xmi:type="uml:InitialNode" xmi:id="_yiAi4FbmEeeutZNN0B8EtQ" name="Inicio" outgoing="_yGSXsIFNEeesM7BLzjUnYA"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_0Y4k8FbmEeeutZNN0B8EtQ" incoming="_zI2n8IFNEeesM7BLzjUnYA" outgoing="_AiTN0FbnEeeutZNN0B8EtQ _BHAdYFbnEeeutZNN0B8EtQ"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_9nFZ4FbmEeeutZNN0B8EtQ" name="OpaqueAction1" incoming="_AiTN0FbnEeeutZNN0B8EtQ" outgoing="_Fwyr8FbnEeeutZNN0B8EtQ"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_-RY7IFbmEeeutZNN0B8EtQ" name="OpaqueAction2" incoming="_BHAdYFbnEeeutZNN0B8EtQ" outgoing="_Bh30cFbnEeeutZNN0B8EtQ"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="__BzEYFbmEeeutZNN0B8EtQ" name="OpaqueAction3" incoming="_Bh30cFbnEeeutZNN0B8EtQ" outgoing="_GRXCYFbnEeeutZNN0B8EtQ"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_D2LZYFbnEeeutZNN0B8EtQ" incoming="_Fwyr8FbnEeeutZNN0B8EtQ _GRXCYFbnEeeutZNN0B8EtQ" outgoing="_K4aGAFbnEeeutZNN0B8EtQ"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_IPqiIFbnEeeutZNN0B8EtQ" name="Fim" incoming="_K4aGAFbnEeeutZNN0B8EtQ"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_uf3qoIFNEeesM7BLzjUnYA" incoming="_yGSXsIFNEeesM7BLzjUnYA" outgoing="_zI2n8IFNEeesM7BLzjUnYA"/>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_uevhwFbmEeeutZNN0B8EtQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uevhwVbmEeeutZNN0B8EtQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#/"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_zaC5cAPHEdyeNfbOYuD9pg"/>
+  </profileApplication>
+</uml:Model>

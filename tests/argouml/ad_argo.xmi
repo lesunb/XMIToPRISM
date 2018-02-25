@@ -1,0 +1,193 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sat Feb 17 11:48:19 BRST 2018'>
+  <XMI.header>    <XMI.documentation>
+      <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
+      <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
+    </XMI.documentation>
+    <XMI.metamodel xmi.name="UML" xmi.version="1.4"/></XMI.header>
+  <XMI.content>
+    <UML:Model xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A5D'
+      name = 'ad_argo' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
+      isAbstract = 'false'>
+      <UML:Namespace.ownedElement>
+        <UML:ActivityGraph xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A5E'
+          name = 'ad_argo' isSpecification = 'false'>
+          <UML:StateMachine.context>
+            <UML:Model xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A5D'/>
+          </UML:StateMachine.context>
+          <UML:StateMachine.top>
+            <UML:CompositeState xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A5F'
+              name = 'top' isSpecification = 'false' isConcurrent = 'false'>
+              <UML:CompositeState.subvertex>
+                <UML:Pseudostate xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A60'
+                  name = 'InitialNode1' isSpecification = 'false' kind = 'initial'>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A66'/>
+                  </UML:StateVertex.outgoing>
+                </UML:Pseudostate>
+                <UML:FinalState xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A61'
+                  name = 'FinalNode1' isSpecification = 'false'>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A70'/>
+                  </UML:StateVertex.incoming>
+                </UML:FinalState>
+                <UML:Pseudostate xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A62'
+                  name = 'Junction1' isSpecification = 'false' kind = 'junction'>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A68'/>
+                    <UML:Transition xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A6A'/>
+                  </UML:StateVertex.outgoing>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A66'/>
+                  </UML:StateVertex.incoming>
+                </UML:Pseudostate>
+                <UML:Pseudostate xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A63'
+                  name = 'Junction2' isSpecification = 'false' kind = 'junction'>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A70'/>
+                  </UML:StateVertex.outgoing>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A6C'/>
+                    <UML:Transition xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A6D'/>
+                  </UML:StateVertex.incoming>
+                </UML:Pseudostate>
+                <UML:ActionState xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A64'
+                  name = 'A1' isSpecification = 'false' isDynamic = 'false'>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A6C'/>
+                  </UML:StateVertex.outgoing>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A68'/>
+                  </UML:StateVertex.incoming>
+                </UML:ActionState>
+                <UML:ActionState xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A65'
+                  name = 'A2' isSpecification = 'false' isDynamic = 'false'>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A6D'/>
+                  </UML:StateVertex.outgoing>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A6A'/>
+                  </UML:StateVertex.incoming>
+                </UML:ActionState>
+              </UML:CompositeState.subvertex>
+            </UML:CompositeState>
+          </UML:StateMachine.top>
+          <UML:StateMachine.transitions>
+            <UML:Transition xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A66'
+              isSpecification = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A67'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>0.9</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-64--88-0-101--2259be85:11dd526880c:-8000:000000000000E4A7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:Transition.source>
+                <UML:Pseudostate xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A60'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:Pseudostate xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A62'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A68'
+              isSpecification = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A69'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>0.5</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-64--88-0-101--2259be85:11dd526880c:-8000:000000000000E4A7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:Transition.guard>
+                <UML:Guard xmi.id = '-64--88-0-3--6241e957:161a3f8a118:-8000:0000000000000A72'
+                  name = '' isSpecification = 'false'/>
+              </UML:Transition.guard>
+              <UML:Transition.source>
+                <UML:Pseudostate xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A62'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:ActionState xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A64'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A6A'
+              isSpecification = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A6B'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>0.5</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-64--88-0-101--2259be85:11dd526880c:-8000:000000000000E4A7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:Transition.source>
+                <UML:Pseudostate xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A62'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:ActionState xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A65'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A6C'
+              isSpecification = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A6F'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>0.9</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-64--88-0-101--2259be85:11dd526880c:-8000:000000000000E4A7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:Transition.source>
+                <UML:ActionState xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A64'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:Pseudostate xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A63'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A6D'
+              isSpecification = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A6E'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>0.9</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-64--88-0-101--2259be85:11dd526880c:-8000:000000000000E4A7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:Transition.source>
+                <UML:ActionState xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A65'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:Pseudostate xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A63'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A70'
+              isSpecification = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A71'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>0.9</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-64--88-0-101--2259be85:11dd526880c:-8000:000000000000E4A7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:Transition.source>
+                <UML:Pseudostate xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A63'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:FinalState xmi.idref = '-64--88-0-4-70a5ee66:15d7edcac3e:-8000:0000000000000A61'/>
+              </UML:Transition.target>
+            </UML:Transition>
+          </UML:StateMachine.transitions>
+        </UML:ActivityGraph>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+  </XMI.content>
+</XMI>

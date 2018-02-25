@@ -24,19 +24,18 @@ public class MainClass {
 	 * 
 	 */
 	public static void main(String[] args) {
-		String modelingTool = args[0];
 		Converter converter = new Converter();
 
-		if (args.length == 1) {
+		if (args.length == 0) {
 			System.out.println();
 			File[] listXMIFiles = fu.getXmiList(fu.getCurrentFolder());
 			for (File file : listXMIFiles) {
-				converter.convert(modelingTool, file.getName());
+				converter.convert(file.getName());
 			}
 		} else {
-			for (int i = 1; i < args.length; i++) {
+			for (int i = 0; i < args.length; i++) {
 				String filename = args[i];
-				converter.convert(modelingTool, filename);
+				converter.convert(filename);
 			}
 		}
 		mu.printTerminated();
