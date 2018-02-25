@@ -33,59 +33,95 @@ other part of SDMetrics.
 
  -->
 
-<!-- ******************************************************************************** -->
-<!-- Transformations based on the XMI pattern of the Astah Professional modeling tool -->
-<!-- ******************************************************************************** -->
+<!-- 
+
+Supported tools:
+- Astah
+- Papyrus
+
+ -->
+ 
 <xmitransformations version="2.0">
 
-	<!-- Base Element -->
-	<xmitransformation modelelement="sdmetricsbase" xmipattern="sdmetricsbase" recurse="true">
+	<!-- BASE ELEMENT -->
+	<xmitransformation modelelement="sdmetricsbase" xmipattern="uml:Model" recurse="true">
 		<trigger name="id" type="attrval" attr="xmi.id" />
+		<trigger name="id" type="attrval" attr="xmi:id" />
 		<trigger name="name" type="attrval" attr="name" />
+		<trigger name="comments" type="xmi2assoc" attr="ownedComment" src="uml:Comment" />
 	</xmitransformation>
 
-	<!-- ***************************** Diagram ***************************** -->
+	<!-- DIAGRAM -->
 	
-	<!-- id -->
+	<!-- ID -->
+	<!-- Astah, ArgoUML -->
 	<xmitransformation modelelement="diagram" xmipattern="UML:Namespace.ownedElement" recurse="true">
 		<trigger name="id" type="cattrval" src="UML:ActivityGraph" attr="xmi.id" />
 	</xmitransformation>
+	
 	<xmitransformation modelelement="diagram" xmipattern="UML:Namespace.collaboration" recurse="true">
 		<trigger name="id" type="cattrval" src="UML:Collaboration" attr="xmi.id" />
 	</xmitransformation>
-
-	<!-- name -->
+	
+	<!-- Papyrus, BoUML, Modelio -->
+	<xmitransformation modelelement="diagram" xmipattern="uml:Model" recurse="true">
+		<trigger name="id" type="cattrval" src="packagedElement" attr="xmi:id" />
+		<trigger name="id" type="gcattrval" src="packagedElement" attr="xmi:id" />
+	</xmitransformation>
+	
+	<!-- NAME -->
+	<!-- Astah, ArgoUML -->
 	<xmitransformation modelelement="diagram" xmipattern="UML:Model" recurse="true">
 		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
+	
+	<!-- Papyrus, Modelio -->
+	<xmitransformation modelelement="diagram" xmipattern="uml:Model" recurse="true">
+		<trigger name="name" type="cattrval" src="packagedElement" attr="name" />
+	</xmitransformation>
 
-	<!-- type -->
+	<!-- TYPE -->
+	<!-- Astah, ArgoUML -->
 	<xmitransformation modelelement="diagram" xmipattern="UML:ActivityGraph" recurse="true">
 		<trigger name="type" type="constant" attr="uml:Activity" />
 	</xmitransformation>
 	<xmitransformation modelelement="diagram" xmipattern="UML:Collaboration" recurse="true">
 		<trigger name="type" type="constant" attr="uml:Interaction" />
 	</xmitransformation>
-
-	<!-- ***************************** AD Elements ***************************** -->
 	
-	<!-- Executable Node -->
+	<!-- Papyrus, Modelio -->
+	<xmitransformation modelelement="diagram" xmipattern="packagedElement" recurse="true">
+		<trigger name="type" type="attrval" attr="xmi:type"></trigger>
+	</xmitransformation>
+	
+	<!-- ACTIVITY DIAGRAM ELEMENTS -->
+	
+	<!-- GENERAL NODE -->
+	<!-- Papyrus, Modelio -->
+	<xmitransformation modelelement="node" xmipattern="node" recurse="true">
+		<trigger name="type" type="attrval" attr="xmi:type" />
+		<trigger name="incomingEdges" type="attrval" attr="incoming" />
+	</xmitransformation>
+	
+	<!-- EXECUTABLE NODE -->
+	<!-- Astah, ArgoUML -->
 	<xmitransformation modelelement="node" xmipattern="UML:ActionState" recurse="true">
 		<trigger name="type" type="constant" attr="uml:OpaqueAction" />
 	</xmitransformation>
 
-	<!-- Initial Node, Decision Node and Merge Node -->
+	<!-- INITIAL, DECISION AND MERGE NODE -->
 	<xmitransformation modelelement="node" xmipattern="UML:Pseudostate" recurse="true">
 		<trigger name="type" type="attrval" attr="kind" />
 		<trigger name="incomingEdges" type="gcattrval" src="UML:StateVertex.incoming" attr="xmi.idref" />
 	</xmitransformation>
 	
-	<!-- Final Node -->
+	<!-- FINAL NODE -->
 	<xmitransformation modelelement="node" xmipattern="UML:FinalState" recurse="true">
 		<trigger name="type" type="constant" attr="uml:ActivityFinalNode" />
 	</xmitransformation>
 	
-	<!-- Control Flows (transitions) -->
+	<!-- CONTROL FLOWS -->
+	<!-- Astah -->
 	<xmitransformation modelelement="controlflow" xmipattern="UML:Transition" recurse="true">
 		<trigger name="type" type="constant" attr="controlflow"/>
 		<trigger name="source" type="gcattrval" src="UML:Transition.source" attr="xmi.idref" />
@@ -93,20 +129,51 @@ other part of SDMetrics.
 		<trigger name="probability" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value" />
 	</xmitransformation>
 	
-	<!-- ***************************** SD Elements ***************************** -->
+	<!-- ArgoUML -->
+	<xmitransformation modelelement="controlflow" xmipattern="UML:Transition" recurse="true">
+		<trigger name="type" type="constant" attr="controlflow"/>
+		<trigger name="source" type="gcattrval" src="UML:Transition.source" attr="xmi.idref" />
+		<trigger name="target" type="gcattrval" src="UML:Transition.target" attr="xmi.idref" />
+		<trigger name="probability" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value" />
+	</xmitransformation>
 	
-	<!-- Lifelines -->
+	<!-- Papyrus, Modelio -->
+	<xmitransformation modelelement="controlflow" xmipattern="edge" recurse="true">
+		<trigger name="type" type="attrval" attr="xmi:type"/>
+		<trigger name="source" type="attrval" attr="source" />
+		<trigger name="target" type="attrval" attr="target" />
+		<trigger name="probability" type="cattrval" src="weight" attr="value" />
+	</xmitransformation>
+	
+	<!-- SEQUENCE DIAGRAM ELEMENTS -->
+	
+	<!-- LIFELINE -->
+	<!-- Astah -->
 	<xmitransformation modelelement="lifeline" xmipattern="UML:ClassifierRole" recurse="true">
 		<trigger name="type" type="constant" attr="lifeline"/>
 		<trigger name="BCompRel" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value" />
 	</xmitransformation>
-
-	<!-- Messages -->
+	
+	<!-- Papyrus, Modelio -->
+	<xmitransformation modelelement="lifeline" xmipattern="lifeline" recurse="true">
+		<trigger name="type" type="constant" attr="lifeline"/>
+		<trigger name="BCompRel" type="cattrval" src="selector" attr="value" />
+	</xmitransformation>
+	
+	<!-- MESSAGES -->
+	<!-- Astah -->
 	<xmitransformation modelelement="message" xmipattern="UML:Message" recurse="true">
 		<trigger name="type" type="constant" attr="asynchronous" />
 		<trigger name="source" type="gcattrval" src="UML:Message.sender" attr="xmi.idref" />
 		<trigger name="target" type="gcattrval" src="UML:Message.receiver" attr="xmi.idref" />
 	</xmitransformation>
-
+	
+	<!-- Papyrus, Modelio -->
+	<xmitransformation modelelement="message" xmipattern="fragment" recurse="true">
+		<trigger name="type" type="constant" attr="asynchronous" />
+		<trigger name="source" type="attrval" attr="covered" />
+		<trigger name="target" type="attrval" attr="covered" />
+	</xmitransformation>
+	
 </xmitransformations>
 
