@@ -9,8 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Provides operations related to files, such as retrieving a file or folder
@@ -20,11 +18,11 @@ import java.util.Map;
  * @author Pedro
  */
 public class FileUtil {
-	private static final Map<String, String> transformationsMap = createTransformationsMap();
-	private final String metamodelFolder = "/configuration-scripts/";
-	private final String transformationsFolder = "/configuration-scripts/transformations/";
+	private final String resourcesFolder = "/configuration-scripts/";
 	private final URL metamodelPath = FileUtil.class
-			.getResource(metamodelFolder + "metamodel-unb_dali.xml");
+			.getResource(resourcesFolder + "metamodel_unb-dali.xml");
+	private final URL transformationPath = FileUtil.class
+			.getResource(resourcesFolder + "xmiTransformation_unb-dali.xml");
 	static final String[] acceptedFileExtensions = { ".xml", ".xmi", ".uml" };
 
 	/**
@@ -49,7 +47,6 @@ public class FileUtil {
 	}
 
 	/**
-	 * @param
 	 * @return A String with the folder where the program is running which is
 	 *         where the XMI files are
 	 */
@@ -66,18 +63,11 @@ public class FileUtil {
 	}
 
 	/**
-	 * @param tool
-	 *            the name of the UML Modeling Tool that is used as a key to the
-	 *            Map that has the name of the corresponding XMI Transformation
-	 *            File.
-	 * 
-	 * @return A String with the URI of the XMI Transformation File that
-	 *         corresponds to the chosen tool.
+	 * @return A String with the XMI Transformation path, which is inside the
+	 *         resources folder.
 	 */
-	public String getTransformationPath(String tool) {
-		URL url = FileUtil.class.getResource(
-				transformationsFolder + getTransformationFile(tool));
-		return url.toString();
+	public String getTransformationPath() {
+		return transformationPath.toString();
 	}
 
 	/**
@@ -126,32 +116,6 @@ public class FileUtil {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	/**
-	 * In the future more tools will be supported. This HashMap associates the
-	 * simplified name of the tool with the name of the XMI Transformation File
-	 * that is located inside the resources folder. Don't forget to rebuild the
-	 * project if you add a new file!
-	 */
-	private static Map<String, String> createTransformationsMap() {
-		Map<String, String> transformationsMap = new HashMap<String, String>();
-		transformationsMap.put("argo", "argouml-transformations.xml");
-		transformationsMap.put("astah", "astah-transformations.xml");
-		transformationsMap.put("bouml", "bouml-transformations.xml");
-		transformationsMap.put("magicdraw", "magicdraw-transformations.xml");
-		transformationsMap.put("papyrus", "papyrus-transformations.xml");
-		return transformationsMap;
-	}
-
-	/**
-	 * @param The
-	 *            tool which is the key of the HashMap.
-	 * 
-	 * @return The name of the XMI Transformation File associated with the tool.
-	 */
-	private String getTransformationFile(String tool) {
-		return transformationsMap.get(tool);
 	}
 
 }

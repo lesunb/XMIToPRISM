@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_q2zYkIFVEeeN5etHE0j_Hw" name="RootElement">
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_q26GQIFVEeeN5etHE0j_Hw" name="Interaction1">
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_ufiZ0IFVEeeN5etHE0j_Hw" name="A" coveredBy="_xjItsIFVEeeN5etHE0j_Hw _xjJUwIFVEeeN5etHE0j_Hw">
+      <selector xmi:type="uml:LiteralReal" xmi:id="_5QsPQIFVEeeN5etHE0j_Hw" name="BCompRel" value="1.0"/>
+    </lifeline>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_v81eQIFVEeeN5etHE0j_Hw" name="B"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_xjItsIFVEeeN5etHE0j_Hw" name="MessageSend" covered="_ufiZ0IFVEeeN5etHE0j_Hw" message="_xjHfkIFVEeeN5etHE0j_Hw"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_xjJUwIFVEeeN5etHE0j_Hw" name="MessageRecv" covered="_ufiZ0IFVEeeN5etHE0j_Hw" message="_xjHfkIFVEeeN5etHE0j_Hw"/>
+    <message xmi:type="uml:Message" xmi:id="_xjHfkIFVEeeN5etHE0j_Hw" name="1: hello" messageSort="asynchCall" receiveEvent="_xjJUwIFVEeeN5etHE0j_Hw" sendEvent="_xjItsIFVEeeN5etHE0j_Hw"/>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_q5cc4IFVEeeN5etHE0j_Hw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_q5cc4YFVEeeN5etHE0j_Hw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#/"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_zaC5cAPHEdyeNfbOYuD9pg"/>
+  </profileApplication>
+</uml:Model>

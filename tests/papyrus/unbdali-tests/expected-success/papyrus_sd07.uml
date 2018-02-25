@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_WG6MoIFWEeeN5etHE0j_Hw" name="RootElement">
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_WG-eEIFWEeeN5etHE0j_Hw" name="Interaction1">
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_Yzo4oIFWEeeN5etHE0j_Hw" name="A" coveredBy="_nZqG0IFWEeeN5etHE0j_Hw _nZqt4IFWEeeN5etHE0j_Hw _1YojIIFWEeeN5etHE0j_Hw">
+      <selector xmi:type="uml:LiteralReal" xmi:id="_eSV9AIFWEeeN5etHE0j_Hw" name="BCompRel" value="0.9"/>
+    </lifeline>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_ZRZLoIFWEeeN5etHE0j_Hw" name="B" coveredBy="_tikl0IFWEeeN5etHE0j_Hw _xp5AgIFWEeeN5etHE0j_Hw _1Yn8EIFWEeeN5etHE0j_Hw">
+      <selector xmi:type="uml:LiteralReal" xmi:id="_gMyQcIFWEeeN5etHE0j_Hw" name="BCompRel" value="0.8"/>
+    </lifeline>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_ZpgJoIFWEeeN5etHE0j_Hw" name="C" coveredBy="_tilM4IFWEeeN5etHE0j_Hw _xp3yYIFWEeeN5etHE0j_Hw">
+      <selector xmi:type="uml:LiteralReal" xmi:id="_iGlDoIFWEeeN5etHE0j_Hw" name="BCompRel" value="0.8"/>
+    </lifeline>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_nZqG0IFWEeeN5etHE0j_Hw" name="MessageSend" covered="_Yzo4oIFWEeeN5etHE0j_Hw" message="_nZoRoIFWEeeN5etHE0j_Hw"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_tikl0IFWEeeN5etHE0j_Hw" name="MessageSend0" covered="_ZRZLoIFWEeeN5etHE0j_Hw" message="_tijXsIFWEeeN5etHE0j_Hw"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_tilM4IFWEeeN5etHE0j_Hw" name="MessageRecv0" covered="_ZpgJoIFWEeeN5etHE0j_Hw" message="_tijXsIFWEeeN5etHE0j_Hw"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_xp3yYIFWEeeN5etHE0j_Hw" name="MessageSend1" covered="_ZpgJoIFWEeeN5etHE0j_Hw" message="_xp1WIIFWEeeN5etHE0j_Hw"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_xp5AgIFWEeeN5etHE0j_Hw" name="MessageRecv1" covered="_ZRZLoIFWEeeN5etHE0j_Hw" message="_xp1WIIFWEeeN5etHE0j_Hw"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_nZqt4IFWEeeN5etHE0j_Hw" name="MessageRecv" covered="_Yzo4oIFWEeeN5etHE0j_Hw" message="_nZoRoIFWEeeN5etHE0j_Hw"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_1Yn8EIFWEeeN5etHE0j_Hw" name="MessageSend2" covered="_ZRZLoIFWEeeN5etHE0j_Hw" message="_1YnVAIFWEeeN5etHE0j_Hw"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_1YojIIFWEeeN5etHE0j_Hw" name="MessageRecv2" covered="_Yzo4oIFWEeeN5etHE0j_Hw" message="_1YnVAIFWEeeN5etHE0j_Hw"/>
+    <message xmi:type="uml:Message" xmi:id="_nZoRoIFWEeeN5etHE0j_Hw" name="1: hello" messageSort="asynchCall" receiveEvent="_nZqt4IFWEeeN5etHE0j_Hw" sendEvent="_nZqG0IFWEeeN5etHE0j_Hw"/>
+    <message xmi:type="uml:Message" xmi:id="_tijXsIFWEeeN5etHE0j_Hw" name="2: h" messageSort="asynchCall" receiveEvent="_tilM4IFWEeeN5etHE0j_Hw" sendEvent="_tikl0IFWEeeN5etHE0j_Hw"/>
+    <message xmi:type="uml:Message" xmi:id="_xp1WIIFWEeeN5etHE0j_Hw" name="3: r" messageSort="asynchCall" receiveEvent="_xp5AgIFWEeeN5etHE0j_Hw" sendEvent="_xp3yYIFWEeeN5etHE0j_Hw"/>
+    <message xmi:type="uml:Message" xmi:id="_1YnVAIFWEeeN5etHE0j_Hw" name="4: rh" messageSort="asynchCall" receiveEvent="_1YojIIFWEeeN5etHE0j_Hw" sendEvent="_1Yn8EIFWEeeN5etHE0j_Hw"/>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_WIp5EIFWEeeN5etHE0j_Hw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WIp5EYFWEeeN5etHE0j_Hw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#/"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_zaC5cAPHEdyeNfbOYuD9pg"/>
+  </profileApplication>
+</uml:Model>

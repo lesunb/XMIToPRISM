@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.3" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+	<xmi:Documentation exporter="Bouml" exporterVersion="5.1"/>
+	<uml:Model xmi:type="uml:Model" xmi:id="themodel" name="SD_bouml">
+		<packagedElement xmi:type="uml:Package" xmi:id="BOUML_0x81_22" name ="SD_bouml">
+			<packagedElement xmi:type="uml:Collaboration" xmi:id="BOUML_COLLABORATION_0x1f4aa_12" name="SD_bouml">
+				<ownedBehavior xmi:type="uml:Interaction" xmi:id="BOUML_INTERACTION_0x1f4aa_12" name="SD_bouml">
+					<lifeline xmi:type="uml:Lifeline" xmi:id="BOUML_LIFELINE1_0x1f4aa_12" name="L2" represents="BOUML_COLLATTR1_0x1f4aa_12"/>
+					<lifeline xmi:type="uml:Lifeline" xmi:id="BOUML_LIFELINE2_0x1f4aa_12" name="L1" represents="BOUML_COLLATTR2_0x1f4aa_12"/>
+					<fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="BOUML_MSGOCCSPECSEND2_0x1f4aa_12" covered="BOUML_LIFELINE2_0x1f4aa_12" event="BOUML_SENDEVT1_0x81_22" message="BOUML_MSG2_0x1f4aa_12"/>
+					<fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="BOUML_MSGOCCSPECREC2_0x1f4aa_12" covered="BOUML_LIFELINE1_0x1f4aa_12" event="BOUML_RECEVT2_0x81_22" message="BOUML_MSG2_0x1f4aa_12"/>
+					<fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="BOUML_BEHEXECSPEC2_0x1f4aa_12" covered="BOUML_LIFELINE1_0x1f4aa_12" start="BOUML_MSGOCCSPECREC2_0x1f4aa_12" finish="BOUML_EXECOCCSPEC1_0x1f4aa_12"/>
+					<fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="BOUML_EXECOCCSPEC1_0x1f4aa_12" covered="BOUML_LIFELINE1_0x1f4aa_12" event="BOUML_EXECEVT3_0x81_22" execution="BOUML_BEHEXECSPEC2_0x1f4aa_12"/>
+					<message xmi:type="uml:Message" xmi:id="BOUML_MSG2_0x1f4aa_12" name="" messageSort="asynchCall" messageKind="complete" sendEvent="BOUML_MSGOCCSPECSEND2_0x1f4aa_12" receiveEvent="BOUML_MSGOCCSPECREC2_0x1f4aa_12" connector="BOUML_CONNECTOR1_2_0x1f4aa_12"/>
+				</ownedBehavior>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="BOUML_COLLATTR1_0x1f4aa_12" name="L2" type="BOUML_0x1f52a_4"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="BOUML_COLLATTR2_0x1f4aa_12" name="L1" type="BOUML_0x1f4aa_4"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:InstanceSpecification" xmi:id="BOUML_0x1f4aa_77" name="L1">
+				<classifier  xmi:idref="BOUML_0x1f4aa_4"/>
+				<ownedComment xmi:type="uml:Comment" xmi:id="COMMENT_1" body="0.9" annotatedElement="BOUML_0x1f4aa_77"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:InstanceSpecification" xmi:id="BOUML_0x1f52a_77" name="L2">
+				<classifier  xmi:idref="BOUML_0x1f52a_4"/>
+				<ownedComment xmi:type="uml:Comment" xmi:id="COMMENT_2" body="0.8" annotatedElement="BOUML_0x1f52a_77"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:ExecutionEvent" xmi:id="BOUML_EXECEVT3_0x81_22" name=""/>
+			<packagedElement xmi:type="uml:ExecutionEvent" xmi:id="BOUML_RECEVT2_0x81_22" name=""/>
+			<packagedElement xmi:type="uml:ExecutionEvent" xmi:id="BOUML_SENDEVT1_0x81_22" name=""/>
+		</packagedElement>
+	</uml:Model>
+</xmi:XMI>

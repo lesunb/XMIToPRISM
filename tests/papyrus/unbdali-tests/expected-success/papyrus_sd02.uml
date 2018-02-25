@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_NacioFrREeeDtpZhtsftHQ" name="RootElement">
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_NakecFrREeeDtpZhtsftHQ" name="Interaction1">
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_RC-vkFrREeeDtpZhtsftHQ" name="A">
+      <selector xmi:type="uml:LiteralReal" xmi:id="_UFQ00FrREeeDtpZhtsftHQ" name="BCompRel" value="1.0"/>
+    </lifeline>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_UkpfgFrREeeDtpZhtsftHQ" name="B">
+      <selector xmi:type="uml:LiteralReal" xmi:id="_YMRtgFrREeeDtpZhtsftHQ" name="BCompRel" value="0.9"/>
+    </lifeline>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_NeIv0FrREeeDtpZhtsftHQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NeJW4FrREeeDtpZhtsftHQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#/"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_zaC5cAPHEdyeNfbOYuD9pg"/>
+  </profileApplication>
+</uml:Model>

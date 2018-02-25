@@ -27,18 +27,16 @@ public class Converter {
 	 * Calls the main steps in the conversion process. Builds the model, parses
 	 * the XMI file, builds a PRISMModel and calls the output generator.
 	 * 
-	 * @param umlModelingTool
-	 *            The modeling tool entered by the user in the execution command
 	 * @param xmiFile
 	 *            The next file in the list of XMI files entered by the user in
 	 *            the execution command
 	 * @return True, if the conversion is successful. False, if not.
 	 */
-	public boolean convert(String umlModelingTool, String xmiFile) {
+	public boolean convert(String xmiFile) {
 		ModelBuilder mb = new ModelBuilder();
 		DiagramBuilder db = new DiagramBuilder();
 
-		mb.buildSdmetricsModel(umlModelingTool, xmiFile);
+		mb.buildSdmetricsModel(xmiFile);
 		AbstractAggModel aggModel = db.buildAggModel(mb.getMetaModel(),
 				mb.getModel());
 
