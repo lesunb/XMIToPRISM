@@ -8,7 +8,7 @@ The project's goal is to extract the information of an UML diagram, in the form 
 ## Annotate the probabilities and Export the XMI file of your diagram
 
 Follow the instructions for the corresponding tool inside the folder "docs/UML Modeling Tools Instructions". Each tool has it's own way of inserting the probabilities.
-Currently supported UML Modeling Tools: Astah and Papyrus.
+Currently supported UML Modeling Tools: Astah, Modelio and Papyrus.
 
 ## Build the project and create JAR file
 **Important: Make sure you have Java installed and added to your PATH environment variable.**

@@ -18,11 +18,10 @@ import java.util.Arrays;
  * @author Pedro
  */
 public class FileUtil {
-	private final String resourcesFolder = "/configuration-scripts/";
 	private final URL metamodelPath = FileUtil.class
-			.getResource(resourcesFolder + "metamodel_unb-dali.xml");
+			.getResource("/metamodel_unb-dali.xml");
 	private final URL transformationPath = FileUtil.class
-			.getResource(resourcesFolder + "xmiTransformation_unb-dali.xml");
+			.getResource("/xmiTransformation_unb-dali.xml");
 	static final String[] acceptedFileExtensions = { ".xml", ".xmi", ".uml" };
 
 	/**
