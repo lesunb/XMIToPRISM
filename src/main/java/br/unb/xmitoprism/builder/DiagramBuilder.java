@@ -62,7 +62,7 @@ public class DiagramBuilder {
 				case "uml:Activity":
 					diagram = new ActivityDiagram(diagId, diagName);
 					break;
-				
+
 				case "uml:Collaboration":
 				case "uml:Interaction":
 					diagram = new SequenceDiagram(diagId, diagName);
@@ -124,10 +124,24 @@ public class DiagramBuilder {
 				}
 				break;
 
-			// *** ACTIVITY DIAGRAM EDGE ***
+			// *** ACTIVITY DIAGRAM TRANSITION ***
+			case "uml:ControlFlow":
 			case "controlflow":
 				elements = model.getAcceptedElements(type);
 				for (ModelElement me : elements) {
+
+					// TODO test to get owned elements
+					// System.out.println("ID: " + me.getXMIID());
+					//
+					// Collection<ModelElement> col = me.getOwnedElements();
+					// if (col != null) {
+					// for (ModelElement element : col) {
+					// System.out.println(element.getName());
+					// }
+					// } else {
+					// System.out.println("getOwnedElements() returned null!");
+					// }
+
 					Double probability = getProbability(me);
 					if (probability != null) {
 						String cfId = me.getXMIID();
@@ -198,7 +212,8 @@ public class DiagramBuilder {
 	private Double getProbability(ModelElement me) {
 		Double probability = null;
 		try {
-			if (me.getPlainAttribute("type").equals("controlflow")) {
+			if (me.getPlainAttribute("type").equals("controlflow")
+					|| me.getPlainAttribute("type").equals("uml:ControlFlow")) {
 				probability = Double
 						.parseDouble(me.getPlainAttribute("probability"));
 			} else {

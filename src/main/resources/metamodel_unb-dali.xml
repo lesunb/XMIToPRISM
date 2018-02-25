@@ -2,7 +2,6 @@
 <!DOCTYPE sdmetricsmetamodel SYSTEM 'metamodel.dtd'>
 
 <!-- 
-
 SDMetrics V2.3 default metamodel definition file for UML2.x
 Copyright (c) 2002-2013 Juergen Wuest
 
@@ -28,12 +27,9 @@ THE PROJECT FILE.
 
 Note: this license grant only applies to this Project File, and not to any
 other part of SDMetrics.
-
  -->
 
-<!-- *************************************************************************** -->
-<!-- *** Reduced UML Metamodel - Elements recognized by the UnD-DALi Library *** -->
-<!-- *************************************************************************** -->
+<!-- Reduced UML Metamodel - Elements recognized by the UnD-DALi library -->
 <sdmetricsmetamodel version="2.0">
 
 	<!-- Base Element -->
@@ -41,6 +37,7 @@ other part of SDMetrics.
 		<attribute name="context" type="ref" multiplicity="one">Owner of the element in the UML model.</attribute>
 		<attribute name="id" type="data" multiplicity="one">Unique identifier of the model element.</attribute>
 		<attribute name="name" type="data" multiplicity="one">Name of the element in UML model.</attribute>
+		<attribute name="comments" type="ref" multiplicity="many">The comments for the model element.</attribute>
 	</modelelement>
 
 	<!-- Diagrams -->
@@ -54,18 +51,18 @@ other part of SDMetrics.
 		<attribute name="incomingEdges" type="data" multiplicity="many">The incoming edges of a node.</attribute>
 	</modelelement>
 
-	<!-- Activity Diagram - Edges -->
+	<!-- Activity Diagram - Transitions -->
 	<modelelement name="controlflow">
 		<attribute name="type" type="data" multiplicity="one">The type of the control flow.</attribute>
-		<attribute name="source" type="data" multiplicity="one">Source of the control flow (transition).</attribute>
-		<attribute name="target" type="data" multiplicity="one">Target of the control flow(transition).</attribute>
+		<attribute name="source" type="data" multiplicity="one">Source of the control flow.</attribute>
+		<attribute name="target" type="data" multiplicity="one">Target of the control flow.</attribute>
 		<attribute name="probability" type="data" multiplicity="one">Probability of the control flow (transition).</attribute>
 	</modelelement>
 
 	<!-- Sequence Diagram - Lifelines -->
 	<modelelement name="lifeline">
-	<attribute name="type" type="data" multiplicity="one">The type of the lifeline.</attribute>
-		<attribute name="BCompRel" type="data" multiplicity="one">The reliability of a lifeline (component).</attribute>
+		<attribute name="type" type="data" multiplicity="one">The type of the lifeline.</attribute>
+		<attribute name="BCompRel" type="data" multiplicity="one">The reliability of a component.</attribute>
 	</modelelement>
 
 	<!-- Sequence Diagram - Messages -->
@@ -76,4 +73,3 @@ other part of SDMetrics.
 	</modelelement>
 
 </sdmetricsmetamodel>
-
