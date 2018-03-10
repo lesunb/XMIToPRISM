@@ -23,28 +23,30 @@ public class Converter_AllFail {
 	public static void setUp() {
 		converter = new Converter();
 	}
-	
-	//17 tests
+
 	@Parameters(name = "{index}: File: {0}")
 	public static Collection<Object[]> data() {
 		// @formatter:off
-		return Arrays.asList(new Object[][] { { testsFolder + "papyrus_ad02.uml" },
-											  { testsFolder + "papyrus_ad03.uml" },
-											  { testsFolder + "papyrus_ad08.uml" },
-											  { testsFolder + "papyrus_ad09.uml" },
-											  { testsFolder + "papyrus_sd05.uml" },
-											  { testsFolder + "astah_ad_cf-loop.xml" },
-											  { testsFolder + "astah_ad_cf-no-prob.xml" },
-											  { testsFolder + "astah_ad_mandatory-cf-fn.xml" },
-											  { testsFolder + "astah_ad_mandatory-cf-in.xml" },
-											  { testsFolder + "astah_ad_mandatory-incoming-cf-en.xml" },
-											  { testsFolder + "astah_ad_mandatory-outgoing-cf-dn.xml" },
-											  { testsFolder + "astah_ad_mandatory-outgoing-cf-en.xml" },
-											  { testsFolder + "astah_ad_mult-cf-from-en.xml" },
-											  { testsFolder + "astah_ad_mult-cf-to-dn-or-mn.xml" },
-											  { testsFolder + "astah_ad_mult-cf-to-en.xml" },
-											  { testsFolder + "astah_ad_mult-cf-to-fn.xml" },
-											  { testsFolder + "astah_sd_lifeline-no-prob.xml" }});
+		return Arrays.asList(new Object[][] {
+									// add new	{ testsFolder + "path"} * don't forget comma! *
+												{ testsFolder + "papyrus_ad02.uml" },
+												{ testsFolder + "papyrus_ad03.uml" },
+												{ testsFolder + "papyrus_ad08.uml" },
+												{ testsFolder + "papyrus_ad09.uml" },
+												{ testsFolder + "papyrus_sd05.uml" },
+												{ testsFolder + "astah_ad_cf-loop.xml" },
+												{ testsFolder + "astah_ad_cf-no-prob.xml" },
+												{ testsFolder + "astah_ad_mandatory-cf-fn.xml" },
+												{ testsFolder + "astah_ad_mandatory-cf-in.xml" },
+												{ testsFolder + "astah_ad_mandatory-incoming-cf-en.xml" },
+												{ testsFolder + "astah_ad_mandatory-outgoing-cf-dn.xml" },
+												{ testsFolder + "astah_ad_mandatory-outgoing-cf-en.xml" },
+												{ testsFolder + "astah_ad_mult-cf-from-en.xml" },
+												{ testsFolder + "astah_ad_mult-cf-to-dn-or-mn.xml" },
+												{ testsFolder + "astah_ad_mult-cf-to-en.xml" },
+												{ testsFolder + "astah_ad_mult-cf-to-fn.xml" },
+												{ testsFolder + "astah_sd_lifeline-no-prob.xml" }
+											});
 	}
 	//@formatter:on
 
