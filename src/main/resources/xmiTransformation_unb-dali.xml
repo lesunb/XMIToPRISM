@@ -2,7 +2,6 @@
 <!DOCTYPE xmitransformations SYSTEM 'xmitrans.dtd'>
 
 <!-- 
-
 XMI transformations for the SDMetrics V2.3 default metamodel
 for UML2.x and XMI 2.x source files.
 
@@ -30,14 +29,14 @@ THE PROJECT FILE.
 
 Note: this license grant only applies to this Project File, and not to any
 other part of SDMetrics.
-
  -->
 
 <!-- 
-
 Supported tools:
 - Astah
 - Papyrus
+- Magic Draw
+- Modelio
 
  -->
  
@@ -63,7 +62,7 @@ Supported tools:
 		<trigger name="id" type="cattrval" src="UML:Collaboration" attr="xmi.id" />
 	</xmitransformation>
 	
-	<!-- Papyrus, BoUML, Modelio -->
+	<!-- Papyrus, BoUML, Modelio, MagicDraw -->
 	<xmitransformation modelelement="diagram" xmipattern="uml:Model" recurse="true">
 		<trigger name="id" type="cattrval" src="packagedElement" attr="xmi:id" />
 		<trigger name="id" type="gcattrval" src="packagedElement" attr="xmi:id" />
@@ -75,7 +74,7 @@ Supported tools:
 		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
 	
-	<!-- Papyrus, Modelio -->
+	<!-- Papyrus, Modelio, MagicDraw -->
 	<xmitransformation modelelement="diagram" xmipattern="uml:Model" recurse="true">
 		<trigger name="name" type="cattrval" src="packagedElement" attr="name" />
 	</xmitransformation>
@@ -89,7 +88,7 @@ Supported tools:
 		<trigger name="type" type="constant" attr="uml:Interaction" />
 	</xmitransformation>
 	
-	<!-- Papyrus, Modelio -->
+	<!-- Papyrus, Modelio, MagicDraw -->
 	<xmitransformation modelelement="diagram" xmipattern="packagedElement" recurse="true">
 		<trigger name="type" type="attrval" attr="xmi:type"></trigger>
 	</xmitransformation>
@@ -97,7 +96,7 @@ Supported tools:
 	<!-- ACTIVITY DIAGRAM ELEMENTS -->
 	
 	<!-- GENERAL NODE -->
-	<!-- Papyrus, Modelio -->
+	<!-- Papyrus, Modelio, MagicDraw -->
 	<xmitransformation modelelement="node" xmipattern="node" recurse="true">
 		<trigger name="type" type="attrval" attr="xmi:type" />
 		<trigger name="incomingEdges" type="attrval" attr="incoming" />
@@ -137,7 +136,7 @@ Supported tools:
 		<trigger name="probability" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value" />
 	</xmitransformation>
 	
-	<!-- Papyrus, Modelio -->
+	<!-- Papyrus, Modelio, MagicDraw -->
 	<xmitransformation modelelement="controlflow" xmipattern="edge" recurse="true">
 		<trigger name="type" type="attrval" attr="xmi:type"/>
 		<trigger name="source" type="attrval" attr="source" />
@@ -154,10 +153,11 @@ Supported tools:
 		<trigger name="BCompRel" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value" />
 	</xmitransformation>
 	
-	<!-- Papyrus, Modelio -->
+	<!-- Papyrus, Modelio, MagicDraw TODO remove from comment put somewhere else -->
 	<xmitransformation modelelement="lifeline" xmipattern="lifeline" recurse="true">
 		<trigger name="type" type="constant" attr="lifeline"/>
 		<trigger name="BCompRel" type="cattrval" src="selector" attr="value" />
+		<trigger name="BCompRel" type="cattrval" src="ownedComment" attr="body" />
 	</xmitransformation>
 	
 	<!-- MESSAGES -->
@@ -168,11 +168,13 @@ Supported tools:
 		<trigger name="target" type="gcattrval" src="UML:Message.receiver" attr="xmi.idref" />
 	</xmitransformation>
 	
-	<!-- Papyrus, Modelio -->
+	<!-- Papyrus, Modelio, Magic Draw -->
 	<xmitransformation modelelement="message" xmipattern="fragment" recurse="true">
 		<trigger name="type" type="constant" attr="asynchronous" />
 		<trigger name="source" type="attrval" attr="covered" />
 		<trigger name="target" type="attrval" attr="covered" />
+		<trigger name="source" type="cattrval" src="covered" attr="xmi:idref" />
+		<trigger name="target" type="cattrval" src="covered" attr="xmi:idref" />
 	</xmitransformation>
 	
 </xmitransformations>

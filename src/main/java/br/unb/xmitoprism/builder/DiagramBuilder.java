@@ -89,17 +89,27 @@ public class DiagramBuilder {
 						((ActivityDiagram) diagram).addExecutableNode(en);
 						break;
 
-					case "junction":
 					case "uml:DecisionNode":
+						DecisionNode dn = new DecisionNode(nodeId,
+								(ActivityDiagram) diagram);
+						((ActivityDiagram) diagram).addDecisionNode(dn);
+						break;
+
 					case "uml:MergeNode":
+						MergeNode mn = new MergeNode(nodeId,
+								(ActivityDiagram) diagram);
+						((ActivityDiagram) diagram).addMergeNode(mn);
+						break;
+
+					case "junction":
 						if (me.getSetAttribute("incomingEdges").size() == 1) {
-							DecisionNode dn = new DecisionNode(nodeId,
+							DecisionNode jdn = new DecisionNode(nodeId,
 									(ActivityDiagram) diagram);
-							((ActivityDiagram) diagram).addDecisionNode(dn);
+							((ActivityDiagram) diagram).addDecisionNode(jdn);
 						} else {
-							MergeNode mn = new MergeNode(nodeId,
+							MergeNode jmn = new MergeNode(nodeId,
 									(ActivityDiagram) diagram);
-							((ActivityDiagram) diagram).addMergeNode(mn);
+							((ActivityDiagram) diagram).addMergeNode(jmn);
 						}
 						break;
 

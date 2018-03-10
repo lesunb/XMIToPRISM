@@ -24,31 +24,37 @@ public class Converter_AllSuccess {
 		converter = new Converter();
 	}
 
-	// 21 tests
 	@Parameters(name = "{index}: File: {0}")
 	public static Collection<Object[]> data() {
 		// @formatter:off
-		return Arrays.asList(new Object[][] { { testsFolder + "papyrus_ad01.uml" },
-											  { testsFolder + "papyrus_ad04.uml" },
-											  { testsFolder + "papyrus_ad05.uml" },
-											  { testsFolder + "papyrus_ad06.uml" },
-											  { testsFolder + "papyrus_ad07.uml" },
-											  { testsFolder + "papyrus_ad10.uml" },
-											  { testsFolder + "papyrus_sd01.uml" },
-											  { testsFolder + "papyrus_sd02.uml" },
-											  { testsFolder + "papyrus_sd03.uml" },
-											  { testsFolder + "papyrus_sd04.uml" },
-											  { testsFolder + "papyrus_sd06.uml" },
-											  { testsFolder + "papyrus_sd07.uml" },
-											  { testsFolder + "papyrus_sd08.uml" },
-											  { testsFolder + "astah_ad_all-elements.xml" },
-											  { testsFolder + "astah_ad_all-elements-repetition.xml" },
-											  { testsFolder + "astah_ad_in-to-fn.xml" },
-											  { testsFolder + "astah_ad_one-hundred-en.xml" },
-											  { testsFolder + "astah_sd_fifty-messages.xml" },
-											  { testsFolder + "astah_sd_one-lifeline.xml" },
-											  { testsFolder + "astah_sd_three-lifelines.xml" },
-											  { testsFolder + "astah_sd_two-lifelines.xml" }});
+		return Arrays.asList(new Object[][] {
+									// add new	{ testsFolder + "path"} * don't forget comma! *
+												{ testsFolder + "papyrus_ad01.uml" },
+												{ testsFolder + "papyrus_ad04.uml" },
+												{ testsFolder + "papyrus_ad05.uml" },
+												{ testsFolder + "papyrus_ad06.uml" },
+												{ testsFolder + "papyrus_ad07.uml" },
+												{ testsFolder + "papyrus_ad10.uml" },
+												{ testsFolder + "papyrus_sd01.uml" },
+												{ testsFolder + "papyrus_sd02.uml" },
+												{ testsFolder + "papyrus_sd03.uml" },
+												{ testsFolder + "papyrus_sd04.uml" },
+												{ testsFolder + "papyrus_sd06.uml" },
+												{ testsFolder + "papyrus_sd07.uml" },
+												{ testsFolder + "papyrus_sd08.uml" },
+												{ testsFolder + "astah_ad_all-elements.xml" },
+												{ testsFolder + "astah_ad_all-elements-repetition.xml" },
+												{ testsFolder + "astah_ad_in-to-fn.xml" },
+												{ testsFolder + "astah_ad_one-hundred-en.xml" },
+												{ testsFolder + "astah_sd_fifty-messages.xml" },
+												{ testsFolder + "astah_sd_one-lifeline.xml" },
+												{ testsFolder + "astah_sd_three-lifelines.xml" },
+												{ testsFolder + "astah_sd_two-lifelines.xml" },
+												{ testsFolder + "modelio_ad_all-elements.xmi"},
+												{ testsFolder + "modelio_sd_all-elements.xmi"},
+												{ testsFolder + "magicdraw_ad_all-elements.xml"},
+												{ testsFolder + "magicdraw_sd_all-elements.xml"}
+											});
 	}
 	//@formatter:on
 

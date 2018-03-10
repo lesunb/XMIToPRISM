@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_6LhYkBmfEeizasXOqYIlVw" name="activity diagrams">
+  <eAnnotations xmi:id="_6Lh_oBmfEeizasXOqYIlVw" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_6Lh_oRmfEeizasXOqYIlVw" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_6LimsBmfEeizasXOqYIlVw" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_6LimsRmfEeizasXOqYIlVw" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_6LimshmfEeizasXOqYIlVw" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_6LimsxmfEeizasXOqYIlVw" name="I1" outgoing="_6LimuRmfEeizasXOqYIlVw"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_6LimtBmfEeizasXOqYIlVw" name="F1" incoming="_6LimwxmfEeizasXOqYIlVw"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_6LimtRmfEeizasXOqYIlVw" name="A1" outgoing="_6LimuxmfEeizasXOqYIlVw" incoming="_6LimvxmfEeizasXOqYIlVw">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_6LimthmfEeizasXOqYIlVw" name="A2" outgoing="_6LimvRmfEeizasXOqYIlVw" incoming="_6LimwRmfEeizasXOqYIlVw">
+      <body></body>
+    </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_6LimtxmfEeizasXOqYIlVw" name="Decision-Merge1" outgoing="_6LimvxmfEeizasXOqYIlVw _6LimwRmfEeizasXOqYIlVw" incoming="_6LimuRmfEeizasXOqYIlVw"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_6LimuBmfEeizasXOqYIlVw" name="Decision-Merge2" outgoing="_6LimwxmfEeizasXOqYIlVw" incoming="_6LimuxmfEeizasXOqYIlVw _6LimvRmfEeizasXOqYIlVw"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_6LimuRmfEeizasXOqYIlVw" name="ControlFlow" source="_6LimsxmfEeizasXOqYIlVw" target="_6LimtxmfEeizasXOqYIlVw">
+      <weight xmi:type="uml:LiteralString" xmi:id="_6LimuhmfEeizasXOqYIlVw" value="0.9"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_6LimuxmfEeizasXOqYIlVw" name="ControlFlow" source="_6LimtRmfEeizasXOqYIlVw" target="_6LimuBmfEeizasXOqYIlVw">
+      <weight xmi:type="uml:LiteralString" xmi:id="_6LimvBmfEeizasXOqYIlVw" value="0.9"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_6LimvRmfEeizasXOqYIlVw" name="ControlFlow" source="_6LimthmfEeizasXOqYIlVw" target="_6LimuBmfEeizasXOqYIlVw">
+      <weight xmi:type="uml:LiteralString" xmi:id="_6LimvhmfEeizasXOqYIlVw" value="0.9"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_6LimvxmfEeizasXOqYIlVw" name="ControlFlow" source="_6LimtxmfEeizasXOqYIlVw" target="_6LimtRmfEeizasXOqYIlVw">
+      <weight xmi:type="uml:LiteralString" xmi:id="_6LimwBmfEeizasXOqYIlVw" value="0.5"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_6LimwRmfEeizasXOqYIlVw" name="ControlFlow" source="_6LimtxmfEeizasXOqYIlVw" target="_6LimthmfEeizasXOqYIlVw">
+      <weight xmi:type="uml:LiteralString" xmi:id="_6LimwhmfEeizasXOqYIlVw" value="0.5"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_6LimwxmfEeizasXOqYIlVw" name="ControlFlow" source="_6LimuBmfEeizasXOqYIlVw" target="_6LimtBmfEeizasXOqYIlVw">
+      <weight xmi:type="uml:LiteralString" xmi:id="_6LimxBmfEeizasXOqYIlVw" value="0.9"/>
+    </edge>
+  </packagedElement>
+</uml:Model>
