@@ -50,8 +50,14 @@ public class Converter_AllSuccess {
 												{ testsFolder + "astah_sd_one-lifeline.xml" },
 												{ testsFolder + "astah_sd_three-lifelines.xml" },
 												{ testsFolder + "astah_sd_two-lifelines.xml" },
-												{ testsFolder + "modelio_ad_all-elements.xmi"},
-												{ testsFolder + "modelio_sd_all-elements.xmi"},
+												{ testsFolder + "modelio_ad_all-elements.xmi" },
+												{ testsFolder + "modelio_ad_all-elements-repetition.xmi" },
+												{ testsFolder + "modelio_ad_in-to-fn.xmi" },
+												{ testsFolder + "modelio_ad_one-hundred-en.xmi" },
+												{ testsFolder + "modelio_sd_fifty-messages.xmi" },
+												{ testsFolder + "modelio_sd_one-lifeline.xmi" },
+												{ testsFolder + "modelio_sd_three-lifelines.xmi" },
+												{ testsFolder + "modelio_sd_two-lifelines.xmi" },
 												{ testsFolder + "magicdraw_ad_all-elements.xml"},
 												{ testsFolder + "magicdraw_sd_all-elements.xml"}
 											});

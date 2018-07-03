@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_Q9fk8H8AEeiStamLVdw5_Q" name="modelio_sd_one-lifeline">
+  <eAnnotations xmi:id="_Q9fk8X8AEeiStamLVdw5_Q" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_Q9fk8n8AEeiStamLVdw5_Q" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_Q9fk838AEeiStamLVdw5_Q" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_Q9fk9H8AEeiStamLVdw5_Q" name="Interaction">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_Q9fk9X8AEeiStamLVdw5_Q" name="locals"/>
+    <lifeline xmi:id="_Q9fk9n8AEeiStamLVdw5_Q" name="A">
+      <ownedComment xmi:id="_Q9fk938AEeiStamLVdw5_Q">
+        <body>modelio_sd_one-lifeline</body>
+      </ownedComment>
+      <selector xmi:type="uml:LiteralString" xmi:id="_Q9fk-H8AEeiStamLVdw5_Q" value="0.9"/>
+    </lifeline>
+  </packagedElement>
+</uml:Model>

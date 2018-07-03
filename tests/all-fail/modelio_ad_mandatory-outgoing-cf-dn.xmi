@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_t6VlMH70EeiStamLVdw5_Q" name="modelio_ad_mandatory-outgoing-cf-dn">
+  <eAnnotations xmi:id="_t6VlMX70EeiStamLVdw5_Q" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_t6VlMn70EeiStamLVdw5_Q" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_t6VlM370EeiStamLVdw5_Q" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_t6VlNH70EeiStamLVdw5_Q" name="modelio_ad_mandatory-outgoing-cf-dn">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_t6VlNX70EeiStamLVdw5_Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_t6VlNn70EeiStamLVdw5_Q" name="Initial Node" outgoing="_t6VlOX70EeiStamLVdw5_Q">
+      <ownedComment xmi:id="_t6VlN370EeiStamLVdw5_Q">
+        <body>modelio_ad_mandatory-outgoing-cf-dn</body>
+      </ownedComment>
+    </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_t6VlOH70EeiStamLVdw5_Q" name="Decision-Merge" incoming="_t6VlOX70EeiStamLVdw5_Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_t6VlOX70EeiStamLVdw5_Q" name="ControlFlow" source="_t6VlNn70EeiStamLVdw5_Q" target="_t6VlOH70EeiStamLVdw5_Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_t6VlOn70EeiStamLVdw5_Q" value="1"/>
+    </edge>
+  </packagedElement>
+</uml:Model>

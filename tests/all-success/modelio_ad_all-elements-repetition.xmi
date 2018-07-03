@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_gDM5cH74EeiStamLVdw5_Q" name="modelio_ad_all-elements-repetition">
+  <eAnnotations xmi:id="_gDM5cX74EeiStamLVdw5_Q" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_gDM5cn74EeiStamLVdw5_Q" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_gDM5c374EeiStamLVdw5_Q" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_gDM5dH74EeiStamLVdw5_Q" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_gDM5dX74EeiStamLVdw5_Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_gDM5dn74EeiStamLVdw5_Q" name="Initial Node" outgoing="_gDP8yH74EeiStamLVdw5_Q">
+      <ownedComment xmi:id="_gDP8wH74EeiStamLVdw5_Q">
+        <body>modelio_ad_all-elements-repetition</body>
+      </ownedComment>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_gDP8wX74EeiStamLVdw5_Q" name="Activity Final Node" incoming="_gDP80H74EeiStamLVdw5_Q"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_gDP8wn74EeiStamLVdw5_Q" name="Decision-Merge" outgoing="_gDP8yn74EeiStamLVdw5_Q" incoming="_gDP8yH74EeiStamLVdw5_Q"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_gDP8w374EeiStamLVdw5_Q" name="Decision-Merge1" outgoing="_gDP8zH74EeiStamLVdw5_Q _gDP8zn74EeiStamLVdw5_Q" incoming="_gDP8yn74EeiStamLVdw5_Q"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_gDP8xH74EeiStamLVdw5_Q" name="Decision-Merge2" outgoing="_gDP80H74EeiStamLVdw5_Q" incoming="_gDP80n74EeiStamLVdw5_Q _gDP81n74EeiStamLVdw5_Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_gDP8xX74EeiStamLVdw5_Q" name="A1" outgoing="_gDP80n74EeiStamLVdw5_Q" incoming="_gDP8zH74EeiStamLVdw5_Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_gDP8xn74EeiStamLVdw5_Q" name="A2" outgoing="_gDP81H74EeiStamLVdw5_Q" incoming="_gDP8zn74EeiStamLVdw5_Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_gDP8x374EeiStamLVdw5_Q" name="A3" outgoing="_gDP81n74EeiStamLVdw5_Q" incoming="_gDP81H74EeiStamLVdw5_Q">
+      <body></body>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gDP8yH74EeiStamLVdw5_Q" name="ControlFlow" source="_gDM5dn74EeiStamLVdw5_Q" target="_gDP8wn74EeiStamLVdw5_Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gDP8yX74EeiStamLVdw5_Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gDP8yn74EeiStamLVdw5_Q" name="ControlFlow" source="_gDP8wn74EeiStamLVdw5_Q" target="_gDP8w374EeiStamLVdw5_Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gDP8y374EeiStamLVdw5_Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gDP8zH74EeiStamLVdw5_Q" name="ControlFlow" source="_gDP8w374EeiStamLVdw5_Q" target="_gDP8xX74EeiStamLVdw5_Q">
+      <weight xmi:type="uml:LiteralString" xmi:id="_gDP8zX74EeiStamLVdw5_Q" value="0.5"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gDP8zn74EeiStamLVdw5_Q" name="ControlFlow" source="_gDP8w374EeiStamLVdw5_Q" target="_gDP8xn74EeiStamLVdw5_Q">
+      <weight xmi:type="uml:LiteralString" xmi:id="_gDP8z374EeiStamLVdw5_Q" value="0.5"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gDP80H74EeiStamLVdw5_Q" name="ControlFlow" source="_gDP8xH74EeiStamLVdw5_Q" target="_gDP8wX74EeiStamLVdw5_Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gDP80X74EeiStamLVdw5_Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gDP80n74EeiStamLVdw5_Q" name="ControlFlow" source="_gDP8xX74EeiStamLVdw5_Q" target="_gDP8xH74EeiStamLVdw5_Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gDP80374EeiStamLVdw5_Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gDP81H74EeiStamLVdw5_Q" name="ControlFlow" source="_gDP8xn74EeiStamLVdw5_Q" target="_gDP8x374EeiStamLVdw5_Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gDP81X74EeiStamLVdw5_Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gDP81n74EeiStamLVdw5_Q" name="ControlFlow" source="_gDP8x374EeiStamLVdw5_Q" target="_gDP8xH74EeiStamLVdw5_Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gDP81374EeiStamLVdw5_Q" value="1"/>
+    </edge>
+  </packagedElement>
+</uml:Model>
