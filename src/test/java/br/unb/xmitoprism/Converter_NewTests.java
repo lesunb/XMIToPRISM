@@ -29,8 +29,14 @@ public class Converter_NewTests {
 		// @formatter:off
 		return Arrays.asList(new Object[][] {
 									// add new	{ testsFolder + "path"} * don't forget comma! *
-												{ testsFolder + "magicdraw_ad_all-elements.xml" },
-												{ testsFolder + "magicdraw_sd_all-elements.xml" }
+												{ testsFolder + "modelio_ad_all-elements.xmi" },
+												{ testsFolder + "modelio_ad_all-elements-repetition.xmi" },
+												{ testsFolder + "modelio_ad_in-to-fn.xmi" },
+												{ testsFolder + "modelio_ad_one-hundred-en.xmi" },
+												{ testsFolder + "modelio_sd_fifty-messages.xmi" },
+												{ testsFolder + "modelio_sd_one-lifeline.xmi" },
+												{ testsFolder + "modelio_sd_three-lifelines.xmi" },
+												{ testsFolder + "modelio_sd_two-lifelines.xmi" }
 											});
 	}
 	//@formatter:on

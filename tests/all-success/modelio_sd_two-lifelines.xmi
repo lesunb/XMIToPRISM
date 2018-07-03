@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_-hixkH8AEeiStamLVdw5_Q" name="modelio_sd_two-lifelines">
+  <eAnnotations xmi:id="_-hixkX8AEeiStamLVdw5_Q" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_-hixkn8AEeiStamLVdw5_Q" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_-hixk38AEeiStamLVdw5_Q" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_-hixlH8AEeiStamLVdw5_Q" name="Interaction">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_-hixlX8AEeiStamLVdw5_Q" name="locals"/>
+    <lifeline xmi:id="_-hixln8AEeiStamLVdw5_Q" name="A" coveredBy="_-hixm38AEeiStamLVdw5_Q _-hixoH8AEeiStamLVdw5_Q _-hixoX8AEeiStamLVdw5_Q _-hixon8AEeiStamLVdw5_Q">
+      <ownedComment xmi:id="_-hixl38AEeiStamLVdw5_Q">
+        <body>modelio_sd_two-lifelines</body>
+      </ownedComment>
+      <selector xmi:type="uml:LiteralString" xmi:id="_-hixmH8AEeiStamLVdw5_Q" value="0.99"/>
+    </lifeline>
+    <lifeline xmi:id="_-hixmX8AEeiStamLVdw5_Q" name="B" coveredBy="_-hixnH8AEeiStamLVdw5_Q _-hixnX8AEeiStamLVdw5_Q _-hixnn8AEeiStamLVdw5_Q _-hixn38AEeiStamLVdw5_Q">
+      <selector xmi:type="uml:LiteralString" xmi:id="_-hixmn8AEeiStamLVdw5_Q" value="0.98"/>
+    </lifeline>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-hixm38AEeiStamLVdw5_Q" covered="_-hixln8AEeiStamLVdw5_Q" message="_-hixo38AEeiStamLVdw5_Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-hixnH8AEeiStamLVdw5_Q" covered="_-hixmX8AEeiStamLVdw5_Q" message="_-hixo38AEeiStamLVdw5_Q"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_-hixnX8AEeiStamLVdw5_Q" covered="_-hixmX8AEeiStamLVdw5_Q" start="_-hixnH8AEeiStamLVdw5_Q" finish="_-hixnn8AEeiStamLVdw5_Q"/>
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_-hixnn8AEeiStamLVdw5_Q" covered="_-hixmX8AEeiStamLVdw5_Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-hixn38AEeiStamLVdw5_Q" covered="_-hixmX8AEeiStamLVdw5_Q" message="_-hixpH8AEeiStamLVdw5_Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-hixoH8AEeiStamLVdw5_Q" covered="_-hixln8AEeiStamLVdw5_Q" message="_-hixpH8AEeiStamLVdw5_Q"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_-hixoX8AEeiStamLVdw5_Q" covered="_-hixln8AEeiStamLVdw5_Q" start="_-hixoH8AEeiStamLVdw5_Q" finish="_-hixon8AEeiStamLVdw5_Q"/>
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_-hixon8AEeiStamLVdw5_Q" covered="_-hixln8AEeiStamLVdw5_Q"/>
+    <message xmi:id="_-hixo38AEeiStamLVdw5_Q" name="M1" messageSort="asynchCall" receiveEvent="_-hixnH8AEeiStamLVdw5_Q" sendEvent="_-hixm38AEeiStamLVdw5_Q"/>
+    <message xmi:id="_-hixpH8AEeiStamLVdw5_Q" name="M2" messageSort="asynchCall" receiveEvent="_-hixoH8AEeiStamLVdw5_Q" sendEvent="_-hixn38AEeiStamLVdw5_Q"/>
+  </packagedElement>
+</uml:Model>

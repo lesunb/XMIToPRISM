@@ -45,7 +45,19 @@ public class Converter_AllFail {
 												{ testsFolder + "astah_ad_mult-cf-to-dn-or-mn.xml" },
 												{ testsFolder + "astah_ad_mult-cf-to-en.xml" },
 												{ testsFolder + "astah_ad_mult-cf-to-fn.xml" },
-												{ testsFolder + "astah_sd_lifeline-no-prob.xml" }
+												{ testsFolder + "astah_sd_lifeline-no-prob.xml" },
+												{ testsFolder + "modelio_ad_cf-loop.xmi" },
+												{ testsFolder + "modelio_ad_cf-no-prob.xmi" },
+												{ testsFolder + "modelio_ad_mandatory-cf-fn.xmi" },
+												{ testsFolder + "modelio_ad_mandatory-cf-in.xmi" },
+												{ testsFolder + "modelio_ad_mandatory-incoming-cf-en.xmi" },
+												{ testsFolder + "modelio_ad_mandatory-outgoing-cf-dn.xmi" },
+												{ testsFolder + "modelio_ad_mandatory-outgoing-cf-en.xmi" },
+												{ testsFolder + "modelio_ad_mult-cf-from-en.xmi" },
+												{ testsFolder + "modelio_ad_mult-cf-to-dn-or-mn.xmi" },
+												{ testsFolder + "modelio_ad_mult-cf-to-en.xmi" },
+												{ testsFolder + "modelio_ad_mult-cf-to-fn.xmi" },
+												{ testsFolder + "modelio_sd_lifeline-no-prob.xmi" }
 											});
 	}
 	//@formatter:on

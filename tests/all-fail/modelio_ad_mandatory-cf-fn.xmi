@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_k9bxEH7zEeiStamLVdw5_Q" name="modelio_ad_mandatory-cf-fn">
+  <eAnnotations xmi:id="_k9bxEX7zEeiStamLVdw5_Q" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_k9bxEn7zEeiStamLVdw5_Q" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_k9bxE37zEeiStamLVdw5_Q" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_k9bxFH7zEeiStamLVdw5_Q" name="modelio_ad_mandatory-cf-fn">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_k9bxFX7zEeiStamLVdw5_Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_k9bxFn7zEeiStamLVdw5_Q" name="Initial Node" outgoing="_k9bxGn7zEeiStamLVdw5_Q"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_k9bxF37zEeiStamLVdw5_Q" name="Activity Final Node">
+      <ownedComment xmi:id="_k9bxGH7zEeiStamLVdw5_Q">
+        <body>modelio_ad_mandatory-cf-fn</body>
+      </ownedComment>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_k9bxGX7zEeiStamLVdw5_Q" name="A1" incoming="_k9bxGn7zEeiStamLVdw5_Q">
+      <body></body>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_k9bxGn7zEeiStamLVdw5_Q" name="ControlFlow" source="_k9bxFn7zEeiStamLVdw5_Q" target="_k9bxGX7zEeiStamLVdw5_Q">
+      <weight xmi:type="uml:LiteralString" xmi:id="_k9bxG37zEeiStamLVdw5_Q" value="1.0"/>
+    </edge>
+  </packagedElement>
+</uml:Model>

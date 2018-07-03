@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_JCpkYH73EeiStamLVdw5_Q" name="modelio_ad_mult-cf-to-fn">
+  <eAnnotations xmi:id="_JCpkYX73EeiStamLVdw5_Q" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_JCpkYn73EeiStamLVdw5_Q" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_JCpkY373EeiStamLVdw5_Q" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_JCpkZH73EeiStamLVdw5_Q" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_JCpkZX73EeiStamLVdw5_Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_JCpkZn73EeiStamLVdw5_Q" name="Initial Node" outgoing="_JCpkaX73EeiStamLVdw5_Q _JCpka373EeiStamLVdw5_Q">
+      <ownedComment xmi:id="_JCpkZ373EeiStamLVdw5_Q">
+        <body>modelio_ad_mult-cf-to-fn</body>
+      </ownedComment>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_JCpkaH73EeiStamLVdw5_Q" name="Activity Final Node" incoming="_JCpkaX73EeiStamLVdw5_Q _JCpka373EeiStamLVdw5_Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_JCpkaX73EeiStamLVdw5_Q" name="ControlFlow" source="_JCpkZn73EeiStamLVdw5_Q" target="_JCpkaH73EeiStamLVdw5_Q">
+      <weight xmi:type="uml:LiteralString" xmi:id="_JCpkan73EeiStamLVdw5_Q" value="0.5"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_JCpka373EeiStamLVdw5_Q" name="ControlFlow" source="_JCpkZn73EeiStamLVdw5_Q" target="_JCpkaH73EeiStamLVdw5_Q">
+      <weight xmi:type="uml:LiteralString" xmi:id="_JCpkbH73EeiStamLVdw5_Q" value="0.5"/>
+    </edge>
+  </packagedElement>
+</uml:Model>

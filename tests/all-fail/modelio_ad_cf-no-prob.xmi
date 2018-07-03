@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_NL3ZUH7zEeiStamLVdw5_Q" name="modelio_ad_cf-no-prob">
+  <eAnnotations xmi:id="_NL3ZUX7zEeiStamLVdw5_Q" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_NL3ZUn7zEeiStamLVdw5_Q" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_NL3ZU37zEeiStamLVdw5_Q" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_NL3ZVH7zEeiStamLVdw5_Q" name="modelio_ad_cf-no-prob">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_NL3ZVX7zEeiStamLVdw5_Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_NL3ZVn7zEeiStamLVdw5_Q" name="Initial Node" outgoing="_NL3ZWn7zEeiStamLVdw5_Q">
+      <ownedComment xmi:id="_NL3ZV37zEeiStamLVdw5_Q">
+        <ownedComment xmi:id="_NL3ZWH7zEeiStamLVdw5_Q">
+          <body>modelio_ad_cf-no-prob</body>
+        </ownedComment>
+        <body>modelio_ad_cf-no-prob</body>
+      </ownedComment>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_NL3ZWX7zEeiStamLVdw5_Q" name="Activity Final Node" incoming="_NL3ZWn7zEeiStamLVdw5_Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_NL3ZWn7zEeiStamLVdw5_Q" name="ControlFlow" source="_NL3ZVn7zEeiStamLVdw5_Q" target="_NL3ZWX7zEeiStamLVdw5_Q">
+      <ownedComment xmi:id="_NL3ZW37zEeiStamLVdw5_Q">
+        <body>&lt;Enter note text here></body>
+      </ownedComment>
+    </edge>
+  </packagedElement>
+</uml:Model>

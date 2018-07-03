@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_Fuu4YH7-EeiStamLVdw5_Q" name="modelio_sd_lifeline-no-prob">
+  <eAnnotations xmi:id="_Fuu4YX7-EeiStamLVdw5_Q" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_Fuu4Yn7-EeiStamLVdw5_Q" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_Fuu4Y37-EeiStamLVdw5_Q" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_Fuu4ZH7-EeiStamLVdw5_Q" name="modelio_sd_lifeline-no-prob">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_Fuu4ZX7-EeiStamLVdw5_Q" name="locals"/>
+    <lifeline xmi:id="_Fuu4Zn7-EeiStamLVdw5_Q" name="A" coveredBy="_Fuvfcn7-EeiStamLVdw5_Q">
+      <ownedComment xmi:id="_Fuu4Z37-EeiStamLVdw5_Q">
+        <body>modelio_sd_lifeline-no-prob</body>
+      </ownedComment>
+      <ownedComment xmi:id="_Fuu4aH7-EeiStamLVdw5_Q">
+        <body>0.9</body>
+      </ownedComment>
+      <selector xmi:type="uml:LiteralString" xmi:id="_Fuu4aX7-EeiStamLVdw5_Q" value="0.9"/>
+    </lifeline>
+    <lifeline xmi:id="_FuvfcH7-EeiStamLVdw5_Q" name="B" coveredBy="_Fuvfc37-EeiStamLVdw5_Q _FuvfdH7-EeiStamLVdw5_Q _FuvfdX7-EeiStamLVdw5_Q">
+      <ownedComment xmi:id="_FuvfcX7-EeiStamLVdw5_Q">
+        <body>No value</body>
+      </ownedComment>
+    </lifeline>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Fuvfcn7-EeiStamLVdw5_Q" covered="_Fuu4Zn7-EeiStamLVdw5_Q" message="_Fuvfdn7-EeiStamLVdw5_Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Fuvfc37-EeiStamLVdw5_Q" covered="_FuvfcH7-EeiStamLVdw5_Q" message="_Fuvfdn7-EeiStamLVdw5_Q"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_FuvfdH7-EeiStamLVdw5_Q" covered="_FuvfcH7-EeiStamLVdw5_Q" start="_Fuvfc37-EeiStamLVdw5_Q" finish="_FuvfdX7-EeiStamLVdw5_Q"/>
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_FuvfdX7-EeiStamLVdw5_Q" covered="_FuvfcH7-EeiStamLVdw5_Q"/>
+    <message xmi:id="_Fuvfdn7-EeiStamLVdw5_Q" name="M1" messageSort="asynchCall" receiveEvent="_Fuvfc37-EeiStamLVdw5_Q" sendEvent="_Fuvfcn7-EeiStamLVdw5_Q"/>
+  </packagedElement>
+</uml:Model>

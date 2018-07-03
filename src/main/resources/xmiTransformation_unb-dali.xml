@@ -62,10 +62,10 @@ Supported tools:
 		<trigger name="id" type="cattrval" src="UML:Collaboration" attr="xmi.id" />
 	</xmitransformation>
 	
-	<!-- Papyrus, BoUML, Modelio, MagicDraw -->
+	<!-- Papyrus, BoUML, Modelio, MagicDraw, Enterprise Architect -->
 	<xmitransformation modelelement="diagram" xmipattern="uml:Model" recurse="true">
-		<trigger name="id" type="cattrval" src="packagedElement" attr="xmi:id" />
 		<trigger name="id" type="gcattrval" src="packagedElement" attr="xmi:id" />
+		<trigger name="id" type="cattrval" src="packagedElement" attr="xmi:id" />
 	</xmitransformation>
 	
 	<!-- NAME -->
@@ -74,7 +74,7 @@ Supported tools:
 		<trigger name="name" type="attrval" attr="name" />
 	</xmitransformation>
 	
-	<!-- Papyrus, Modelio, MagicDraw -->
+	<!-- Papyrus, Modelio, MagicDraw, Enterprise Architect -->
 	<xmitransformation modelelement="diagram" xmipattern="uml:Model" recurse="true">
 		<trigger name="name" type="cattrval" src="packagedElement" attr="name" />
 	</xmitransformation>
@@ -93,19 +93,37 @@ Supported tools:
 		<trigger name="type" type="attrval" attr="xmi:type"></trigger>
 	</xmitransformation>
 	
+	<!-- Enterprise Architect -->
+	<xmitransformation modelelement="diagram" xmipattern="uml:Model" recurse="true">
+		<trigger name="type" type="gcattrval" src="packagedElement" attr="xmi:type"></trigger>
+	</xmitransformation>
+	
+	
 	<!-- ACTIVITY DIAGRAM ELEMENTS -->
 	
 	<!-- GENERAL NODE -->
-	<!-- Papyrus, Modelio, MagicDraw -->
+	<!-- Papyrus, Modelio, MagicDraw, Enterprise Architect -->
 	<xmitransformation modelelement="node" xmipattern="node" recurse="true">
 		<trigger name="type" type="attrval" attr="xmi:type" />
 		<trigger name="incomingEdges" type="attrval" attr="incoming" />
+		<trigger name="incomingEdges" type="cattrval" src="incoming" attr="xmi:idref" />
 	</xmitransformation>
+	
+	<!-- Enterprise Architect 
+	<xmitransformation modelelement="node" xmipattern="packagedElement" recurse="true">
+		<trigger name="type" type="gcattrval" src="packagedElement" attr="xmi:type" />
+		<trigger name="incomingEdges" type="cattrval" src="incoming" attr="xmi:idref" />
+	</xmitransformation> -->
 	
 	<!-- EXECUTABLE NODE -->
 	<!-- Astah, ArgoUML -->
 	<xmitransformation modelelement="node" xmipattern="UML:ActionState" recurse="true">
 		<trigger name="type" type="constant" attr="uml:OpaqueAction" />
+	</xmitransformation>
+	
+	<!-- Enterprise Architect -->
+	<xmitransformation modelelement="node" xmipattern="packagedElement" recurse="true">
+		<trigger name="type" type="cattrval" src="packagedElement" attr="xmi:type" />
 	</xmitransformation>
 
 	<!-- INITIAL, DECISION AND MERGE NODE -->
@@ -136,12 +154,17 @@ Supported tools:
 		<trigger name="probability" type="gcattrval" src="UML:ModelElement.taggedValue" attr="value" />
 	</xmitransformation>
 	
-	<!-- Papyrus, Modelio, MagicDraw -->
+	<!-- Papyrus, Modelio, MagicDraw, Enterprise Architect -->
 	<xmitransformation modelelement="controlflow" xmipattern="edge" recurse="true">
 		<trigger name="type" type="attrval" attr="xmi:type"/>
 		<trigger name="source" type="attrval" attr="source" />
 		<trigger name="target" type="attrval" attr="target" />
 		<trigger name="probability" type="cattrval" src="weight" attr="value" />
+	</xmitransformation>
+
+	<!-- Enterprise Architect, probability -->
+	<xmitransformation modelelement="controlflow" xmipattern="xmi:Extension" recurse="true">
+		<trigger name="probability" type="gcattrval" src="properties" attr="stereotype" />
 	</xmitransformation>
 	
 	<!-- SEQUENCE DIAGRAM ELEMENTS -->
