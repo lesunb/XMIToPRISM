@@ -50,6 +50,14 @@ public class Converter_AllSuccess {
 												{ testsFolder + "astah_sd_one-lifeline.xml" },
 												{ testsFolder + "astah_sd_three-lifelines.xml" },
 												{ testsFolder + "astah_sd_two-lifelines.xml" },
+												{ testsFolder + "magicdraw_ad_success_all-elements.xml" },
+												{ testsFolder + "magicdraw_ad_success_all-elements-repetition.xml" },
+												{ testsFolder + "magicdraw_ad_success_in-to-fn.xml" },
+												{ testsFolder + "magicdraw_ad_success_twenty-en.xml" },
+												{ testsFolder + "magicdraw_sd_success_fifty-messages.xml" },
+												{ testsFolder + "magicdraw_sd_success_one-lifeline.xml" },
+												{ testsFolder + "magicdraw_sd_success_three-lifelines.xml" },
+												{ testsFolder + "magicdraw_sd_success_two-lifelines.xml" },
 												{ testsFolder + "modelio_ad_all-elements.xmi" },
 												{ testsFolder + "modelio_ad_all-elements-repetition.xmi" },
 												{ testsFolder + "modelio_ad_in-to-fn.xmi" },
@@ -57,9 +65,7 @@ public class Converter_AllSuccess {
 												{ testsFolder + "modelio_sd_fifty-messages.xmi" },
 												{ testsFolder + "modelio_sd_one-lifeline.xmi" },
 												{ testsFolder + "modelio_sd_three-lifelines.xmi" },
-												{ testsFolder + "modelio_sd_two-lifelines.xmi" },
-												{ testsFolder + "magicdraw_ad_all-elements.xml"},
-												{ testsFolder + "magicdraw_sd_all-elements.xml"}
+												{ testsFolder + "modelio_sd_two-lifelines.xmi" }
 											});
 	}
 	//@formatter:on
