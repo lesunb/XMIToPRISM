@@ -7,7 +7,8 @@ The project's goal is to extract the information of an UML diagram, in the form 
 
 ## Annotate the probabilities and Export the XMI file of your diagram
 
-Follow the instructions for the corresponding tool inside the folder "docs/UML Modeling Tools Instructions". Each tool has it's own way of inserting the probabilities.
+Follow the instructions for the corresponding tool inside the folder "docs/UML Modeling Tools Instructions". Each tool has it's own way of configuring it UML profile. Future extensions, of our conversion will adopt the MARTES profile (https://www.omg.org/spec/MARTE/About-MARTE/).
+
 Currently supported UML Modeling Tools: Astah, Magic Draw, Modelio and Papyrus.
 
 ## Build the project and create JAR file
